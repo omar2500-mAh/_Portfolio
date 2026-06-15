@@ -1,37 +1,46 @@
-```jsx
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useData } from "../context/DataContext";
 import SmartImage from "./SmartImage";
 import SectionHeading from "./SectionHeading";
 
-/** Resolve an internal (#research) or external link into props */
-function linkProps(href) {
-  if (!href) return null;
-  if (href.startsWith("#")) {
-    return { onClick: () => scrollToId(href.slice(1)), as: "button" };
-  }
-  return { href, target: "_blank", rel: "noopener noreferrer", as: "a" };
-}
-
 function scrollToId(id) {
   const el = document.getElementById(id);
+
   if (el) {
     const top = el.getBoundingClientRect().top + window.scrollY - 76;
     window.scrollTo({ top, behavior: "smooth" });
   }
 }
 
+function linkProps(href) {
+  if (!href) return null;
+
+  if (href.startsWith("#")) {
+    return {
+      onClick: () => scrollToId(href.slice(1)),
+      as: "button",
+    };
+  }
+
+  return {
+    href,
+    target: "_blank",
+    rel: "noopener noreferrer",
+    as: "a",
+  };
+}
+
 export default function DynamicHighlights() {
   const { data } = useData();
   const items = data.highlightSections;
 
-  if (!items?.length) return null;
+  if (!items || items.length === 0) return null;
 
   return (
     <section
       id="highlights"
-      className="relative bg-navy-gradient py-24 sm:py-28 overflow-hidden"
+      className="relative overflow-hidden bg-navy-gradient py-24 sm:py-28"
     >
       <div className="absolute inset-0 bg-mesh opacity-60" />
 
@@ -50,7 +59,7 @@ export default function DynamicHighlights() {
             return (
               <div
                 key={item.id}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center"
+                className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14"
               >
                 {/* Image */}
                 <motion.div
@@ -60,11 +69,11 @@ export default function DynamicHighlights() {
                   transition={{ duration: 0.7 }}
                   className={reverse ? "lg:order-2" : ""}
                 >
-                  <div className="relative h-[320px] w-full overflow-hidden rounded-3xl border border-white/10 bg-black/40 shadow-elevate">
+                  <div className="relative flex h-[320px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
                     <SmartImage
                       src={item.image}
                       alt={item.title}
-                      className="h-full w-full object-contain p-4"
+                      className="h-full w-full object-contain"
                       imgClassName="h-full w-full object-contain"
                       placeholderLabel="Add highlight image"
                     />
@@ -80,27 +89,27 @@ export default function DynamicHighlights() {
                   className={reverse ? "lg:order-1" : ""}
                 >
                   {item.subtitle && (
-                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-3">
+                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                       {item.subtitle}
                     </div>
                   )}
 
-                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
+                  <h3 className="mb-4 font-display text-2xl font-bold text-white sm:text-3xl">
                     {item.title}
                   </h3>
 
-                  <p className="text-white/65 text-base sm:text-lg leading-relaxed mb-6">
+                  <p className="mb-6 text-base leading-relaxed text-white/65 sm:text-lg">
                     {item.description}
                   </p>
 
-                  {item.tags?.length > 0 && (
-                    <div className="flex flex-wrap gap-2 mb-7">
-                      {item.tags.map((t) => (
+                  {item.tags && item.tags.length > 0 && (
+                    <div className="mb-7 flex flex-wrap gap-2">
+                      {item.tags.map((tag) => (
                         <span
-                          key={t}
+                          key={tag}
                           className="rounded-full border border-gold/25 bg-gold/5 px-3 py-1 text-xs font-medium text-gold-soft"
                         >
-                          {t}
+                          {tag}
                         </span>
                       ))}
                     </div>
@@ -120,6 +129,7 @@ export default function DynamicHighlights() {
                       </a>
                     ) : (
                       <button
+                        type="button"
                         onClick={lp.onClick}
                         className="group inline-flex items-center gap-2 text-sm font-semibold text-gold hover:text-gold-light"
                       >
@@ -136,4 +146,3 @@ export default function DynamicHighlights() {
     </section>
   );
 }
-```
