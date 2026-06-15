@@ -34,7 +34,7 @@ export const heroData = {
    title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
   tagline:
     "Researching lithium-ion battery technology and renewable energy to build sustainable, community-focused engineering solutions.",
-  // Put your photo in public/assets/images/ and use "/assets/images/profile pic.jpg.jpg"
+  // Put your photo in public/assets/images/ and use "/assets/images/profile pic.jpg"
   profileImage: "/assets/images/profile pic.jpg.jpg",
   // Status pill shown above the name — set to "" to hide it
   status: "Open to research collaborations",
