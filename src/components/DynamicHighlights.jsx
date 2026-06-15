@@ -1,3 +1,4 @@
+```jsx
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useData } from "../context/DataContext";
@@ -12,6 +13,7 @@ function linkProps(href) {
   }
   return { href, target: "_blank", rel: "noopener noreferrer", as: "a" };
 }
+
 function scrollToId(id) {
   const el = document.getElementById(id);
   if (el) {
@@ -23,11 +25,16 @@ function scrollToId(id) {
 export default function DynamicHighlights() {
   const { data } = useData();
   const items = data.highlightSections;
+
   if (!items?.length) return null;
 
   return (
-    <section id="highlights" className="relative bg-navy-gradient py-24 sm:py-28 overflow-hidden">
+    <section
+      id="highlights"
+      className="relative bg-navy-gradient py-24 sm:py-28 overflow-hidden"
+    >
       <div className="absolute inset-0 bg-mesh opacity-60" />
+
       <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="What I Work On"
@@ -53,15 +60,14 @@ export default function DynamicHighlights() {
                   transition={{ duration: 0.7 }}
                   className={reverse ? "lg:order-2" : ""}
                 >
-                  <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-elevate">
+                  <div className="relative h-[320px] w-full overflow-hidden rounded-3xl border border-white/10 bg-black/40 shadow-elevate">
                     <SmartImage
                       src={item.image}
                       alt={item.title}
-                      className="aspect-[4/3] w-full"
-                      imgClassName="group-hover:scale-105 transition-transform duration-700"
+                      className="h-full w-full object-contain p-4"
+                      imgClassName="h-full w-full object-contain"
                       placeholderLabel="Add highlight image"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
                   </div>
                 </motion.div>
 
@@ -78,9 +84,11 @@ export default function DynamicHighlights() {
                       {item.subtitle}
                     </div>
                   )}
+
                   <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
                     {item.title}
                   </h3>
+
                   <p className="text-white/65 text-base sm:text-lg leading-relaxed mb-6">
                     {item.description}
                   </p>
@@ -98,7 +106,8 @@ export default function DynamicHighlights() {
                     </div>
                   )}
 
-                  {item.buttonText && lp &&
+                  {item.buttonText &&
+                    lp &&
                     (lp.as === "a" ? (
                       <a
                         href={lp.href}
@@ -127,3 +136,4 @@ export default function DynamicHighlights() {
     </section>
   );
 }
+```
