@@ -12,100 +12,103 @@
  *  2. Every external link opens in a new tab. Leave a link "" (empty) to hide its button.
  *  3. For images you can use:
  *        - a web URL:            "https://..."
- *        - a local file:         "/assets/images/my-photo.jpg"
- *          (put the file in  public/assets/images/  and reference it as above)
- *     If an image fails to load, a clean placeholder is shown automatically.
- *
- *  HOW TO ADD / EDIT / DELETE  (quick reference — full guide in README.md)
- *  ----------------------------------------------------------------------
- *    ADD     →  copy an existing { ... } block, paste it, change the values.
- *    EDIT    →  change the text between the quotes.
- *    DELETE  →  remove the whole { ... } block (including its trailing comma).
+ *        - a local file:         imagePath("my-photo.jpg")
+ *          Put the file in public/assets/images/
  *
  *  Tip: every "id" must be unique inside its own array.
  * ============================================================================
  */
 
+const imagePath = (fileName) =>
+  `${import.meta.env.BASE_URL}assets/images/${fileName}`;
+
 /* ------------------------------------------------------------------ */
-/*  1. HERO                                                            */
+/*  1. HERO                                                           */
 /* ------------------------------------------------------------------ */
 export const heroData = {
   name: "Omar Faruque",
-  title: "Electrical & Electronic Engineering Student",
+  title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
   tagline:
     "Researching lithium-ion battery technology and renewable energy to build sustainable, community-focused engineering solutions.",
-  // Put your photo in public/assets/images/ and use "/assets/images/profile.jpg"
-  profileImage: "/assets/images/profile.jpg",
-  // Status pill shown above the name — set to "" to hide it
+
+  // Put your photo in public/assets/images/
+  // If your file name is profile.jpg, change this to imagePath("profile.jpg")
+  profileImage: imagePath("profile.jpg.jpg"),
+
   status: "Open to research collaborations",
-  // Call-to-action buttons. "scrollTo" jumps to a section id on this page.
-  // For an external link use "href" instead of "scrollTo".
+
   ctaButtons: [
     { label: "View Projects", scrollTo: "research", primary: true },
     { label: "View Research", scrollTo: "research", primary: false },
     { label: "Contact Me", scrollTo: "contact", primary: false },
   ],
-  // Small stat badges under the hero. Delete any block to remove it.
+
   stats: [
     { value: "EEE", label: "Major Discipline" },
     { value: "Li-ion", label: "Core Research" },
-    { value: "IoT", label: "Applied Focus" },
+    { value: "BMS", label: "Applied Focus" },
   ],
 };
 
 /* ------------------------------------------------------------------ */
-/*  2. ABOUT                                                           */
+/*  2. ABOUT                                                          */
 /* ------------------------------------------------------------------ */
 export const aboutData = {
   heading: "About Me",
-  // Each string is a paragraph. Add or remove paragraphs freely.
+
   paragraphs: [
-    "I am an Electrical and Electronic Engineering student at Islamic University, Bangladesh, with a focus on energy storage, renewable systems, and embedded intelligence. My work sits at the intersection of materials research and practical, deployable hardware.",
-    "My current research centers on lithium-ion battery chemistry — including doped electrode materials for improved capacity and stability — alongside renewable-energy systems and IoT prototypes designed for real communities. I care about engineering that is both rigorous and useful.",
+    "As an Electrical and Electronic Engineering undergraduate at Islamic University, Bangladesh, my focus is on keeping lithium-ion batteries safe, cool, and reliable. My current research investigates PCM-based thermal management of Li-ion battery packs, using COMSOL Multiphysics to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
+
+    "For the past three years, I have been working in the Materials Science Laboratory at Islamic University, where I have developed my research foundation in battery materials, energy storage, and simulation-based analysis.",
+
+    "Beyond academic research, I am working as a BMS and Battery Pack Testing Intern, gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
+
+    "I am proficient with tools such as COMSOL Multiphysics, MATLAB, Python, C/C++, Proteus, Multisim, and EasyEDA, with hands-on experience in microcontroller programming, circuit simulation, and Li-ion battery modeling. Currently, I am actively seeking fully funded graduate study and scholarship opportunities in battery thermal management, BMS, or EV energy storage, where I can contribute to safer and smarter battery technologies while continuously expanding my research knowledge, technical skills, and practical engineering experience.",
   ],
-  image: "/assets/images/about.jpg",
-  // Quick-fact cards beside the text. Add/remove any card.
+
+  image: imagePath("about.jpg"),
+
   infoCards: [
     { label: "Department", value: "Electrical & Electronic Engineering" },
     { label: "University", value: "Islamic University, Bangladesh" },
-    { label: "Research Interest", value: "Li-ion Batteries & Renewable Energy" },
+    { label: "Research Focus", value: "Battery Thermal Management & PCM Cooling" },
+    { label: "Simulation Tool", value: "COMSOL Multiphysics" },
+    { label: "Internship", value: "BMS & Battery Pack Testing" },
     { label: "Location", value: "Kushtia, Bangladesh" },
-    { label: "Current Focus", value: "Doped Anode Materials & IoT Energy Systems" },
   ],
 };
 
 /* ------------------------------------------------------------------ */
-/*  3. DYNAMIC HIGHLIGHTS  (image + details, alternating)             */
+/*  3. DYNAMIC HIGHLIGHTS                                             */
 /* ------------------------------------------------------------------ */
 export const highlightSections = [
   {
     id: "hl-1",
-    title: "Energy Storage Research",
-    subtitle: "Lithium-ion Battery Technology",
+    title: "Battery Thermal Management Research",
+    subtitle: "PCM-Based Li-ion Battery Cooling",
     description:
-      "Investigating electrode materials and cell behaviour to push the balance between energy density, cycle life, and safety. The goal is storage that is affordable and reliable enough for everyday renewable deployment.",
-    image: "/assets/images/highlight-battery.jpg",
+      "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
+    image: imagePath("highlight-battery.jpg"),
     buttonText: "Explore Research",
     buttonLink: "#research",
-    tags: ["Li-ion", "Materials", "Energy Density"],
+    tags: ["Li-ion", "PCM", "Thermal Management"],
   },
   {
     id: "hl-2",
-    title: "Renewable & IoT Systems",
-    subtitle: "Sustainable Engineering in Practice",
+    title: "BMS & Battery Pack Testing",
+    subtitle: "Practical Energy Storage Engineering",
     description:
-      "Designing solar-powered and connected devices that bring clean energy and data to communities. From off-grid lighting to monitored swapping systems, the focus is technology that works where it is needed most.",
-    image: "/assets/images/highlight-solar.jpg",
-    buttonText: "See Prototypes",
+      "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
+    image: imagePath("highlight-solar.jpg"),
+    buttonText: "See Projects",
     buttonLink: "#research",
-    tags: ["Solar", "IoT", "Embedded"],
+    tags: ["BMS", "Battery Pack", "Testing"],
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  4. GALLERY                                                         */
+/*  4. GALLERY                                                        */
 /* ------------------------------------------------------------------ */
-// Filter categories shown as buttons. "All" is added automatically.
 export const galleryCategories = [
   "Research",
   "Project",
@@ -119,55 +122,55 @@ export const galleryItems = [
   {
     id: "g-1",
     title: "Battery Cell Testing",
-    description: "Characterising charge–discharge cycles in the lab.",
+    description: "Characterising charge-discharge cycles in the lab.",
     category: "Research",
     date: "2025",
-    image: "/assets/images/gallery-1.jpg",
+    image: imagePath("gallery-1.jpg"),
     link: "",
   },
   {
     id: "g-2",
-    title: "Solar IoT Lantern Build",
-    description: "Assembling the solar-powered connected lantern prototype.",
+    title: "Battery Pack Work",
+    description: "Hands-on work with BMS configuration and pack monitoring.",
     category: "Project",
     date: "2025",
-    image: "/assets/images/gallery-2.jpg",
+    image: imagePath("gallery-2.jpg"),
     link: "",
   },
   {
     id: "g-3",
     title: "Research Presentation",
-    description: "Presenting findings on doped anode materials.",
+    description: "Presenting research work on battery thermal management.",
     category: "Presentation",
     date: "2024",
-    image: "/assets/images/gallery-3.jpg",
+    image: imagePath("gallery-3.jpg"),
     link: "",
   },
   {
     id: "g-4",
     title: "Engineering Workshop",
-    description: "Hands-on embedded systems training session.",
+    description: "Hands-on embedded systems and circuit training session.",
     category: "Workshop",
     date: "2024",
-    image: "/assets/images/gallery-4.jpg",
+    image: imagePath("gallery-4.jpg"),
     link: "",
   },
   {
     id: "g-5",
-    title: "Innovation Showcase",
-    description: "Demonstrating the SolPe swapping concept.",
-    category: "Event",
+    title: "Materials Science Laboratory",
+    description: "Research foundation in battery materials and simulation-based analysis.",
+    category: "Research",
     date: "2025",
-    image: "/assets/images/gallery-5.jpg",
+    image: imagePath("gallery-5.jpg"),
     link: "",
   },
   {
     id: "g-6",
-    title: "Recognition of Excellence",
-    description: "Award for academic and research contribution.",
+    title: "Academic Recognition",
+    description: "Recognition for academic and research contribution.",
     category: "Award",
     date: "2024",
-    image: "/assets/images/gallery-6.jpg",
+    image: imagePath("gallery-6.jpg"),
     link: "",
   },
 ];
@@ -175,78 +178,71 @@ export const galleryItems = [
 /* ------------------------------------------------------------------ */
 /*  5. RESEARCH / THESIS / PROJECTS                                   */
 /* ------------------------------------------------------------------ */
-// category: Research | Thesis | Project | Publication | Prototype
-// status:   Ongoing  | Completed | Published | Prototype
 export const researchProjects = [
   {
     id: "rp-1",
-    title: "Li-doped BaTiO₃ as an Anode Material",
+    title: "PCM-Based Thermal Management of Li-ion Battery Packs",
     category: "Research",
     status: "Ongoing",
     summary:
-      "Exploring lithium-doped barium titanate to improve capacity and cycling stability in lithium-ion cells.",
+      "Investigating PCM-based cooling strategies to improve lithium-ion battery safety, temperature control, and reliability.",
     description:
-      "This study investigates the electrochemical potential of lithium-doped barium titanate (BaTiO₃) as an alternative anode material. By tuning dopant concentration, the work aims to enhance lithium-ion diffusion and structural stability across charge cycles.",
+      "This research focuses on phase change material based thermal management of lithium-ion battery packs. COMSOL Multiphysics is used to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
     problem:
-      "Conventional graphite anodes limit energy density and degrade over extended cycling, constraining battery longevity and performance.",
+      "Lithium-ion battery packs can experience excessive heat generation and uneven temperature distribution, which may reduce performance, shorten life, and create safety risks.",
     objective:
-      "Evaluate Li-doped BaTiO₃ as a higher-capacity, structurally stable anode candidate and characterise its electrochemical behaviour.",
+      "Develop and analyze PCM-based cooling strategies to keep battery packs safe, cool, and reliable during operation.",
     methodology:
-      "Material synthesis with controlled doping, structural characterisation (XRD/SEM), and galvanostatic charge–discharge testing to assess capacity, rate capability, and cycle retention.",
-    tools: ["XRD", "SEM", "Electrochemical Workstation", "MATLAB"],
+      "COMSOL Multiphysics simulation is used to model heat generation, temperature distribution, and thermal behavior of composite PCM around Li-ion battery cells.",
+    tools: ["COMSOL Multiphysics", "MATLAB", "Li-ion Battery Modeling", "Thermal Simulation"],
     results:
-      "Early results indicate improved structural stability and promising lithium-ion mobility, supporting further optimisation of dopant ratios.",
-    image: "/assets/images/research-batio3.jpg",
-    tags: ["Li-ion", "Anode Materials", "Electrochemistry"],
-    links: [
-      // { label: "Read Report", url: "https://..." },
-    ],
+      "The study aims to identify effective PCM cooling behavior and improve thermal stability for safer battery pack operation.",
+    image: imagePath("research-batio3.jpg"),
+    tags: ["Li-ion", "PCM", "COMSOL", "Thermal Management"],
+    links: [],
   },
   {
     id: "rp-2",
-    title: "Solar-Powered IoT Lantern",
-    category: "Prototype",
-    status: "Completed",
+    title: "BMS & Battery Pack Testing",
+    category: "Project",
+    status: "Ongoing",
     summary:
-      "An off-grid lantern combining solar charging, efficient LED lighting, and IoT-based usage monitoring.",
+      "Hands-on work with BMS configurations, pack testing, PCB-related tasks, monitoring, and performance analysis.",
     description:
-      "A low-cost connected lantern designed for off-grid and low-resource settings. It integrates a solar panel, lithium battery, efficient driver circuitry, and a microcontroller that reports usage and battery health over IoT.",
+      "This work involves practical battery pack testing and BMS-related tasks, including 4S, 16S, and 32S BMS configurations, PCB-related work, pack monitoring, and performance analysis.",
     problem:
-      "Many off-grid communities rely on costly, polluting kerosene lighting with no visibility into energy availability.",
+      "Reliable battery packs require proper monitoring, balancing, safety protection, and performance evaluation through practical testing.",
     objective:
-      "Deliver an affordable, sustainable lighting solution with remote monitoring of charge state and usage patterns.",
+      "Gain hands-on expertise in BMS configuration, battery pack testing, and performance monitoring for safer energy storage systems.",
     methodology:
-      "Circuit design and embedded firmware development, solar charge management, and IoT telemetry using a low-power microcontroller and wireless module.",
-    tools: ["Arduino", "ESP32", "Solar PV", "Embedded C"],
+      "Battery packs are tested and monitored using BMS configurations and practical performance analysis methods.",
+    tools: ["4S BMS", "16S BMS", "32S BMS", "PCB Work", "Pack Monitoring"],
     results:
-      "Functional prototype delivering stable lighting on a single daily solar charge, with live battery and usage reporting.",
-    image: "/assets/images/research-lantern.jpg",
-    tags: ["Solar", "IoT", "Embedded", "Sustainability"],
-    links: [
-      // { label: "View Demo", url: "https://..." },
-      // { label: "GitHub", url: "https://github.com/..." },
-    ],
+      "Developing practical experience in battery pack safety, monitoring, and testing for real engineering applications.",
+    image: imagePath("research-lantern.jpg"),
+    tags: ["BMS", "Battery Pack", "Testing", "PCB"],
+    links: [],
   },
   {
     id: "rp-3",
-    title: "SolPe — Rooftop Solar EV Battery Swapping",
+    title: "Embedded Systems and Circuit Simulation Projects",
     category: "Project",
-    status: "Prototype",
+    status: "Completed",
     summary:
-      "A concept system pairing rooftop solar with standardised EV battery swapping for fast, clean energy turnaround.",
+      "Practical engineering work using microcontrollers, circuit simulation, and programming tools.",
     description:
-      "SolPe proposes a rooftop-solar-charged battery swapping network for electric vehicles, reducing charging downtime and grid dependence. The design covers swappable battery packs, solar charging stations, and a management layer for pack health and availability.",
+      "This project area includes microcontroller programming, circuit simulation, and electronics design using tools such as Proteus, Multisim, EasyEDA, C/C++, Python, and MATLAB.",
     problem:
-      "EV charging is slow and grid-dependent, limiting adoption in regions with unreliable power and high daytime solar potential.",
+      "Practical engineering solutions require strong integration between circuit design, embedded programming, and simulation-based validation.",
     objective:
-      "Design a solar-first swapping architecture that minimises downtime and maximises use of locally generated clean energy.",
+      "Build practical skills in embedded systems, circuit simulation, and electronics prototyping.",
     methodology:
-      "System architecture design, solar capacity estimation, swappable pack specification, and a station-management concept for tracking pack state.",
-    tools: ["System Design", "Solar PV", "Battery Management", "IoT"],
+      "Microcontroller programming, circuit simulation, PCB-related design work, and analysis using engineering software tools.",
+    tools: ["C/C++", "Python", "Proteus", "Multisim", "EasyEDA", "MATLAB"],
     results:
-      "A documented architecture and prototype concept demonstrating feasibility of solar-powered swapping for light EVs.",
-    image: "/assets/images/research-solpe.jpg",
-    tags: ["Solar", "EV", "Battery Swapping", "Sustainability"],
+      "Hands-on experience in microcontroller programming, circuit simulation, and electronics design workflows.",
+    image: imagePath("research-solpe.jpg"),
+    tags: ["Embedded Systems", "Circuit Simulation", "Programming"],
     links: [],
   },
 ];
@@ -254,7 +250,6 @@ export const researchProjects = [
 /* ------------------------------------------------------------------ */
 /*  6. HONOURS / AWARDS / CERTIFICATES                                */
 /* ------------------------------------------------------------------ */
-// category: Award | Certificate | Workshop | Internship | Competition | Volunteerism
 export const awardsCertificates = [
   {
     id: "aw-1",
@@ -264,7 +259,7 @@ export const awardsCertificates = [
     category: "Award",
     description:
       "Recognised for strong academic performance and contribution to departmental research activity.",
-    image: "/assets/images/award-1.jpg",
+    image: imagePath("award-1.jpg"),
     link: "",
   },
   {
@@ -275,89 +270,78 @@ export const awardsCertificates = [
     category: "Workshop",
     description:
       "Completed hands-on training in microcontroller programming, sensor integration, and IoT communication.",
-    image: "/assets/images/award-2.jpg",
+    image: imagePath("award-2.jpg"),
     link: "",
   },
   {
     id: "aw-3",
-    title: "Renewable Energy Innovation Challenge",
-    organization: "Inter-University Competition",
+    title: "Battery Pack Testing Experience",
+    organization: "BMS & Battery Pack Testing Internship",
     date: "2025",
-    category: "Competition",
+    category: "Internship",
     description:
-      "Participated with a solar-powered IoT solution focused on sustainable community energy access.",
-    image: "/assets/images/award-3.jpg",
+      "Gaining practical experience with BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
+    image: imagePath("award-3.jpg"),
     link: "",
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  7. SKILLS                                                          */
+/*  7. SKILLS                                                         */
 /* ------------------------------------------------------------------ */
-// Each category has a list of skills with a level from 0–100.
 export const skills = [
   {
-    category: "Embedded Systems",
+    category: "Battery Thermal Management",
     items: [
-      { name: "Microcontrollers (Arduino/ESP32)", level: 85 },
-      { name: "Embedded C", level: 80 },
-      { name: "Sensor Integration", level: 82 },
-    ],
-  },
-  {
-    category: "IoT",
-    items: [
-      { name: "Wireless Communication", level: 78 },
-      { name: "Telemetry & Monitoring", level: 75 },
-    ],
-  },
-  {
-    category: "Battery Technology",
-    items: [
-      { name: "Li-ion Cell Characterisation", level: 80 },
-      { name: "Battery Management Concepts", level: 75 },
-      { name: "Electrode Materials", level: 78 },
-    ],
-  },
-  {
-    category: "Renewable Energy",
-    items: [
-      { name: "Solar PV Systems", level: 80 },
-      { name: "Energy Storage Integration", level: 76 },
+      { name: "PCM-Based Cooling", level: 85 },
+      { name: "Li-ion Battery Pack Thermal Analysis", level: 82 },
+      { name: "Heat Generation Simulation", level: 80 },
     ],
   },
   {
     category: "Simulation Tools",
     items: [
+      { name: "COMSOL Multiphysics", level: 85 },
       { name: "MATLAB / Simulink", level: 78 },
-      { name: "Proteus / Multisim", level: 74 },
+      { name: "Li-ion Battery Modeling", level: 78 },
+    ],
+  },
+  {
+    category: "BMS & Battery Pack Testing",
+    items: [
+      { name: "4S / 16S / 32S BMS Configuration", level: 80 },
+      { name: "Battery Pack Testing", level: 82 },
+      { name: "Pack Monitoring & Performance Analysis", level: 78 },
     ],
   },
   {
     category: "Programming",
     items: [
+      { name: "Python", level: 75 },
       { name: "C / C++", level: 80 },
-      { name: "Python", level: 72 },
+      { name: "Microcontroller Programming", level: 78 },
+    ],
+  },
+  {
+    category: "Circuit & PCB Tools",
+    items: [
+      { name: "Proteus", level: 78 },
+      { name: "Multisim", level: 74 },
+      { name: "EasyEDA", level: 76 },
     ],
   },
   {
     category: "Research & Writing",
     items: [
       { name: "Technical Writing", level: 80 },
+      { name: "Simulation-Based Analysis", level: 82 },
       { name: "Data Analysis", level: 76 },
-    ],
-  },
-  {
-    category: "Leadership & Communication",
-    items: [
-      { name: "Team Collaboration", level: 85 },
-      { name: "Presentation", level: 82 },
     ],
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  8. EDUCATION  (timeline)                                          */
+/*  8. EDUCATION                                                      */
 /* ------------------------------------------------------------------ */
 export const education = [
   {
@@ -366,8 +350,8 @@ export const education = [
     institution: "Islamic University, Bangladesh",
     date: "Ongoing",
     description:
-      "Specialising in energy systems, electronics, and embedded design, with a research focus on lithium-ion battery technology and renewable energy.",
-    tags: ["EEE", "Energy", "Research"],
+      "Undergraduate study focused on electrical and electronic engineering, with research interests in lithium-ion battery thermal management, BMS, and EV energy storage.",
+    tags: ["EEE", "Battery", "Research"],
     link: "",
   },
   {
@@ -383,46 +367,36 @@ export const education = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  8b. EXPERIENCE  (timeline)                                        */
+/*  8b. EXPERIENCE                                                    */
 /* ------------------------------------------------------------------ */
 export const experience = [
   {
     id: "ex-1",
-    title: "Undergraduate Researcher",
-    institution: "EEE Research Group, Islamic University",
-    date: "2024 — Present",
+    title: "Researcher",
+    institution: "Materials Science Laboratory, Islamic University",
+    date: "2021 — Present",
     description:
-      "Conducting research on doped electrode materials and assisting in battery characterisation and renewable-energy experiments.",
-    tags: ["Research", "Li-ion", "Lab Work"],
+      "Working on battery materials, energy storage, and simulation-based analysis, with a current focus on PCM-based thermal management of Li-ion battery packs.",
+    tags: ["Battery Materials", "Energy Storage", "COMSOL"],
     link: "",
   },
   {
     id: "ex-2",
-    title: "Project Developer — IoT & Renewable Prototypes",
-    institution: "Independent / Academic Projects",
-    date: "2024 — Present",
+    title: "BMS & Battery Pack Testing Intern",
+    institution: "Battery Pack Testing / BMS Internship",
+    date: "Present",
     description:
-      "Designing and building solar-powered IoT prototypes and embedded systems aimed at sustainable, community-focused applications.",
-    tags: ["IoT", "Embedded", "Solar"],
+      "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
+    tags: ["BMS", "Battery Pack", "Testing"],
     link: "",
   },
 ];
 
 /* ------------------------------------------------------------------ */
-/*  9. PUBLICATIONS  (section auto-hides if empty)                    */
+/*  9. PUBLICATIONS                                                   */
 /* ------------------------------------------------------------------ */
-// status: In Preparation | Under Review | Published
 export const publications = [
-  // {
-  //   id: "pub-1",
-  //   title: "Lithium-doped BaTiO3 as a Candidate Anode Material",
-  //   authors: "O. Faruque, et al.",
-  //   venue: "Journal / Conference Name",
-  //   year: "2025",
-  //   status: "In Preparation",
-  //   abstract: "Short summary of the paper's contribution and findings.",
-  //   link: "",
-  // },
+  // Add publications here when available.
 ];
 
 /* ------------------------------------------------------------------ */
@@ -431,21 +405,16 @@ export const publications = [
 export const contactInfo = {
   heading: "Let's Connect",
   intro:
-    "Open to research collaborations, engineering projects, and conversations about sustainable energy. Reach out anytime.",
+    "Open to research collaborations, graduate study opportunities, scholarship opportunities, and conversations about safer and smarter battery technologies.",
   location: "Kushtia, Bangladesh",
   phone: "+880 0000 000000",
   email: "omar.faruque@example.com",
-  // The contact form sends through the visitor's email client (mailto).
-  // To use EmailJS instead, see the note in components/Contact.jsx.
   formRecipient: "omar.faruque@example.com",
 };
 
 /* ------------------------------------------------------------------ */
-/*  11. SOCIAL LINKS  (used in hero, contact, footer)                 */
+/*  11. SOCIAL LINKS                                                  */
 /* ------------------------------------------------------------------ */
-// Leave a url "" to hide that icon everywhere. "icon" must match a key
-// in components/SocialIcons (facebook, linkedin, github, instagram,
-// scholar, researchgate, email, phone).
 export const socialLinks = [
   { platform: "Facebook", icon: "facebook", url: "https://facebook.com/" },
   { platform: "LinkedIn", icon: "linkedin", url: "https://linkedin.com/in/" },
@@ -456,9 +425,8 @@ export const socialLinks = [
 ];
 
 /* ------------------------------------------------------------------ */
-/*  NAVIGATION  (controls the navbar links + order)                  */
+/*  NAVIGATION                                                        */
 /* ------------------------------------------------------------------ */
-// Each "to" must match a section id used in App.jsx.
 export const navLinks = [
   { label: "Home", to: "home" },
   { label: "About", to: "about" },
@@ -479,6 +447,6 @@ export const siteMeta = {
   brandShort: "Omar Faruque",
   brandInitials: "OF",
   footerTagline:
-    "Electrical & Electronic Engineering · Energy storage, renewable systems, and sustainable innovation.",
+    "Electrical & Electronic Engineering · Battery thermal management, BMS, and EV energy storage.",
   copyrightName: "Omar Faruque",
 };
