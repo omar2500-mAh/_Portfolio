@@ -35,7 +35,7 @@ export const heroData = {
   tagline:
     "Researching lithium-ion battery technology and renewable energy to build sustainable, community-focused engineering solutions.",
   // Put your photo in public/assets/images/ and use "/assets/images/profile pic.jpg"
-  profileImage: "/assets/images/profile.jpg.jpg",
+  profileImage: "/_Portfolio/assets/images/profile.jpg.jpg",
   // Status pill shown above the name — set to "" to hide it
   status: "Open to research collaborations",
   // Call-to-action buttons. "scrollTo" jumps to a section id on this page.
