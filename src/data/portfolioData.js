@@ -31,7 +31,7 @@
 /* ------------------------------------------------------------------ */
 export const heroData = {
   name: "Omar Faruque",
-  title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
+   title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
   tagline:
     "Researching lithium-ion battery technology and renewable energy to build sustainable, community-focused engineering solutions.",
   // Put your photo in public/assets/images/ and use "/assets/images/profile.jpg"
