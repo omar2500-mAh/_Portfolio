@@ -98,16 +98,16 @@ export const highlightSections = [
     tags: ["BMS", "Battery Pack", "Testing"],
   },
   {
-    id: "hl-3",
-    title: "Embedded Systems & PCB Design",
-    subtitle: "Electronics Engineering Practice",
-    description:
-      "Designing and analyzing embedded systems, PCB layouts, and circuit-based solutions using tools such as EasyEDA, Proteus, Multisim, and microcontroller platforms.",
-    image: imagePath("pcb-2.png"),
-    buttonText: "See Projects",
-    buttonLink: "#research",
-    tags: ["PCB Design", "Embedded Systems", "Electronics"],
-  },
+  id: "hl-3",
+  title: "For The Light — Solar Guardian Lantern",
+  subtitle: "Disaster Response & Smart Safety System",
+  description:
+    "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
+  image: imagePath("for-the-light.jpg"),
+  buttonText: "See Project",
+  buttonLink: "#research",
+  tags: ["Solar Lantern", "SOS System", "GPS/GSM", "Disaster Response"],
+},
   {
     id: "hl-4",
     title: "EV Battery Systems",
