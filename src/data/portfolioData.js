@@ -103,22 +103,22 @@ export const highlightSections = [
   subtitle: "Disaster Response & Smart Safety System",
   description:
     "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
-  image: imagePath("for-the-light.jpg"),
+  image: imagePath("ph-img-20.webp"),
   buttonText: "See Project",
   buttonLink: "#research",
   tags: ["Solar Lantern", "SOS System", "GPS/GSM", "Disaster Response"],
 },
   {
-    id: "hl-4",
-    title: "EV Battery Systems",
-    subtitle: "Electric Vehicle Energy Storage",
-    description:
-      "Exploring EV battery packs, BMS integration, pack monitoring, thermal safety, and energy storage performance for reliable electric mobility applications.",
-    image: imagePath("ev-battery.jpg"),
-    buttonText: "Explore Work",
-    buttonLink: "#research",
-    tags: ["EV Batteries", "BMS", "Energy Storage"],
-  },
+  id: "hl-4",
+  title: "COMSOL Battery Thermal Runaway Simulation",
+  subtitle: "Multiphysics Modeling of Li-ion Battery Safety",
+  description:
+    "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
+  image: imagePath("1779636174191.jpg"),
+  buttonText: "Explore Simulation",
+  buttonLink: "#research",
+  tags: ["COMSOL", "Thermal Runaway", "Li-ion Safety", "HWS Test"],
+},
 ];
 
 /* ------------------------------------------------------------------ */
