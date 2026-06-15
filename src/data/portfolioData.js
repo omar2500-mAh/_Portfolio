@@ -92,7 +92,7 @@ export const highlightSections = [
     subtitle: "Practical Energy Storage Engineering",
     description:
       "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
-    image: imagePath("highlight-solar.jpg"),
+    image: imagePath("pcb (2).jpg"),
     buttonText: "See Projects",
     buttonLink: "#research",
     tags: ["BMS", "Battery Pack", "Testing"],
