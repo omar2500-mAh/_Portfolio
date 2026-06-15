@@ -33,7 +33,7 @@ export const heroData = {
 
   // Put your photo in public/assets/images/
   // If your file name is profile.jpg, change this to imagePath("profile.jpg")
-  profileImage: imagePath("profile.jpg.jpg"),
+  profileImage: imagePath("public/assets/images/profile.jpg.jpg"),
 
   status: "Open to research collaborations",
 
