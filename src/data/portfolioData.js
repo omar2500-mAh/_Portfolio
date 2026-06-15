@@ -78,10 +78,10 @@ export const highlightSections = [
   {
     id: "hl-1",
     title: "Battery Thermal Management Research",
-    subtitle: "PCM-Based Li-ion Battery Cooling",
+    subtitle: "PCM-Based Li-ion Battery Pack Cooling",
     description:
       "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
-    image: imagePath("highlight-battery.jpg"),
+    image: imagePath("public/assets/images/Battery Pack.jpg"),
     buttonText: "Explore Research",
     buttonLink: "#research",
     tags: ["Li-ion", "PCM", "Thermal Management"],
