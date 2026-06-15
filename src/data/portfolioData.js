@@ -59,10 +59,18 @@ export const heroData = {
 export const aboutData = {
   heading: "About Me",
   // Each string is a paragraph. Add or remove paragraphs freely.
-  paragraphs: [
-    "I am an Electrical and Electronic Engineering student at Islamic University, Bangladesh, with a focus on energy storage, renewable systems, and embedded intelligence. My work sits at the intersection of materials research and practical, deployable hardware.",
-    "My current research centers on lithium-ion battery chemistry — including doped electrode materials for improved capacity and stability — alongside renewable-energy systems and IoT prototypes designed for real communities. I care about engineering that is both rigorous and useful.",
-  ],
+  ```js
+paragraphs: [
+  "As an Electrical and Electronic Engineering undergraduate at Islamic University, Bangladesh, I have focused on keeping lithium-ion batteries safe, cool, and reliable. My current research investigates PCM-based thermal management of Li-ion battery packs, using COMSOL Multiphysics to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
+
+  "For the past three years, I have been working in the Materials Science Laboratory at Islamic University, where I have developed my research foundation in battery materials, energy storage, and simulation-based analysis.",
+
+  "Beyond academic research, I am working as a BMS and Battery Pack Testing Intern, gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
+
+  "I am proficient with tools such as COMSOL Multiphysics, MATLAB, Python, C/C++, Proteus, Multisim, and EasyEDA, with hands-on experience in microcontroller programming, circuit simulation, and Li-ion battery modeling. Currently, I am actively seeking fully funded graduate study and scholarship opportunities in battery thermal management, BMS, or EV energy storage, where I can contribute to safer and smarter battery technologies while continuously expanding my research knowledge, technical skills, and practical engineering experience.",
+],
+```
+
   image: "/assets/images/about.jpg",
   // Quick-fact cards beside the text. Add/remove any card.
   infoCards: [
