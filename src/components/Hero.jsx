@@ -103,14 +103,14 @@ export default function Hero() {
             ))}
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-5 text-lg sm:text-xl font-medium text-gold-soft/90"
-          >
-            {heroData.title}
-          </motion.p>
+        <motion.p
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 0.25 }}
+  className="mt-5 text-lg sm:text-xl font-medium text-gold-soft/90 whitespace-pre-line"
+>
+  {heroData.title}
+</motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
