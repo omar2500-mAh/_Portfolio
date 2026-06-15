@@ -196,7 +196,7 @@ export const researchProjects = [
     ],
     results:
       "The study aims to identify effective PCM cooling behavior and improve thermal stability for safer battery pack operation.",
-    image: imagePath("research-batio3.jpg"),
+    image: imagePath("graph.jpg"),
     tags: ["Li-ion", "PCM", "COMSOL", "Thermal Management"],
     links: [],
   },
