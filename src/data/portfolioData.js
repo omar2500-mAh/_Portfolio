@@ -99,14 +99,25 @@ export const highlightSections = [
   },
   {
     id: "hl-3",
-    title: "BMS & Battery Pack Testing",
-    subtitle: "Practical Energy Storage Engineering",
+    title: "Embedded Systems & PCB Design",
+    subtitle: "Electronics Engineering Practice",
     description:
-      "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
+      "Designing and analyzing embedded systems, PCB layouts, and circuit-based solutions using tools such as EasyEDA, Proteus, Multisim, and microcontroller platforms.",
     image: imagePath("pcb-2.png"),
     buttonText: "See Projects",
     buttonLink: "#research",
-    tags: ["BMS", "Battery Pack", "Testing"],
+    tags: ["PCB Design", "Embedded Systems", "Electronics"],
+  },
+  {
+    id: "hl-4",
+    title: "EV Battery Systems",
+    subtitle: "Electric Vehicle Energy Storage",
+    description:
+      "Exploring EV battery packs, BMS integration, pack monitoring, thermal safety, and energy storage performance for reliable electric mobility applications.",
+    image: imagePath("ev-battery.jpg"),
+    buttonText: "Explore Work",
+    buttonLink: "#research",
+    tags: ["EV Batteries", "BMS", "Energy Storage"],
   },
 ];
 
