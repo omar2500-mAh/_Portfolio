@@ -4,41 +4,6 @@ import { useData } from "../context/DataContext";
 import SmartImage from "./SmartImage";
 import SocialIcons from "./SocialIcons";
 
-/** Subtle animated engineering / circuit SVG backdrop */
-function CircuitBackdrop() {
-  return (
-    <svg
-      className="absolute inset-0 h-full w-full opacity-[0.25]"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <defs>
-        <pattern
-          id="circuit"
-          x="0"
-          y="0"
-          width="120"
-          height="120"
-          patternUnits="userSpaceOnUse"
-        >
-          <path
-            d="M10 10h40v40M60 10v30h50M10 70h30v40M70 60h40v50M70 60v-20"
-            fill="none"
-            stroke="rgba(212,175,55,0.35)"
-            strokeWidth="1"
-          />
-          <circle cx="10" cy="10" r="2.5" fill="rgba(212,175,55,0.5)" />
-          <circle cx="60" cy="40" r="2.5" fill="rgba(212,175,55,0.5)" />
-          <circle cx="110" cy="40" r="2.5" fill="rgba(212,175,55,0.5)" />
-          <circle cx="40" cy="110" r="2.5" fill="rgba(212,175,55,0.5)" />
-          <circle cx="70" cy="60" r="2.5" fill="rgba(212,175,55,0.5)" />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill="url(#circuit)" />
-    </svg>
-  );
-}
-
 export default function Hero() {
   const { data } = useData();
   const { heroData, socialLinks } = data;
@@ -57,8 +22,14 @@ export default function Hero() {
       className="relative min-h-screen flex items-center overflow-hidden bg-navy-gradient pt-24 pb-16"
     >
       {/* Backdrops */}
-      <CircuitBackdrop />
-      <div className="absolute inset-0 bg-mesh" />
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `url(${import.meta.env.BASE_URL}assets/images/ph-img-21.webp)`,
+        }}
+      />
+      <div className="absolute inset-0 bg-black/60" />
+
       <motion.div
         className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
@@ -97,20 +68,27 @@ export default function Hero() {
             className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
           >
             {heroData.name.split(" ").map((word, i) => (
-              <span key={i} className={i === 1 ? "block text-transparent bg-clip-text bg-gold-gradient" : "block"}>
+              <span
+                key={i}
+                className={
+                  i === 1
+                    ? "block text-transparent bg-clip-text bg-gold-gradient"
+                    : "block"
+                }
+              >
                 {word}
               </span>
             ))}
           </motion.h1>
 
-      <motion.p
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, delay: 0.25 }}
-  className="mt-5 text-lg sm:text-xl font-medium text-gold-soft/90 whitespace-pre-line"
->
-  {heroData.title}
-</motion.p>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.25 }}
+            className="mt-5 text-lg sm:text-xl font-medium text-gold-soft/90 whitespace-pre-line"
+          >
+            {heroData.title}
+          </motion.p>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
