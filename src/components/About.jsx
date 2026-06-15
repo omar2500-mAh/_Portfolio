@@ -12,21 +12,22 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading eyebrow="Introduction" title={aboutData.heading} light />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
           {/* Image */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.7 }}
-            className="lg:col-span-5"
+            className="lg:col-span-5 h-full"
           >
-            <div className="relative">
+            <div className="relative h-full min-h-[420px] sm:min-h-[520px] lg:min-h-full">
               <div className="absolute -bottom-4 -right-4 h-full w-full rounded-3xl border-2 border-gold/40" />
+
               <SmartImage
                 src={aboutData.image}
                 alt="Omar Faruque"
-                className="relative h-80 sm:h-96 w-full rounded-3xl shadow-soft-light"
+                className="relative h-full w-full rounded-3xl shadow-soft-light object-cover"
                 placeholderLabel="Add about.jpg"
               />
             </div>
