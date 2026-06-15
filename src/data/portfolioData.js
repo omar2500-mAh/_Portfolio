@@ -53,6 +53,7 @@ export const heroData = {
 /* ------------------------------------------------------------------ */
 /*  2. ABOUT                                                          */
 /* ------------------------------------------------------------------ */
+```js
 export const aboutData = {
   heading: "About Me",
 
@@ -66,45 +67,21 @@ export const aboutData = {
     "I am proficient with tools such as COMSOL Multiphysics, MATLAB, Python, C/C++, Proteus, Multisim, and EasyEDA, with hands-on experience in microcontroller programming, circuit simulation, and Li-ion battery modeling. Currently, I am actively seeking fully funded graduate study and scholarship opportunities in battery thermal management, BMS, or EV energy storage, where I can contribute to safer and smarter battery technologies while continuously expanding my research knowledge, technical skills, and practical engineering experience.",
   ],
 
-  image: imagePath("about.jpg"),
+  image: imagePath("WhatsApp Image 2026-06-15 at 4.29.13 PM.jpeg"),
 
   infoCards: [
     { label: "Department", value: "Electrical & Electronic Engineering" },
     { label: "University", value: "Islamic University, Bangladesh" },
-    { label: "Research Focus", value: "Battery Thermal Management & PCM Cooling" },
-    { label: "Simulation Tool", value: "COMSOL Multiphysics" },
-    { label: "Internship", value: "BMS & Battery Pack Testing" },
-    { label: "Location", value: "Kushtia, Bangladesh" },
+    { label: "Research Focus", value: "Li-ion Battery Research" },
+    { label: "Thermal Management", value: "PCM-Based Battery Cooling" },
+    { label: "Simulation", value: "COMSOL Multiphysics" },
+    { label: "Practical Experience", value: "BMS & Battery Pack Testing" },
+    { label: "EV Focus", value: "EV Batteries" },
+    { label: "Technical Skills", value: "Embedded Systems & PCB" },
   ],
 };
+```
 
-/* ------------------------------------------------------------------ */
-/*  3. DYNAMIC HIGHLIGHTS                                             */
-/* ------------------------------------------------------------------ */
-export const highlightSections = [
-  {
-    id: "hl-1",
-    title: "Battery Thermal Management Research",
-    subtitle: "PCM-Based Li-ion Battery Cooling",
-    description:
-      "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
-    image: imagePath("highlight-battery.jpg"),
-    buttonText: "Explore Research",
-    buttonLink: "#research",
-    tags: ["Li-ion", "PCM", "Thermal Management"],
-  },
-  {
-    id: "hl-2",
-    title: "BMS & Battery Pack Testing",
-    subtitle: "Practical Energy Storage Engineering",
-    description:
-      "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
-    image: imagePath("highlight-solar.jpg"),
-    buttonText: "See Projects",
-    buttonLink: "#research",
-    tags: ["BMS", "Battery Pack", "Testing"],
-  },
-];
 
 /* ------------------------------------------------------------------ */
 /*  4. GALLERY                                                        */
