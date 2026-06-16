@@ -509,16 +509,23 @@ export const skills = [
 /*  8. EDUCATION                                                      */
 /* ------------------------------------------------------------------ */
 export const education = [
-  {
-    id: "ed-1",
-    title: "B.Sc. in Electrical & Electronic Engineering",
-    institution: "Islamic University, Bangladesh",
-    date: "Ongoing",
-    description:
-      "Undergraduate study focused on electrical and electronic engineering, with research interests in lithium-ion battery thermal management, BMS, and EV energy storage.",
-    tags: ["EEE", "Battery", "Research"],
-    link: "",
-  },
+{
+  id: "ed-1",
+  title: "B.Sc. in Electrical & Electronic Engineering",
+  institution: "Islamic University, Bangladesh",
+  date: "Ongoing",
+  description:
+    "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. My career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic background supports my current work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
+  tags: [
+    "EEE",
+    "Major: Power Electronics",
+    "Power Conversion",
+    "Battery Systems",
+    "BMS",
+    "EV Energy Storage",
+  ],
+  link: "",
+},
   {
     id: "ed-2",
     title: "Higher Secondary Certificate (Science)",
