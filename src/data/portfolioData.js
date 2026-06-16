@@ -281,7 +281,7 @@ export const awardsCertificates = [
     description:
       "Successfully completed the Python Programming Boot-Camp: Beginner to Intermediate, strengthening practical skills in Python development.",
     image: imagePath("python-bootcamp.webp"),
-    link: "https://www.facebook.com",
+    link: "https://www.facebook.com/ieee.iu.student.branch/",
   },
   {
     id: "aw-2",
@@ -292,7 +292,7 @@ export const awardsCertificates = [
     description:
       "Participated in the Digital Innovation Challenge 2024, showcasing creative and technology-driven problem-solving ideas.",
     image: imagePath("digital-innovation-challenge-2024.webp"),
-    link: "https://globalplatforms.org",
+    link: "https://globalplatforms.org/",
   },
   {
     id: "aw-3",
@@ -303,18 +303,18 @@ export const awardsCertificates = [
     description:
       "Completed the Certified Volunteerism: Connect, Engage & Develop course from Lead Academy, endorsed by the UN Global Compact and assured by Pearson.",
     image: imagePath("certified-volunteerism.webp"),
-    link: "https://www.lead.academy",
+    link: "https://www.lead.academy/",
   },
   {
     id: "aw-4",
     title: "Virtual Internship",
-    organization: "YSSE Communication Department",
+    organization: "YSSE \n Communication Department",
     date: "May 2024 - October 2024",
     category: "Internship",
     description:
       "Completed the Virtual Internship Program in the YSSE Communication Department and received a Bronze Certificate for performance and contribution.",
     image: imagePath("virtual-internship.webp"),
-    link: "https://ysseacademy.com",
+    link: "https://ysseacademy.com/",
   },
   {
     id: "aw-5",
@@ -325,7 +325,7 @@ export const awardsCertificates = [
     description:
       "Achieved Runner-Up position in the Poster Presentation category at the 1st IUSC National Science Festival 2024.",
     image: imagePath("iusc-national-science-festival-2024.jpeg"),
-    link: "https://www.facebook.com",
+    link: "https://www.facebook.com/groups/1117675018875480/user/100086142219558",
   },
   {
     id: "aw-6",
@@ -336,7 +336,7 @@ export const awardsCertificates = [
     description:
       "Showcased an innovative solution in renewable energy, energy storage, and efficiency at the Energy Innovation Challenge 2024.",
     image: imagePath("energy-innovation-challenge-2024.jpeg"),
-    link: "https://praan.org.bd",
+    link: "https://praan.org.bd/",
   },
   {
     id: "aw-7",
@@ -347,7 +347,7 @@ export const awardsCertificates = [
     description:
       "Received a certificate for active participation in the Workshop on Basics of Spoken English and IELTS Program.",
     image: imagePath("spoken-english-ielts-workshop-2025.webp"),
-    link: "https://www.facebook.com",
+    link: "https://www.facebook.com/IUCareerClub",
   },
   {
     id: "aw-8",
@@ -358,7 +358,7 @@ export const awardsCertificates = [
     description:
       "Participated in the EcoPreneurs Bootcamp 2025, focusing on green entrepreneurship and climate-resilient innovation.",
     image: imagePath("ecopreneurs-bootcamp-2025.webp"),
-    link: "https://lss.org.bd",
+    link: "https://lss.org.bd/",
   },
   {
     id: "aw-9",
@@ -369,7 +369,7 @@ export const awardsCertificates = [
     description:
       "Engaged in GEO 2025 to explore green energy initiatives, environmental development, and sustainable energy strategies.",
     image: imagePath("green-energy-olympiad-2025.webp"),
-    link: "https://www.cleanbd.org",
+    link: "https://www.cleanbd.org/geo2026",
   },
   {
     id: "aw-10",
@@ -380,7 +380,7 @@ export const awardsCertificates = [
     description:
       "Participated as a delegate in the Global SDG Youth Summit 2025, exchanging ideas on innovation and solutions aligned with the United Nations Sustainable Development Goals.",
     image: imagePath("global-sdg-youth-summit-2025.webp"),
-    link: "https://www.facebook.com",
+    link: "https://www.facebook.com/GlobalSDGYouthSummit/",
   },
   {
     id: "aw-11",
@@ -391,7 +391,7 @@ export const awardsCertificates = [
     description:
       "Participated in a Two-Day Workshop on VLSI Design Flow, from RTL to GDS, using industry tools by ChipXpert Technologies Pvt. Ltd., Hyderabad.",
     image: imagePath("ChipXpert Technologies Pvt. Ltd..webp"),
-    link: "",
+    link: "https://chipxpert.in/",
   },
   {
     id: "aw-12",
@@ -413,7 +413,7 @@ export const awardsCertificates = [
     description:
       "Completed a three-week industrial training course on Electrical Engineering and Instrumentation at the Training Institute for Chemical Industries, Polash, Narsingdi, Bangladesh, obtaining an A+ grade in the final evaluation.",
     image: imagePath("industrial-technology-electrical-instrumentation.jpg"),
-    link: "",
+    link: "https://tici.gov.bd/",
   },
   {
     id: "aw-14",
@@ -424,7 +424,7 @@ export const awardsCertificates = [
     description:
       "Successfully completed a certified course on State of Charge estimation using Kalman Filters, strengthening knowledge in battery modeling, estimation algorithms, and battery management system applications.",
     image: imagePath("soc-estimation-kalman-filters.jpg"),
-    link: "",
+    link: "https://lms.decibelslab.com/",
   },
     {
     id: "aw-15",
@@ -435,7 +435,7 @@ export const awardsCertificates = [
     description:
       "Awarded for successfully completing participation in The Restoration Factory Bangladesh incubation program, receiving innovation-focused entrepreneurship training, business mentorship, and support to develop the project 'For The Light', focused on restoration and conservation of the forest ecosystem.",
     image: imagePath("restoration-factory-bangladesh.jpeg"),
-    link: "",
+    link: "https://www.bridgeforbillions.org/",
   },
   {
   id: "aw-16",
