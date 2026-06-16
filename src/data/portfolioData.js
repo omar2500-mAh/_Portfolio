@@ -390,7 +390,7 @@ export const awardsCertificates = [
     category: "Workshop",
     description:
       "Participated in a Two-Day Workshop on VLSI Design Flow, from RTL to GDS, using industry tools by ChipXpert Technologies Pvt. Ltd., Hyderabad.",
-    image: imagePath("workshop-on-vlsi.webp"),
+    image: imagePath("ChipXpert Technologies Pvt. Ltd..webp"),
     link: "",
   },
   {
