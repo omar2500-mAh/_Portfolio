@@ -280,7 +280,7 @@ export const awardsCertificates = [
     category: "Certificate",
     description:
       "Successfully completed the Python Programming Boot-Camp: Beginner to Intermediate, strengthening practical skills in Python development.",
-    image: imagePath("python-bootcamp.jpg"),
+    image: imagePath("python-bootcamp.webp"),
     link: "https://www.facebook.com",
   },
   {
@@ -291,7 +291,7 @@ export const awardsCertificates = [
     category: "Competition",
     description:
       "Participated in the Digital Innovation Challenge 2024, showcasing creative and technology-driven problem-solving ideas.",
-    image: imagePath("digital-innovation-challenge-2024.jpg"),
+    image: imagePath("digital-innovation-challenge-2024.webp"),
     link: "https://globalplatforms.org",
   },
   {
@@ -302,7 +302,7 @@ export const awardsCertificates = [
     category: "Certificate",
     description:
       "Completed the Certified Volunteerism: Connect, Engage & Develop course from Lead Academy, endorsed by the UN Global Compact and assured by Pearson.",
-    image: imagePath("certified-volunteerism.jpg"),
+    image: imagePath("certified-volunteerism.webp"),
     link: "https://www.lead.academy",
   },
   {
@@ -313,7 +313,7 @@ export const awardsCertificates = [
     category: "Internship",
     description:
       "Completed the Virtual Internship Program in the YSSE Communication Department and received a Bronze Certificate for performance and contribution.",
-    image: imagePath("virtual-internship.jpg"),
+    image: imagePath("virtual-internship.webp"),
     link: "https://ysseacademy.com",
   },
   {
@@ -324,7 +324,7 @@ export const awardsCertificates = [
     category: "Award",
     description:
       "Achieved Runner-Up position in the Poster Presentation category at the 1st IUSC National Science Festival 2024.",
-    image: imagePath("iusc-national-science-festival-2024.jpg"),
+    image: imagePath("iusc-national-science-festival-2024.webp"),
     link: "https://www.facebook.com",
   },
   {
@@ -335,7 +335,7 @@ export const awardsCertificates = [
     category: "Competition",
     description:
       "Showcased an innovative solution in renewable energy, energy storage, and efficiency at the Energy Innovation Challenge 2024.",
-    image: imagePath("energy-innovation-challenge-2024.jpg"),
+    image: imagePath("energy-innovation-challenge-2024.webp"),
     link: "https://praan.org.bd",
   },
   {
@@ -346,7 +346,7 @@ export const awardsCertificates = [
     category: "Workshop",
     description:
       "Received a certificate for active participation in the Workshop on Basics of Spoken English and IELTS Program.",
-    image: imagePath("spoken-english-ielts-workshop-2025.jpg"),
+    image: imagePath("spoken-english-ielts-workshop-2025.webp"),
     link: "https://www.facebook.com",
   },
   {
@@ -357,7 +357,7 @@ export const awardsCertificates = [
     category: "Bootcamp",
     description:
       "Participated in the EcoPreneurs Bootcamp 2025, focusing on green entrepreneurship and climate-resilient innovation.",
-    image: imagePath("ecopreneurs-bootcamp-2025.jpg"),
+    image: imagePath("ecopreneurs-bootcamp-2025.webp"),
     link: "https://lss.org.bd",
   },
   {
@@ -368,7 +368,7 @@ export const awardsCertificates = [
     category: "Olympiad",
     description:
       "Engaged in GEO 2025 to explore green energy initiatives, environmental development, and sustainable energy strategies.",
-    image: imagePath("green-energy-olympiad-2025.jpg"),
+    image: imagePath("green-energy-olympiad-2025.webp"),
     link: "https://www.cleanbd.org",
   },
   {
@@ -379,7 +379,7 @@ export const awardsCertificates = [
     category: "Summit",
     description:
       "Participated as a delegate in the Global SDG Youth Summit 2025, exchanging ideas on innovation and solutions aligned with the United Nations Sustainable Development Goals.",
-    image: imagePath("global-sdg-youth-summit-2025.jpg"),
+    image: imagePath("global-sdg-youth-summit-2025.webp"),
     link: "https://www.facebook.com",
   },
   {
@@ -390,11 +390,43 @@ export const awardsCertificates = [
     category: "Workshop",
     description:
       "Participated in a Two-Day Workshop on VLSI Design Flow, from RTL to GDS, using industry tools by ChipXpert Technologies Pvt. Ltd., Hyderabad.",
-    image: imagePath("workshop-on-vlsi.jpg"),
+    image: imagePath("workshop-on-vlsi.webp"),
+    link: "",
+  },
+  {
+    id: "aw-12",
+    title: "PCB Designing Workshop",
+    organization: "IEEE RAS IUT Student Branch & Cybernetics.",
+    date: "October 2025",
+    category: "Workshop",
+    description:
+      "Successfully completed the Cybernetics PCB Designing Workshop organized by IEEE Robotics and Automation Society IUT Student Branch, including three online sessions on PCB design fundamentals and practical electronics design workflow.",
+    image: imagePath("pcb-designing-workshop.jpg"),
+    link: "",
+  },
+  {
+    id: "aw-13",
+    title: "Industrial Technology on Electrical Engineering & Instrumentation",
+    organization: "Training Institute for Chemical Industries",
+    date: "February 2026",
+    category: "Training",
+    description:
+      "Completed a three-week industrial training course on Electrical Engineering and Instrumentation at the Training Institute for Chemical Industries, Polash, Narsingdi, Bangladesh, obtaining an A+ grade in the final evaluation.",
+    image: imagePath("industrial-technology-electrical-instrumentation.jpg"),
+    link: "",
+  },
+  {
+    id: "aw-14",
+    title: "SOC Estimation with Kalman Filters",
+    organization: "Certified Course",
+    date: "June 2026",
+    category: "Certificate",
+    description:
+      "Successfully completed a certified course on State of Charge estimation using Kalman Filters, strengthening knowledge in battery modeling, estimation algorithms, and battery management system applications.",
+    image: imagePath("soc-estimation-kalman-filters.jpg"),
     link: "",
   },
 ];
-
 /* ------------------------------------------------------------------ */
 /*  7. SKILLS                                                         */
 /* ------------------------------------------------------------------ */
