@@ -460,7 +460,7 @@ export const skills = [
     items: [
       { name: "PCM-Based Cooling", level: 85 },
       { name: "Li-ion Battery Pack Thermal Analysis", level: 82 },
-      { name: "Heat Generation Simulation", level: 80 },
+      { name: "CFD Simulation", level: 80 },
     ],
   },
   {
@@ -468,14 +468,14 @@ export const skills = [
     items: [
       { name: "COMSOL Multiphysics", level: 85 },
       { name: "MATLAB / Simulink", level: 78 },
-      { name: "Li-ion Battery Modeling", level: 78 },
+      
     ],
   },
   {
     category: "BMS & Battery Pack Testing",
     items: [
       { name: "4S / 16S / 32S BMS Configuration", level: 80 },
-      { name: "Battery Pack Testing", level: 82 },
+      { name: "Battery Pack Testing with NEWARE BTS", level: 82 },
       { name: "Pack Monitoring & Performance Analysis", level: 78 },
     ],
   },
@@ -484,7 +484,7 @@ export const skills = [
     items: [
       { name: "Python", level: 75 },
       { name: "C / C++", level: 80 },
-      { name: "Microcontroller Programming", level: 78 },
+      { name: "ESP/PIC Microcontroller Programming", level: 78 },
     ],
   },
   {
@@ -537,26 +537,56 @@ export const education = [
 export const experience = [
   {
     id: "ex-1",
-    title: "Researcher",
-    institution: "Materials Science Laboratory, Islamic University",
-    date: "2021 — Present",
+    title: "Intern",
+    institution: "OMI Battery Innovation Center",
+    date: "Apr 2026 — Present",
     description:
-      "Working on battery materials, energy storage, and simulation-based analysis, with a current focus on PCM-based thermal management of Li-ion battery packs.",
-    tags: ["Battery Materials", "Energy Storage", "COMSOL"],
+      "Part-time internship focused on LFP battery pack applications. Configured and analyzed 4S, 16S, and 32S Battery Management System architectures, supported PCB schematic and layout design, including component placement and pack-monitoring connections, and assisted with battery pack simulation, BMS performance analysis, system behavior interpretation, and pack-level safety evaluation.",
+    tags: ["BMS", "LFP Battery Pack", "PCB Design", "Pack Safety"],
     link: "",
   },
   {
     id: "ex-2",
-    title: "BMS & Battery Pack Testing Intern",
-    institution: "Battery Pack Testing / BMS Internship",
-    date: "Present",
+    title: "Research Assistant",
+    institution:
+      "Materials Science Laboratory, Department of Electrical & Electronic Engineering, Islamic University",
+    date: "Jan 2023 — Present",
     description:
-      "Gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
-    tags: ["BMS", "Battery Pack", "Testing"],
+      "Supported Li-ion battery and materials research related to electrochemical behavior, thermal behavior, and energy storage performance. Assisted with literature review, data interpretation, and technical documentation for battery and materials studies under the supervision of Dr. Momtazul Islam.",
+    tags: ["Li-ion Battery", "Materials Research", "Energy Storage", "Technical Documentation"],
+    link: "",
+  },
+  {
+    id: "ex-3",
+    title: "Intern",
+    institution: "Simulation Support BD (SSBD)",
+    date: "Feb 2026 — Present",
+    description:
+      "Part-time internship supporting physics-based modeling and analysis tasks using COMSOL Multiphysics, MATLAB, and ANSYS. Worked on thermal and electrochemical simulation, parameter optimization, result visualization, and interpretation of simulation outputs while collaborating with senior engineers to validate models, improve simulation accuracy, and communicate technical findings.",
+    tags: ["COMSOL", "MATLAB", "ANSYS", "Simulation", "Model Validation"],
+    link: "",
+  },
+  {
+    id: "ex-4",
+    title: "Embedded Systems Developer",
+    institution: "Solar Lighting & Security System — For The Light",
+    date: "Feb 2024 — Jan 2026",
+    description:
+      "Developed solar-powered embedded hardware using microcontrollers, sensors, power-management circuits, and field-oriented renewable-energy design. Performed PCB prototyping, circuit testing, embedded programming, diagnostics, and hardware troubleshooting for a solar lighting and security system.",
+    tags: ["Embedded Systems", "Solar Energy", "PCB Prototyping", "Microcontrollers"],
+    link: "",
+  },
+  {
+    id: "ex-5",
+    title: "Intern",
+    institution: "Mage Squad, YSSE",
+    date: "May 2024 — Aug 2024",
+    description:
+      "Part-time internship involving technical writing and communication. Authored technical articles on AI, innovation, sustainability, and development, while strengthening scientific communication, technical writing, and documentation skills for engineering reporting.",
+    tags: ["Technical Writing", "AI", "Sustainability", "Documentation"],
     link: "",
   },
 ];
-
 /* ------------------------------------------------------------------ */
 /*  9. PUBLICATIONS                                                   */
 /* ------------------------------------------------------------------ */
@@ -570,7 +600,7 @@ export const contactInfo = {
   intro:
     "Open to research collaborations, graduate study opportunities, scholarship opportunities, and conversations about safer and smarter battery technologies.",
   location: "",
-  phone: "+880 0000 000000",
+  phone: "+880-1719194874",
   email: "omar.faruque@example.com",
   formRecipient: "omar.faruque@example.com",
 };
