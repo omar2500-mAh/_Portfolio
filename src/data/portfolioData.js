@@ -324,7 +324,7 @@ export const awardsCertificates = [
     category: "Award",
     description:
       "Achieved Runner-Up position in the Poster Presentation category at the 1st IUSC National Science Festival 2024.",
-    image: imagePath("iusc-national-science-festival-2024.webp"),
+    image: imagePath("iusc-national-science-festival-2024.jpeg"),
     link: "https://www.facebook.com",
   },
   {
@@ -335,7 +335,7 @@ export const awardsCertificates = [
     category: "Competition",
     description:
       "Showcased an innovative solution in renewable energy, energy storage, and efficiency at the Energy Innovation Challenge 2024.",
-    image: imagePath("energy-innovation-challenge-2024.webp"),
+    image: imagePath("energy-innovation-challenge-2024.jpeg"),
     link: "https://praan.org.bd",
   },
   {
@@ -426,6 +426,30 @@ export const awardsCertificates = [
     image: imagePath("soc-estimation-kalman-filters.jpg"),
     link: "",
   },
+    {
+    id: "aw-15",
+    title: "Restoration Factory Bangladesh Incubation Program",
+    organization: "UN Environment Programme, Bridge for Billions & iDE",
+    date: "December 2025",
+    category: "Incubation",
+    description:
+      "Awarded for successfully completing participation in The Restoration Factory Bangladesh incubation program, receiving innovation-focused entrepreneurship training, business mentorship, and support to develop the project 'For The Light', focused on restoration and conservation of the forest ecosystem.",
+    image: imagePath("restoration-factory-bangladesh.jpeg"),
+    link: "",
+  },
+  {
+  id: "aw-16",
+  title: "Precise Energy 2025",
+  organization: "Energy of the Future / ASE Rosatom",
+  date: "October 2025",
+  category: "Olympiad",
+  description:
+    "Participated in the final stage of the Precise Energy 2025 Olympiad in Mathematics, Chemistry, and Physics for students of the Rooppur NPP region.",
+  image: imagePath("precise Energy.jpeg"),
+  link: "",
+},
+  
+  
 ];
 /* ------------------------------------------------------------------ */
 /*  7. SKILLS                                                         */
