@@ -100,7 +100,7 @@ export const highlightSections = [
   {
   id: "hl-3",
   title: "For The Light — Solar Guardian Lantern",
-  subtitle: "Disaster Response & Smart Safety System",
+  subtitle: "CTO — Disaster Response & Smart Safety System",
   description:
     "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
   image: imagePath("ph-img-20.webp"),
@@ -114,7 +114,7 @@ export const highlightSections = [
   subtitle: "Multiphysics Modeling of Li-ion Battery Safety",
   description:
     "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
-  image: imagePath("1779636174191.jpg"),
+  image: imagePath("TRC.jpg"),
   buttonText: "Explore Simulation",
   buttonLink: "#research",
   tags: ["COMSOL", "Thermal Runaway", "Li-ion Safety", "HWS Test"],
