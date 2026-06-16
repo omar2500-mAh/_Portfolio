@@ -114,7 +114,7 @@ export const highlightSections = [
   subtitle: "Multiphysics Modeling of Li-ion Battery Safety",
   description:
     "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
-  image: imagePath("TRC.jpg"),
+  image: imagePath("TRC.png"),
   buttonText: "Explore Simulation",
   buttonLink: "#research",
   tags: ["COMSOL", "Thermal Runaway", "Li-ion Safety", "HWS Test"],
