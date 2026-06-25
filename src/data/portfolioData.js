@@ -119,6 +119,29 @@ export const highlightSections = [
   buttonLink: "#research",
   tags: ["COMSOL", "Thermal Runaway", "Li-ion Safety", "HWS Test"],
 },
+  {
+  id: "hl-5",
+  title: "High-Capacity Battery Pack Testing",
+  subtitle: "16S 100Ah Battery Pack Testing with Neware System",
+  description:
+    "Gaining hands-on experience in battery pack testing, BMS configuration, pack monitoring, and performance analysis. I tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System, working with cell-level connections, voltage monitoring, test setup, and performance evaluation for safer and more reliable battery systems.",
+  image: imagePath("neware-16s-100ah-battery-test.jpeg"),
+  buttonText: "See Projects",
+  buttonLink: "#research",
+  tags: ["16S Battery Pack", "100Ah", "Neware", "BMS Testing"],
+},
+  {
+  id: "hl-6",
+  title: "Li-ion Battery Pack Assembly & BMS Testing",
+  subtitle: "15S 30-Cell Battery Pack Developed and Tested",
+  description:
+    "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled by me and tested with a Daly BMS to verify pack operation, wiring configuration, protection behavior, and practical battery system performance.",
+  image: imagePath("15s-battery-pack-daly-bms.jpeg"),
+  buttonText: "See Project",
+  buttonLink: "#research",
+  tags: ["15S Pack", "30 Cells", "Daly BMS", "Battery Testing"],
+},
+  
 ];
 
 /* ------------------------------------------------------------------ */
