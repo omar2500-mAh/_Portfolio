@@ -36,7 +36,7 @@ export const heroData = {
 
   stats: [
     { value: "EEE", label: "Major Discipline" },
-    { value: "Li-ion", label: "Core Research" },
+    { value: "Li-ion Battery", label: "Core Research" },
     { value: "BMS", label: "Applied Focus" },
   ],
 };
