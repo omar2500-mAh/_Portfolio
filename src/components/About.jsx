@@ -12,6 +12,7 @@ export default function About() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <SectionHeading eyebrow="Introduction" title={aboutData.heading} light />
 
+        {/* Image + Text */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           {/* Image */}
           <motion.div
@@ -33,7 +34,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Text + cards */}
+          {/* Text */}
           <div className="lg:col-span-7">
             {aboutData.paragraphs.map((p, i) => (
               <motion.p
@@ -51,27 +52,28 @@ export default function About() {
                 {p}
               </motion.p>
             ))}
-
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {aboutData.infoCards.map((card, i) => (
-                <motion.div
-                  key={card.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: i * 0.07 }}
-                  className="group rounded-2xl border border-navy-900/8 bg-white p-5 shadow-soft-light transition-all hover:-translate-y-1 hover:shadow-soft hover:border-gold/30"
-                >
-                  <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-gold-dark mb-1.5">
-                    {card.label}
-                  </div>
-                  <div className="text-navy-900 font-display font-semibold text-[15px] leading-snug">
-                    {card.value}
-                  </div>
-                </motion.div>
-              ))}
-            </div>
           </div>
+        </div>
+
+        {/* Info Cards - starts from under the image, 2 lines */}
+        <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {aboutData.infoCards.map((card, i) => (
+            <motion.div
+              key={card.label}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.5, delay: i * 0.07 }}
+              className="group rounded-2xl border border-navy-900/8 bg-white p-5 shadow-soft-light transition-all hover:-translate-y-1 hover:shadow-soft hover:border-gold/30"
+            >
+              <div className="text-[11px] font-semibold uppercase tracking-[0.15em] text-gold-dark mb-1.5">
+                {card.label}
+              </div>
+              <div className="text-navy-900 font-display font-semibold text-[15px] leading-snug">
+                {card.value}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
