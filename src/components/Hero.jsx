@@ -21,20 +21,25 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden bg-navy-gradient pt-24 pb-16"
     >
-      {/* Backdrops */}
+      {/* Background image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}assets/images/ph-img-21.webp)`,
         }}
       />
-      <div className="absolute inset-0 bg-black/60" />
 
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/70" />
+      <div className="absolute inset-0 bg-mesh opacity-35" />
+
+      {/* Glow effects */}
       <motion.div
         className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
         animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
       />
+
       <motion.div
         className="absolute bottom-0 -left-32 h-96 w-96 rounded-full bg-navy-800/60 blur-3xl"
         animate={{ scale: [1, 1.15, 1] }}
@@ -49,13 +54,13 @@ export default function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/30 bg-gold/5 px-4 py-1.5 mb-6"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 mb-6 backdrop-blur"
             >
               <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
               </span>
-              <span className="text-xs font-medium text-gold-soft tracking-wide">
+              <span className="text-xs font-medium text-white/90 tracking-wide">
                 {heroData.status}
               </span>
             </motion.div>
@@ -65,27 +70,16 @@ export default function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-4xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white whitespace-nowrap"
           >
-            {heroData.name.split(" ").map((word, i) => (
-              <span
-                key={i}
-                className={
-                  i === 1
-                    ? "block text-transparent bg-clip-text bg-gold-gradient"
-                    : "block"
-                }
-              >
-                {word}
-              </span>
-            ))}
+            {heroData.name}
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-5 text-lg sm:text-xl font-medium text-gold-soft/90 whitespace-pre-line"
+            className="mt-5 text-lg sm:text-xl font-semibold leading-relaxed text-white/85 whitespace-pre-line"
           >
             {heroData.title}
           </motion.p>
@@ -94,7 +88,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-4 max-w-xl text-base sm:text-lg leading-relaxed text-white/60 mx-auto lg:mx-0"
+            className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-white/65 mx-auto lg:mx-0"
           >
             {heroData.tagline}
           </motion.p>
@@ -151,10 +145,11 @@ export default function Hero() {
         >
           <div className="relative">
             <motion.div
-              className="absolute -inset-4 rounded-[2rem] bg-gold-gradient opacity-20 blur-2xl"
+              className="absolute -inset-4 rounded-[2rem] bg-white/15 opacity-20 blur-2xl"
               animate={{ opacity: [0.15, 0.3, 0.15] }}
               transition={{ duration: 5, repeat: Infinity }}
             />
+
             <div className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-96 lg:w-96 rounded-[2rem] border border-white/10 bg-white/5 p-2 backdrop-blur-sm shadow-elevate animate-float-slow">
               <SmartImage
                 src={heroData.profileImage}
@@ -171,12 +166,10 @@ export default function Hero() {
                 initial={{ opacity: 0, scale: 0.5 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.7 + i * 0.15, type: "spring" }}
-                className={`absolute rounded-2xl border border-white/10 bg-charcoal-light/90 backdrop-blur-md px-4 py-2.5 shadow-glass ${
-                  ["−top-4 -left-6", "top-1/2 -right-8", "-bottom-4 left-4"][i]
-                }`}
+                className="absolute rounded-2xl border border-white/10 bg-charcoal-light/90 backdrop-blur-md px-4 py-2.5 shadow-glass"
                 style={badgePos(i)}
               >
-                <div className="text-gold font-display font-bold text-lg leading-none">
+                <div className="text-white font-display font-bold text-lg leading-none">
                   {s.value}
                 </div>
                 <div className="text-[10px] uppercase tracking-wider text-white/50 mt-1">
@@ -198,7 +191,7 @@ export default function Hero() {
           Scroll
         </span>
         <div className="h-9 w-5 rounded-full border border-white/20 flex justify-center pt-1.5">
-          <span className="h-1.5 w-1 rounded-full bg-gold" />
+          <span className="h-1.5 w-1 rounded-full bg-white" />
         </div>
       </motion.div>
     </section>
@@ -207,8 +200,8 @@ export default function Hero() {
 
 function ctaClass(primary) {
   return primary
-    ? "inline-flex items-center gap-2 rounded-full bg-gold-gradient px-6 py-3 text-sm font-semibold text-navy-900 shadow-gold-glow transition-transform hover:scale-[1.03] active:scale-95"
-    : "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/85 backdrop-blur transition-colors hover:bg-white/10 hover:border-gold/40";
+    ? "inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-900 shadow-gold-glow transition-transform hover:scale-[1.03] active:scale-95"
+    : "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/85 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/40";
 }
 
 function badgePos(i) {
@@ -217,5 +210,6 @@ function badgePos(i) {
     { top: "45%", right: "-2rem" },
     { bottom: "-1rem", left: "1rem" },
   ];
+
   return map[i];
 }
