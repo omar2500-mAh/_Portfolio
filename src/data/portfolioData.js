@@ -70,7 +70,6 @@ export const aboutData = {
     { label: "Technical Skills", value: "Embedded Systems & PCB" },
   ],
 };
-
 /* ------------------------------------------------------------------ */
 /*  3. DYNAMIC HIGHLIGHTS                                             */
 /* ------------------------------------------------------------------ */
@@ -82,6 +81,12 @@ export const highlightSections = [
     description:
       "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
     image: imagePath("Battery Pack.jpg"),
+    images: [
+      imagePath("Battery Pack.jpg"),
+      imagePath("battery-thermal-2.jpg"),
+      imagePath("battery-thermal-3.jpg"),
+      imagePath("battery-thermal-4.jpg"),
+    ],
     buttonText: "Explore Research",
     buttonLink: "#research",
     tags: ["Li-ion", "PCM", "Thermal Management"],
@@ -93,6 +98,12 @@ export const highlightSections = [
     description:
       "Gaining hands-on experience with BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
     image: imagePath("pcb-2.png"),
+    images: [
+      imagePath("pcb-2.png"),
+      imagePath("bms-testing-2.jpg"),
+      imagePath("bms-testing-3.jpg"),
+      imagePath("bms-testing-4.jpg"),
+    ],
     buttonText: "See Projects",
     buttonLink: "#research",
     tags: ["BMS", "Battery Pack", "Testing"],
@@ -104,6 +115,12 @@ export const highlightSections = [
     description:
       "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
     image: imagePath("ph-img-20.webp"),
+    images: [
+      imagePath("ph-img-20.webp"),
+      imagePath("for-the-light-2.webp"),
+      imagePath("for-the-light-3.webp"),
+      imagePath("for-the-light-4.webp"),
+    ],
     buttonText: "See Project",
     buttonLink: "#research",
     tags: ["Solar Lantern", "SOS System", "GPS/GSM", "Disaster Response"],
@@ -115,6 +132,12 @@ export const highlightSections = [
     description:
       "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
     image: imagePath("TRC.png"),
+    images: [
+      imagePath("TRC.png"),
+      imagePath("thermal-runaway-2.png"),
+      imagePath("thermal-runaway-3.png"),
+      imagePath("thermal-runaway-4.png"),
+    ],
     buttonText: "Explore Simulation",
     buttonLink: "#research",
     tags: ["COMSOL", "Thermal Runaway", "Li-ion Safety", "HWS Test"],
@@ -126,6 +149,12 @@ export const highlightSections = [
     description:
       "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
     image: imagePath("neware-16s-100ah-battery-test.jpeg"),
+    images: [
+      imagePath("neware-16s-100ah-battery-test.jpeg"),
+      imagePath("neware-16s-test-2.jpeg"),
+      imagePath("neware-16s-test-3.jpeg"),
+      imagePath("neware-16s-test-4.jpeg"),
+    ],
     buttonText: "See Project",
     buttonLink: "#research",
     tags: ["16S Battery Pack", "100Ah", "Neware", "BMS Testing"],
@@ -137,12 +166,17 @@ export const highlightSections = [
     description:
       "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
     image: imagePath("15s-battery-pack-daly-bms.jpeg"),
+    images: [
+      imagePath("15s-battery-pack-daly-bms.jpeg"),
+      imagePath("15s-pack-2.jpeg"),
+      imagePath("15s-pack-3.jpeg"),
+      imagePath("15s-pack-4.jpeg"),
+    ],
     buttonText: "See Project",
     buttonLink: "#research",
     tags: ["15S Pack", "30 Cells", "Daly BMS", "Battery Testing"],
   },
 ];
-
 /* ------------------------------------------------------------------ */
 /*  4. GALLERY                                                        */
 /* ------------------------------------------------------------------ */
