@@ -47,7 +47,7 @@ function HighlightSlider({ item }) {
 
   return (
     <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-elevate">
-      <div className="relative aspect-[4/3] w-full overflow-hidden">
+      <div className="relative aspect-[4/3] w-full overflow-hidden lg:min-h-[440px]">
         <AnimatePresence mode="wait">
           <motion.div
             key={imageList[activeIndex] || item.id}
@@ -99,7 +99,7 @@ export default function DynamicHighlights() {
     >
       <div className="absolute inset-0 bg-mesh opacity-60" />
 
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-[88rem] px-5 sm:px-8">
         <SectionHeading
           eyebrow="What I Work On"
           title="Focus Areas"
@@ -114,7 +114,7 @@ export default function DynamicHighlights() {
             return (
               <div
                 key={item.id}
-                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center"
+                className="grid grid-cols-1 lg:grid-cols-[1.08fr_0.92fr] gap-8 lg:gap-14 items-center"
               >
                 {/* Image Slider */}
                 <motion.div
