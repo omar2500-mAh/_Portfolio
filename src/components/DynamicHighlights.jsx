@@ -1,10 +1,20 @@
-```jsx
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { useData } from "../context/DataContext";
 import SmartImage from "./SmartImage";
 import SectionHeading from "./SectionHeading";
+
+/** Resolve an internal (#research) or external link into props */
+function linkProps(href) {
+  if (!href) return null;
+
+  if (href.startsWith("#")) {
+    return { onClick: () => scrollToId(href.slice(1)), as: "button" };
+  }
+
+  return { href, target: "_blank", rel: "noopener noreferrer", as: "a" };
+}
 
 function scrollToId(id) {
   const el = document.getElementById(id);
@@ -15,25 +25,7 @@ function scrollToId(id) {
   }
 }
 
-function linkProps(href) {
-  if (!href) return null;
-
-  if (href.startsWith("#")) {
-    return {
-      onClick: () => scrollToId(href.slice(1)),
-      as: "button",
-    };
-  }
-
-  return {
-    href,
-    target: "_blank",
-    rel: "noopener noreferrer",
-    as: "a",
-  };
-}
-
-function HighlightImage({ item }) {
+function HighlightSlider({ item }) {
   const imageList =
     item.images && item.images.length > 0
       ? item.images
@@ -53,53 +45,43 @@ function HighlightImage({ item }) {
     return () => clearInterval(timer);
   }, [imageList.length]);
 
-  if (imageList.length === 0) {
-    return (
-      <div className="relative flex min-h-[280px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
-        <SmartImage
-          src=""
-          alt={item.title}
-          className="w-full object-contain"
-          imgClassName="w-full h-auto object-contain"
-          placeholderLabel="Add highlight image"
-        />
-      </div>
-    );
-  }
-
   return (
-    <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={imageList[activeIndex]}
-          initial={{ opacity: 0, scale: 1.02 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.98 }}
-          transition={{ duration: 0.55, ease: "easeInOut" }}
-          className="w-full"
-        >
-          <SmartImage
-            src={imageList[activeIndex]}
-            alt={item.title}
-            className="w-full rounded-2xl object-contain"
-            imgClassName="w-full h-auto object-contain rounded-2xl"
-            placeholderLabel="Add highlight image"
-          />
-        </motion.div>
-      </AnimatePresence>
-
-      {imageList.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5 rounded-full bg-black/35 px-3 py-1.5 backdrop-blur">
-          {imageList.map((_, index) => (
-            <span
-              key={index}
-              className={`h-1.5 rounded-full transition-all ${
-                index === activeIndex ? "w-6 bg-gold" : "w-1.5 bg-white/45"
-              }`}
+    <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-elevate">
+      <div className="relative aspect-[4/3] w-full overflow-hidden">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={imageList[activeIndex] || item.id}
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.98 }}
+            transition={{ duration: 0.55, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <SmartImage
+              src={imageList[activeIndex]}
+              alt={item.title}
+              className="h-full w-full"
+              imgClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              placeholderLabel="Add highlight image"
             />
-          ))}
-        </div>
-      )}
+          </motion.div>
+        </AnimatePresence>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
+
+        {imageList.length > 1 && (
+          <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 rounded-full bg-black/35 px-3 py-1.5 backdrop-blur">
+            {imageList.map((_, index) => (
+              <span
+                key={index}
+                className={`h-1.5 rounded-full transition-all ${
+                  index === activeIndex ? "w-6 bg-gold" : "w-1.5 bg-white/45"
+                }`}
+              />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
@@ -108,12 +90,12 @@ export default function DynamicHighlights() {
   const { data } = useData();
   const items = data.highlightSections;
 
-  if (!items || items.length === 0) return null;
+  if (!items?.length) return null;
 
   return (
     <section
       id="highlights"
-      className="relative overflow-hidden bg-navy-gradient py-24 sm:py-28"
+      className="relative bg-navy-gradient py-24 sm:py-28 overflow-hidden"
     >
       <div className="absolute inset-0 bg-mesh opacity-60" />
 
@@ -132,9 +114,9 @@ export default function DynamicHighlights() {
             return (
               <div
                 key={item.id}
-                className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14"
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center"
               >
-                {/* Image / Auto Slider */}
+                {/* Image Slider */}
                 <motion.div
                   initial={{ opacity: 0, x: reverse ? 40 : -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -142,7 +124,7 @@ export default function DynamicHighlights() {
                   transition={{ duration: 0.7 }}
                   className={reverse ? "lg:order-2" : ""}
                 >
-                  <HighlightImage item={item} />
+                  <HighlightSlider item={item} />
                 </motion.div>
 
                 {/* Text */}
@@ -154,27 +136,27 @@ export default function DynamicHighlights() {
                   className={reverse ? "lg:order-1" : ""}
                 >
                   {item.subtitle && (
-                    <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
+                    <div className="text-xs font-semibold uppercase tracking-[0.2em] text-gold mb-3">
                       {item.subtitle}
                     </div>
                   )}
 
-                  <h3 className="mb-4 font-display text-2xl font-bold text-white sm:text-3xl">
+                  <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-4">
                     {item.title}
                   </h3>
 
-                  <p className="mb-6 text-base leading-relaxed text-white/65 sm:text-lg">
+                  <p className="text-white/65 text-base sm:text-lg leading-relaxed mb-6">
                     {item.description}
                   </p>
 
-                  {item.tags && item.tags.length > 0 && (
-                    <div className="mb-7 flex flex-wrap gap-2">
-                      {item.tags.map((tag) => (
+                  {item.tags?.length > 0 && (
+                    <div className="flex flex-wrap gap-2 mb-7">
+                      {item.tags.map((t) => (
                         <span
-                          key={tag}
+                          key={t}
                           className="rounded-full border border-gold/25 bg-gold/5 px-3 py-1 text-xs font-medium text-gold-soft"
                         >
-                          {tag}
+                          {t}
                         </span>
                       ))}
                     </div>
@@ -211,4 +193,3 @@ export default function DynamicHighlights() {
     </section>
   );
 }
-```
