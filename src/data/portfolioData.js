@@ -22,7 +22,7 @@ export const heroData = {
   name: "Omar Faruque",
   title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
   tagline:
-    "Researching lithium-ion battery technology and renewable energy to build sustainable, community-focused engineering solutions.",
+    "Currently working as an Intern at OMI Battery Innovation Center and open to full-time opportunities in battery systems, BMS, EV energy storage, and power electronics.",
 
   profileImage: imagePath("profile.jpg.jpg"),
 
