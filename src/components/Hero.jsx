@@ -66,15 +66,21 @@ export default function Hero() {
             </motion.div>
           )}
 
+          {/* Name */}
           <motion.h1
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white whitespace-nowrap"
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
           >
-            {heroData.name}
+            <span className="inline-flex flex-nowrap items-baseline gap-4 sm:gap-5 lg:gap-7 whitespace-nowrap">
+              {heroData.name.split(" ").map((word) => (
+                <span key={word}>{word}</span>
+              ))}
+            </span>
           </motion.h1>
 
+          {/* Department */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -84,6 +90,7 @@ export default function Hero() {
             {heroData.title}
           </motion.p>
 
+          {/* Tagline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -93,7 +100,7 @@ export default function Hero() {
             {heroData.tagline}
           </motion.p>
 
-          {/* CTAs */}
+          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,7 +132,7 @@ export default function Hero() {
             )}
           </motion.div>
 
-          {/* Socials */}
+          {/* Social Icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
