@@ -1,3 +1,4 @@
+```jsx
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
@@ -54,11 +55,12 @@ function HighlightImage({ item }) {
 
   if (imageList.length === 0) {
     return (
-      <div className="relative flex h-[320px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
+      <div className="relative flex min-h-[280px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
         <SmartImage
           src=""
           alt={item.title}
-          className="h-full w-full object-contain"
+          className="w-full object-contain"
+          imgClassName="w-full h-auto object-contain"
           placeholderLabel="Add highlight image"
         />
       </div>
@@ -66,33 +68,33 @@ function HighlightImage({ item }) {
   }
 
   return (
-    <div className="relative flex h-[320px] w-full items-center justify-center overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
+    <div className="relative w-full overflow-hidden rounded-3xl border border-white/10 bg-black/40 p-4 shadow-elevate">
       <AnimatePresence mode="wait">
         <motion.div
           key={imageList[activeIndex]}
-          initial={{ opacity: 0, scale: 1.03 }}
+          initial={{ opacity: 0, scale: 1.02 }}
           animate={{ opacity: 1, scale: 1 }}
           exit={{ opacity: 0, scale: 0.98 }}
           transition={{ duration: 0.55, ease: "easeInOut" }}
-          className="h-full w-full"
+          className="w-full"
         >
           <SmartImage
             src={imageList[activeIndex]}
             alt={item.title}
-            className="h-full w-full object-contain"
-            imgClassName="h-full w-full object-contain"
+            className="w-full rounded-2xl object-contain"
+            imgClassName="w-full h-auto object-contain rounded-2xl"
             placeholderLabel="Add highlight image"
           />
         </motion.div>
       </AnimatePresence>
 
       {imageList.length > 1 && (
-        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5">
+        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-1.5 rounded-full bg-black/35 px-3 py-1.5 backdrop-blur">
           {imageList.map((_, index) => (
             <span
               key={index}
               className={`h-1.5 rounded-full transition-all ${
-                index === activeIndex ? "w-6 bg-gold" : "w-1.5 bg-white/40"
+                index === activeIndex ? "w-6 bg-gold" : "w-1.5 bg-white/45"
               }`}
             />
           ))}
@@ -132,7 +134,7 @@ export default function DynamicHighlights() {
                 key={item.id}
                 className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2 lg:gap-14"
               >
-                {/* Image / Slider */}
+                {/* Image / Auto Slider */}
                 <motion.div
                   initial={{ opacity: 0, x: reverse ? 40 : -40 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -209,3 +211,4 @@ export default function DynamicHighlights() {
     </section>
   );
 }
+```
