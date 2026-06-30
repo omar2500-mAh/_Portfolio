@@ -83,7 +83,7 @@ export const highlightSections = [
     image: imagePath("Battery Pack.jpg"),
     images: [
       imagePath("Battery Pack.jpg"),
-      imagePath("battery-thermal-2.jpg"),
+      imagePath("c1.png"),
       imagePath("battery-thermal-3.jpg"),
       imagePath("battery-thermal-4.jpg"),
     ],
