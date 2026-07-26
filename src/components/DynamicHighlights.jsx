@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
-  ArrowUpRight,
-  Target,
-  FlaskConical,
-  Wrench,
-  TrendingUp,
   AlertCircle,
+  ArrowUpRight,
   ChevronDown,
+  FlaskConical,
+  Target,
+  TrendingUp,
+  Wrench,
 } from "lucide-react";
 import { useData } from "../context/DataContext";
-import SmartImage from "./SmartImage";
-import SectionHeading from "./SectionHeading";
 import Modal from "./Modal";
+import SectionHeading from "./SectionHeading";
+import SmartImage from "./SmartImage";
 
 const STATUS_STYLES = {
   Ongoing:
-    "bg-blue-400/15 text-blue-300 border-blue-400/30",
+    "border-blue-400/30 bg-blue-400/15 text-blue-300",
 
   Completed:
-    "bg-emerald-400/15 text-emerald-300 border-emerald-400/30",
+    "border-emerald-400/30 bg-emerald-400/15 text-emerald-300",
 
   Published:
-    "bg-gold/15 text-gold border-gold/30",
+    "border-gold/30 bg-gold/15 text-gold",
 
   Prototype:
-    "bg-purple-400/15 text-purple-300 border-purple-400/30",
+    "border-purple-400/30 bg-purple-400/15 text-purple-300",
 };
 
 /* ================================================================ */
@@ -36,44 +36,36 @@ function HighlightSlider({
   item,
   onOpenDetails,
 }) {
-  const imageList =
-    item.images?.length > 0
-      ? item.images
-      : item.image
-        ? [item.image]
-        : [];
+  const images = item.images?.length
+    ? item.images
+    : item.image
+      ? [item.image]
+      : [];
 
   const [activeIndex, setActiveIndex] =
     useState(0);
 
-  /*
-   * When a different project is shown,
-   * start again from its first image.
-   */
   useEffect(() => {
     setActiveIndex(0);
   }, [item.id]);
 
-  /*
-   * Automatically change image every two seconds.
-   */
   useEffect(() => {
-    if (imageList.length <= 1) {
+    if (images.length <= 1) {
       return undefined;
     }
 
-    const timer = window.setInterval(() => {
-      setActiveIndex(
-        (previousIndex) =>
-          (previousIndex + 1) %
-          imageList.length
-      );
-    }, 2000);
+    const timer =
+      window.setInterval(() => {
+        setActiveIndex(
+          (current) =>
+            (current + 1) %
+            images.length
+        );
+      }, 2500);
 
-    return () => {
+    return () =>
       window.clearInterval(timer);
-    };
-  }, [imageList.length]);
+  }, [images.length]);
 
   return (
     <div className="group relative overflow-hidden rounded-3xl border border-white/10 shadow-elevate">
@@ -86,7 +78,7 @@ function HighlightSlider({
         <AnimatePresence mode="wait">
           <motion.div
             key={
-              imageList[activeIndex] ||
+              images[activeIndex] ||
               item.id
             }
             initial={{
@@ -102,19 +94,19 @@ function HighlightSlider({
               scale: 0.98,
             }}
             transition={{
-              duration: 0.55,
+              duration: 0.5,
               ease: "easeInOut",
             }}
             className="absolute inset-0"
           >
             <SmartImage
               src={
-                imageList[activeIndex]
+                images[activeIndex]
               }
               alt={item.title}
               className="h-full w-full"
               imgClassName="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-              placeholderLabel="Add highlight image"
+              placeholderLabel="Add focus-area image"
             />
           </motion.div>
         </AnimatePresence>
@@ -122,10 +114,9 @@ function HighlightSlider({
         <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 to-transparent" />
       </button>
 
-      {/* Clickable slider dots */}
-      {imageList.length > 1 && (
+      {images.length > 1 && (
         <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1.5 rounded-full bg-black/35 px-3 py-1.5 backdrop-blur">
-          {imageList.map(
+          {images.map(
             (image, index) => (
               <button
                 key={`${image}-${index}`}
@@ -137,7 +128,8 @@ function HighlightSlider({
                   setActiveIndex(index)
                 }
                 className={`h-1.5 rounded-full transition-all ${
-                  index === activeIndex
+                  index ===
+                  activeIndex
                     ? "w-6 bg-gold"
                     : "w-1.5 bg-white/45"
                 }`}
@@ -151,22 +143,29 @@ function HighlightSlider({
 }
 
 /* ================================================================ */
-/* MAIN RESEARCH / FOCUS SECTION                                    */
+/* MAIN FOCUS AREAS SECTION                                         */
 /* ================================================================ */
 
 export default function DynamicHighlights() {
   const { data } = useData();
 
-  const items =
-    data.highlightSections;
+  const items = Array.isArray(
+    data?.highlightSections
+  )
+    ? data.highlightSections
+    : [];
 
-  const [detail, setDetail] =
-    useState(null);
+  const [
+    expandedId,
+    setExpandedId,
+  ] = useState(null);
 
-  const [expanded, setExpanded] =
-    useState(null);
+  const [
+    selectedProject,
+    setSelectedProject,
+  ] = useState(null);
 
-  if (!items?.length) {
+  if (!items.length) {
     return null;
   }
 
@@ -181,7 +180,7 @@ export default function DynamicHighlights() {
         <SectionHeading
           eyebrow="What I Work On"
           title="Focus Areas"
-          subtitle="The themes driving my research and engineering — energy, sustainability, and connected systems."
+          subtitle="Battery modeling, thermal management, safety analysis, and hands-on battery-pack engineering explained in clear terms."
         />
 
         <div className="space-y-16 sm:space-y-24">
@@ -190,8 +189,9 @@ export default function DynamicHighlights() {
               const reverse =
                 index % 2 === 1;
 
-              const isOpen =
-                expanded === item.id;
+              const isExpanded =
+                expandedId ===
+                item.id;
 
               return (
                 <article
@@ -226,7 +226,9 @@ export default function DynamicHighlights() {
                     <HighlightSlider
                       item={item}
                       onOpenDetails={() =>
-                        setDetail(item)
+                        setSelectedProject(
+                          item
+                        )
                       }
                     />
                   </motion.div>
@@ -257,7 +259,7 @@ export default function DynamicHighlights() {
                         : ""
                     }
                   >
-                    {/* Category and status */}
+                    {/* CATEGORY AND STATUS */}
                     <div className="mb-4 flex flex-wrap items-center gap-2.5">
                       <span className="rounded-full border border-gold/25 bg-gold/10 px-3 py-1 text-xs font-semibold text-gold">
                         {item.category ||
@@ -277,50 +279,50 @@ export default function DynamicHighlights() {
                       </span>
                     </div>
 
-                    {/* Existing subtitle remains */}
+                    {/* SUBTITLE */}
                     {item.subtitle && (
                       <div className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-gold">
                         {item.subtitle}
                       </div>
                     )}
 
-                    {/* Existing title remains */}
+                    {/* TITLE */}
                     <h3 className="mb-4 font-display text-2xl font-bold text-white sm:text-3xl">
                       {item.title}
                     </h3>
 
-                    {/* Research summary */}
+                    {/* SHORT SUMMARY */}
                     <p className="mb-4 text-base leading-relaxed text-white/65 sm:text-lg">
                       {item.summary ||
                         item.description}
                     </p>
 
-                    {/* Expandable complete information */}
-                    <AnimatedDetails
-                      open={isOpen}
+                    {/* READ MORE CONTENT */}
+                    <ExpandableDetails
+                      open={isExpanded}
                       project={item}
                     />
 
-                    {/* Buttons */}
+                    {/* BUTTONS */}
                     <div className="mt-5 flex flex-wrap items-center gap-4">
                       <button
                         type="button"
                         onClick={() =>
-                          setExpanded(
-                            isOpen
+                          setExpandedId(
+                            isExpanded
                               ? null
                               : item.id
                           )
                         }
                         className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold hover:text-gold-light"
                       >
-                        {isOpen
+                        {isExpanded
                           ? "Show Less"
                           : "Read More"}
 
                         <ChevronDown
                           className={`h-4 w-4 transition-transform ${
-                            isOpen
+                            isExpanded
                               ? "rotate-180"
                               : ""
                           }`}
@@ -330,7 +332,9 @@ export default function DynamicHighlights() {
                       <button
                         type="button"
                         onClick={() =>
-                          setDetail(item)
+                          setSelectedProject(
+                            item
+                          )
                         }
                         className="inline-flex items-center gap-1.5 text-sm font-semibold text-white/70 hover:text-white"
                       >
@@ -340,7 +344,7 @@ export default function DynamicHighlights() {
                       </button>
                     </div>
 
-                    {/* Existing tags remain */}
+                    {/* TAGS WITHOUT # SYMBOL */}
                     {item.tags?.length >
                       0 && (
                       <div className="mt-5 flex flex-wrap gap-2">
@@ -350,7 +354,7 @@ export default function DynamicHighlights() {
                               key={tag}
                               className="rounded-md border border-white/5 bg-white/5 px-2.5 py-1 text-xs text-white/55"
                             >
-                              #{tag}
+                              {tag}
                             </span>
                           )
                         )}
@@ -364,17 +368,21 @@ export default function DynamicHighlights() {
         </div>
       </div>
 
-      {/* Full Details popup */}
+      {/* FULL DETAILS MODAL */}
       <Modal
-        open={Boolean(detail)}
+        open={Boolean(
+          selectedProject
+        )}
         onClose={() =>
-          setDetail(null)
+          setSelectedProject(null)
         }
         maxWidth="max-w-3xl"
       >
-        {detail && (
+        {selectedProject && (
           <ProjectDetail
-            project={detail}
+            project={
+              selectedProject
+            }
           />
         )}
       </Modal>
@@ -383,10 +391,10 @@ export default function DynamicHighlights() {
 }
 
 /* ================================================================ */
-/* READ MORE / SHOW LESS CONTENT                                    */
+/* READ MORE / SHOW LESS                                             */
 /* ================================================================ */
 
-function AnimatedDetails({
+function ExpandableDetails({
   open,
   project,
 }) {
@@ -408,7 +416,6 @@ function AnimatedDetails({
       className="overflow-hidden"
     >
       <div className="space-y-4 pb-1 pt-2">
-        {/* Complete description */}
         {(project.fullDescription ||
           project.description) && (
           <p className="text-sm leading-relaxed text-white/60">
@@ -417,35 +424,38 @@ function AnimatedDetails({
           </p>
         )}
 
-        {/* Problem */}
         <DetailRow
           icon={AlertCircle}
           label="Problem"
           text={project.problem}
         />
 
-        {/* Objective */}
         <DetailRow
           icon={Target}
           label="Objective"
           text={project.objective}
         />
 
-        {/* Methodology */}
         <DetailRow
           icon={FlaskConical}
-          label="Methodology"
-          text={project.methodology}
+          label="How It Was Done"
+          text={
+            project.methodology
+          }
         />
 
-        {/* Results */}
         <DetailRow
           icon={TrendingUp}
-          label="Results"
+          label="Main Findings"
           text={project.results}
         />
 
-        {/* Tools */}
+        <DetailRow
+          icon={ArrowUpRight}
+          label="Next Step"
+          text={project.nextStep}
+        />
+
         {project.tools?.length >
           0 && (
           <div className="flex gap-3">
@@ -477,7 +487,7 @@ function AnimatedDetails({
 }
 
 /* ================================================================ */
-/* SMALL DETAIL ROW                                                  */
+/* DETAIL ROW                                                       */
 /* ================================================================ */
 
 function DetailRow({
@@ -505,7 +515,7 @@ function DetailRow({
 }
 
 /* ================================================================ */
-/* FULL DETAILS MODAL                                                */
+/* FULL DETAILS MODAL                                               */
 /* ================================================================ */
 
 function ProjectDetail({
@@ -514,8 +524,7 @@ function ProjectDetail({
   const blocks = [
     {
       icon: AlertCircle,
-      label:
-        "Problem Statement",
+      label: "Problem",
       text: project.problem,
     },
 
@@ -527,7 +536,8 @@ function ProjectDetail({
 
     {
       icon: FlaskConical,
-      label: "Methodology",
+      label:
+        "How It Was Done",
       text:
         project.methodology,
     },
@@ -535,26 +545,30 @@ function ProjectDetail({
     {
       icon: TrendingUp,
       label:
-        "Results & Impact",
+        "Main Findings",
       text: project.results,
+    },
+
+    {
+      icon: ArrowUpRight,
+      label: "Next Step",
+      text: project.nextStep,
     },
   ].filter(
     (block) => block.text
   );
 
-  const combinedTags = [
-    ...(project.tags || []),
-    ...(project.detailTags ||
-      []),
-  ];
-
-  const uniqueTags = [
-    ...new Set(combinedTags),
+  const tags = [
+    ...new Set([
+      ...(project.tags || []),
+      ...(project.detailTags ||
+        []),
+    ]),
   ];
 
   return (
     <div>
-      {/* Detailed project image */}
+      {/* MAIN IMAGE */}
       <SmartImage
         src={
           project.detailImage ||
@@ -569,7 +583,7 @@ function ProjectDetail({
       />
 
       <div className="p-6 sm:p-9">
-        {/* Category and status */}
+        {/* CATEGORY AND STATUS */}
         <div className="mb-4 flex flex-wrap items-center gap-2.5">
           <span className="rounded-full bg-gold/15 px-3 py-1 text-xs font-semibold text-gold">
             {project.category ||
@@ -589,33 +603,33 @@ function ProjectDetail({
           </span>
         </div>
 
-        {/* Subtitle */}
+        {/* SUBTITLE */}
         {project.subtitle && (
           <p className="mb-2 text-xs font-semibold uppercase tracking-[0.18em] text-gold">
             {project.subtitle}
           </p>
         )}
 
-        {/* Title */}
+        {/* TITLE */}
         <h3 className="mb-4 font-display text-2xl font-bold text-white sm:text-3xl">
           {project.detailTitle ||
             project.title}
         </h3>
 
-        {/* Summary */}
+        {/* SUMMARY */}
         {project.summary && (
           <p className="mb-4 text-base font-medium leading-relaxed text-gold-soft">
             {project.summary}
           </p>
         )}
 
-        {/* Full description */}
+        {/* FULL DESCRIPTION */}
         <p className="mb-7 leading-relaxed text-white/70">
           {project.fullDescription ||
             project.description}
         </p>
 
-        {/* Problem, objective, methodology and results */}
+        {/* DETAILS BLOCKS */}
         {blocks.length > 0 && (
           <div className="space-y-5">
             {blocks.map(
@@ -652,7 +666,7 @@ function ProjectDetail({
           </div>
         )}
 
-        {/* Tools and software */}
+        {/* TOOLS */}
         {project.tools?.length >
           0 && (
           <div className="mt-7">
@@ -679,23 +693,21 @@ function ProjectDetail({
           </div>
         )}
 
-        {/* Tags */}
-        {uniqueTags.length > 0 && (
+        {/* TAGS WITHOUT # SYMBOL */}
+        {tags.length > 0 && (
           <div className="mt-7 flex flex-wrap gap-2">
-            {uniqueTags.map(
-              (tag) => (
-                <span
-                  key={tag}
-                  className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/55"
-                >
-                  #{tag}
-                </span>
-              )
-            )}
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-white/55"
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         )}
 
-        {/* External links */}
+        {/* EXTERNAL LINKS */}
         {project.links?.length >
           0 && (
           <div className="mt-8 flex flex-wrap gap-3">
