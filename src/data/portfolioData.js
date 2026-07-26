@@ -1042,11 +1042,12 @@ export const awardsCertificates = [
 /* ------------------------------------------------------------------ */
 export const skills = [
   {
-    id: "Core-skills",
+    id: "hard-skills",
 
-    category: "Hard Skills",
+  category: "Core Skills",
 
-    eyebrow: "Battery & Modeling",
+  eyebrow: "Battery & Modeling",
+
 
     summary:
       "Core engineering capabilities used across battery research, testing, simulation, and pack development.",
