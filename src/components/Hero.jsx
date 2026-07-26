@@ -1,15 +1,24 @@
 import { motion } from "framer-motion";
+import {
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  ExternalLink,
+} from "lucide-react";
+
 import { useData } from "../context/DataContext";
 
 /* ------------------------------------------------------------------ */
 /*  SOFTWARE ACCENT COLORS                                            */
 /* ------------------------------------------------------------------ */
+
 const ACCENT_STYLES = {
   blue: {
     border: "border-cyan-400/40",
     hoverBorder: "group-hover:border-cyan-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(34,211,238,0.32)] group-hover:shadow-[0_0_42px_rgba(34,211,238,0.65)]",
+      "shadow-[0_0_26px_rgba(34,211,238,0.28)] group-hover:shadow-[0_0_42px_rgba(34,211,238,0.65)]",
     dot: "bg-cyan-300",
   },
 
@@ -17,7 +26,7 @@ const ACCENT_STYLES = {
     border: "border-orange-400/40",
     hoverBorder: "group-hover:border-orange-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(251,146,60,0.32)] group-hover:shadow-[0_0_42px_rgba(251,146,60,0.65)]",
+      "shadow-[0_0_26px_rgba(251,146,60,0.28)] group-hover:shadow-[0_0_42px_rgba(251,146,60,0.65)]",
     dot: "bg-orange-300",
   },
 
@@ -25,7 +34,7 @@ const ACCENT_STYLES = {
     border: "border-yellow-400/40",
     hoverBorder: "group-hover:border-yellow-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(250,204,21,0.32)] group-hover:shadow-[0_0_42px_rgba(250,204,21,0.65)]",
+      "shadow-[0_0_26px_rgba(250,204,21,0.28)] group-hover:shadow-[0_0_42px_rgba(250,204,21,0.65)]",
     dot: "bg-yellow-300",
   },
 
@@ -33,7 +42,7 @@ const ACCENT_STYLES = {
     border: "border-rose-400/40",
     hoverBorder: "group-hover:border-rose-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(251,113,133,0.32)] group-hover:shadow-[0_0_42px_rgba(251,113,133,0.65)]",
+      "shadow-[0_0_26px_rgba(251,113,133,0.28)] group-hover:shadow-[0_0_42px_rgba(251,113,133,0.65)]",
     dot: "bg-rose-300",
   },
 
@@ -41,7 +50,7 @@ const ACCENT_STYLES = {
     border: "border-emerald-400/40",
     hoverBorder: "group-hover:border-emerald-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(52,211,153,0.32)] group-hover:shadow-[0_0_42px_rgba(52,211,153,0.65)]",
+      "shadow-[0_0_26px_rgba(52,211,153,0.28)] group-hover:shadow-[0_0_42px_rgba(52,211,153,0.65)]",
     dot: "bg-emerald-300",
   },
 
@@ -49,7 +58,7 @@ const ACCENT_STYLES = {
     border: "border-violet-400/40",
     hoverBorder: "group-hover:border-violet-300/80",
     glow:
-      "shadow-[0_0_28px_rgba(167,139,250,0.32)] group-hover:shadow-[0_0_42px_rgba(167,139,250,0.65)]",
+      "shadow-[0_0_26px_rgba(167,139,250,0.28)] group-hover:shadow-[0_0_42px_rgba(167,139,250,0.65)]",
     dot: "bg-violet-300",
   },
 
@@ -57,21 +66,33 @@ const ACCENT_STYLES = {
     border: "border-gold/40",
     hoverBorder: "group-hover:border-gold/80",
     glow:
-      "shadow-[0_0_28px_rgba(212,175,55,0.30)] group-hover:shadow-[0_0_42px_rgba(212,175,55,0.60)]",
+      "shadow-[0_0_26px_rgba(212,175,55,0.28)] group-hover:shadow-[0_0_42px_rgba(212,175,55,0.60)]",
     dot: "bg-gold",
   },
 };
 
 /* ------------------------------------------------------------------ */
+/*  SOCIAL ICONS                                                      */
+/* ------------------------------------------------------------------ */
+
+const SOCIAL_ICONS = {
+  Facebook,
+  LinkedIn: Linkedin,
+  GitHub: Github,
+  Instagram,
+};
+
+/* ------------------------------------------------------------------ */
 /*  ELLIPTICAL ORBIT CALCULATION                                      */
 /* ------------------------------------------------------------------ */
-const ORBIT_STEPS = 80;
+
+const ORBIT_STEPS = 90;
 
 function buildEllipseOrbit(
   index,
   total,
-  radiusX = 220,
-  radiusY = 155
+  radiusX = 235,
+  radiusY = 205
 ) {
   const safeTotal = Math.max(total, 1);
 
@@ -92,13 +113,8 @@ function buildEllipseOrbit(
         Math.PI *
         2;
 
-    x.push(
-      Math.cos(angle) * radiusX
-    );
-
-    y.push(
-      Math.sin(angle) * radiusY
-    );
+    x.push(Math.cos(angle) * radiusX);
+    y.push(Math.sin(angle) * radiusY);
   }
 
   return {
@@ -108,8 +124,9 @@ function buildEllipseOrbit(
 }
 
 /* ------------------------------------------------------------------ */
-/*  HERO COMPONENT                                                    */
+/*  HERO                                                              */
 /* ------------------------------------------------------------------ */
+
 export default function Hero() {
   const { data } = useData();
 
@@ -134,12 +151,21 @@ export default function Hero() {
       ? hero.ctaButtons
       : [];
 
+  const socialLinks =
+    Array.isArray(data?.socialLinks)
+      ? data.socialLinks.filter(
+          (item) =>
+            item?.url &&
+            SOCIAL_ICONS[item.platform]
+        )
+      : [];
+
   return (
     <section
       id="home"
       className="relative min-h-screen overflow-hidden bg-navy-gradient pb-20 pt-28 sm:pt-32 lg:flex lg:items-center lg:py-28"
     >
-      {/* Background layers */}
+      {/* Background */}
       <div className="absolute inset-0 bg-mesh opacity-50" />
 
       <div className="absolute -left-32 top-28 h-80 w-80 rounded-full bg-gold/[0.05] blur-3xl" />
@@ -152,6 +178,7 @@ export default function Hero() {
         {/* ========================================================== */}
         {/* LEFT CONTENT                                               */}
         {/* ========================================================== */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -190,6 +217,7 @@ export default function Hero() {
             </p>
           )}
 
+          {/* CTA buttons */}
           {buttons.length > 0 && (
             <div className="mt-8 flex flex-wrap gap-3">
               {buttons.map(
@@ -210,8 +238,16 @@ export default function Hero() {
             </div>
           )}
 
+          {/* Social media icons */}
+          {socialLinks.length > 0 && (
+            <SocialLinksRow
+              links={socialLinks}
+            />
+          )}
+
+          {/* Stats */}
           {stats.length > 0 && (
-            <div className="mt-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-9 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
               {stats.map(
                 (stat, index) => (
                   <motion.div
@@ -247,8 +283,9 @@ export default function Hero() {
         </motion.div>
 
         {/* ========================================================== */}
-        {/* RIGHT PORTRAIT + SOFTWARE ORBIT                            */}
+        {/* PORTRAIT + ORBIT                                           */}
         {/* ========================================================== */}
+
         <motion.div
           initial={{
             opacity: 0,
@@ -262,18 +299,39 @@ export default function Hero() {
             duration: 0.75,
             delay: 0.1,
           }}
-          className="relative mx-auto w-full max-w-[650px]"
+          className="relative mx-auto w-full max-w-[660px]"
         >
-          {/* Desktop elliptical orbit */}
-          <div className="relative hidden h-[590px] w-[630px] lg:block">
+          {/* Desktop */}
+          <div className="relative hidden h-[600px] w-[640px] lg:block">
             {/* Orbit lines */}
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[310px] w-[440px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.08]" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[410px] w-[470px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.07]" />
 
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[260px] w-[390px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.04]" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[350px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.035]" />
 
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[365px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.025]" />
+            {/* Back half of orbit */}
+            <div
+              className="pointer-events-none absolute inset-0 z-10"
+              style={{
+                clipPath:
+                  "inset(0 0 50% 0)",
+              }}
+            >
+              {floatingSkills.map(
+                (skill, index) => (
+                  <EllipseOrbitBadge
+                    key={`back-${skill.name}-${index}`}
+                    skill={skill}
+                    index={index}
+                    total={
+                      floatingSkills.length
+                    }
+                    interactive={false}
+                  />
+                )
+              )}
+            </div>
 
-            {/* Portrait */}
+            {/* Portrait remains between back and front orbit */}
             <div className="absolute left-1/2 top-1/2 z-20 w-[350px] -translate-x-1/2 -translate-y-1/2">
               <PortraitCard
                 profileImage={
@@ -283,22 +341,31 @@ export default function Hero() {
               />
             </div>
 
-            {/* Orbiting software icons */}
-            {floatingSkills.map(
-              (skill, index) => (
-                <EllipseOrbitBadge
-                  key={`${skill.name}-${index}`}
-                  skill={skill}
-                  index={index}
-                  total={
-                    floatingSkills.length
-                  }
-                />
-              )
-            )}
+            {/* Front half of orbit */}
+            <div
+              className="pointer-events-none absolute inset-0 z-30"
+              style={{
+                clipPath:
+                  "inset(50% 0 0 0)",
+              }}
+            >
+              {floatingSkills.map(
+                (skill, index) => (
+                  <EllipseOrbitBadge
+                    key={`front-${skill.name}-${index}`}
+                    skill={skill}
+                    index={index}
+                    total={
+                      floatingSkills.length
+                    }
+                    interactive
+                  />
+                )
+              )}
+            </div>
           </div>
 
-          {/* Mobile and tablet layout */}
+          {/* Mobile and tablet */}
           <div className="mx-auto w-full max-w-[400px] lg:hidden">
             <PortraitCard
               profileImage={
@@ -328,8 +395,46 @@ export default function Hero() {
 }
 
 /* ------------------------------------------------------------------ */
+/*  SOCIAL LINKS                                                      */
+/* ------------------------------------------------------------------ */
+
+function SocialLinksRow({ links }) {
+  return (
+    <div className="mt-6 flex flex-wrap items-center gap-3">
+      {links.map((item) => {
+        const Icon =
+          SOCIAL_ICONS[item.platform] ||
+          ExternalLink;
+
+        return (
+          <motion.a
+            key={item.platform}
+            href={item.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{
+              y: -3,
+              scale: 1.08,
+            }}
+            whileTap={{
+              scale: 0.95,
+            }}
+            aria-label={item.platform}
+            title={item.platform}
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/45 backdrop-blur-sm transition-all duration-300 hover:border-gold/35 hover:bg-gold/10 hover:text-gold-soft hover:shadow-gold-glow"
+          >
+            <Icon className="h-[18px] w-[18px]" />
+          </motion.a>
+        );
+      })}
+    </div>
+  );
+}
+
+/* ------------------------------------------------------------------ */
 /*  PORTRAIT CARD                                                     */
 /* ------------------------------------------------------------------ */
+
 function PortraitCard({
   profileImage,
   name,
@@ -352,12 +457,14 @@ function PortraitCard({
 }
 
 /* ------------------------------------------------------------------ */
-/*  DESKTOP ELLIPTICAL SOFTWARE BADGE                                 */
+/*  DESKTOP ORBIT BADGE                                               */
 /* ------------------------------------------------------------------ */
+
 function EllipseOrbitBadge({
   skill,
   index,
   total,
+  interactive,
 }) {
   const accent =
     ACCENT_STYLES[
@@ -368,13 +475,17 @@ function EllipseOrbitBadge({
     buildEllipseOrbit(
       index,
       total,
-      220,
-      155
+      235,
+      205
     );
 
   return (
     <motion.div
-      className="absolute left-1/2 top-1/2 z-40"
+      className={`absolute left-1/2 top-1/2 ${
+        interactive
+          ? "pointer-events-auto"
+          : "pointer-events-none"
+      }`}
       style={{
         marginLeft: -32,
         marginTop: -32,
@@ -385,28 +496,33 @@ function EllipseOrbitBadge({
         y: orbit.y,
       }}
       transition={{
-        duration: 22,
+        duration: 24,
         repeat: Infinity,
         ease: "linear",
       }}
     >
       <motion.div
-        whileHover={{
-          scale: 1.18,
-        }}
+        whileHover={
+          interactive
+            ? {
+                scale: 1.18,
+              }
+            : undefined
+        }
         transition={{
           duration: 0.2,
         }}
         className="group relative"
       >
-        {/* Software-colored glow */}
+        {/* Colored glow */}
         <span
-          className={`pointer-events-none absolute inset-1 rounded-2xl opacity-30 blur-xl transition-opacity duration-300 group-hover:opacity-90 ${accent.dot}`}
+          className={`pointer-events-none absolute inset-1 rounded-2xl opacity-25 blur-xl transition-opacity duration-300 group-hover:opacity-90 ${accent.dot}`}
         />
 
-        {/* Icon container */}
+        {/* Software icon */}
         <div
-          className={`relative z-10 flex h-16 w-16 items-center justify-center overflow-visible rounded-2xl border bg-navy-950/90 backdrop-blur-md transition-all duration-300 ${accent.border} ${accent.hoverBorder} ${accent.glow}`}
+          className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border bg-navy-950/90 backdrop-blur-md transition-all duration-300 ${accent.border} ${accent.hoverBorder} ${accent.glow}`}
+          title={skill.name}
         >
           <img
             src={skill.icon}
@@ -419,10 +535,12 @@ function EllipseOrbitBadge({
           />
         </div>
 
-        {/* Software name on hover */}
-        <div className="pointer-events-none absolute left-1/2 top-[74px] z-20 -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-navy-950/95 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/80 opacity-0 shadow-soft backdrop-blur-md transition-all duration-200 group-hover:translate-y-1 group-hover:opacity-100">
-          {skill.name}
-        </div>
+        {/* Name appears on hover */}
+        {interactive && (
+          <div className="pointer-events-none absolute left-1/2 top-[74px] z-20 -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-navy-950/95 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/80 opacity-0 shadow-soft backdrop-blur-md transition-all duration-200 group-hover:translate-y-1 group-hover:opacity-100">
+            {skill.name}
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );
@@ -431,6 +549,7 @@ function EllipseOrbitBadge({
 /* ------------------------------------------------------------------ */
 /*  MOBILE SOFTWARE BADGE                                             */
 /* ------------------------------------------------------------------ */
+
 function CompactSoftwareBadge({
   skill,
 }) {
