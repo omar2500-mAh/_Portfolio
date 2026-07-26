@@ -14,17 +14,52 @@
 
 const imagePath = (fileName) =>
   `${import.meta.env.BASE_URL}assets/images/${fileName}`;
-
 /* ------------------------------------------------------------------ */
 /*  1. HERO                                                           */
 /* ------------------------------------------------------------------ */
 export const heroData = {
   name: "Omar Faruque",
-  title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
+
+  title:
+    "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
+
   tagline:
     "Currently working as an Intern at OMI Battery Innovation Center and open to full-time opportunities in battery systems, BMS, EV energy storage, and power electronics.",
 
   profileImage: imagePath("profile.jpg.jpg"),
+
+  floatingSkills: [
+    {
+      name: "COMSOL",
+      icon: imagePath("software/comsol.png"),
+      accent: "blue",
+    },
+    {
+      name: "MATLAB",
+      icon: imagePath("software/matlab.png"),
+      accent: "orange",
+    },
+    {
+      name: "Python",
+      icon: imagePath("software/python.png"),
+      accent: "yellow",
+    },
+    {
+      name: "ANSYS",
+      icon: imagePath("software/ansys.png"),
+      accent: "red",
+    },
+    {
+      name: "Proteus",
+      icon: imagePath("software/proteus.png"),
+      accent: "green",
+    },
+    {
+      name: "EasyEDA",
+      icon: imagePath("software/easyeda.png"),
+      accent: "purple",
+    },
+  ],
 
   status: "Open to research collaborations",
 
@@ -62,7 +97,6 @@ export const heroData = {
   ],
 };
 
-/* ------------------------------------------------------------------ */
 /*  2. ABOUT                                                          */
 /* ------------------------------------------------------------------ */
 export const aboutData = {
