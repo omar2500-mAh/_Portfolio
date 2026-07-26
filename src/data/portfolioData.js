@@ -119,7 +119,7 @@ export const aboutData = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  3. RESEARCH / FOCUS AREAS                                         */
+/*  3. DYNAMIC HIGHLIGHTS + RESEARCH / PROJECT DETAILS                */
 /* ------------------------------------------------------------------ */
 export const highlightSections = [
   {
@@ -151,12 +151,12 @@ export const highlightSections = [
       "Thermal Management",
     ],
 
-    detailTitle:
-      "PCM-Based Thermal Management of Li-ion Battery Packs",
-
     category: "Research",
 
     status: "Ongoing",
+
+    detailTitle:
+      "PCM-Based Thermal Management of Li-ion Battery Packs",
 
     summary:
       "Investigating PCM-based cooling strategies to improve lithium-ion battery safety, temperature control, and reliability.",
@@ -224,11 +224,11 @@ export const highlightSections = [
       "Testing",
     ],
 
-    detailTitle: "BMS & Battery Pack Testing",
-
     category: "Project",
 
     status: "Ongoing",
+
+    detailTitle: "BMS & Battery Pack Testing",
 
     summary:
       "Hands-on work with BMS configurations, pack testing, PCB-related tasks, monitoring, and performance analysis.",
@@ -243,7 +243,7 @@ export const highlightSections = [
       "Gain hands-on expertise in BMS configuration, battery pack testing, and performance monitoring for safer energy storage systems.",
 
     methodology:
-      "Battery packs are tested and monitored using BMS configurations and practical performance analysis methods.",
+      "Battery packs are tested and monitored using different BMS configurations, cell-voltage measurements, pack-level monitoring, wiring verification, protection checks, PCB-related work, and practical performance analysis.",
 
     tools: [
       "4S BMS",
@@ -254,9 +254,9 @@ export const highlightSections = [
     ],
 
     results:
-      "Developing practical experience in battery pack safety, monitoring, and testing for real engineering applications.",
+      "Developing practical experience in battery pack safety, monitoring, protection, wiring verification, and testing for real engineering applications.",
 
-    detailImage: imagePath("research-lantern.jpg"),
+    detailImage: imagePath("pcb-2.png"),
 
     detailTags: [
       "BMS",
@@ -298,6 +298,53 @@ export const highlightSections = [
       "GPS/GSM",
       "Disaster Response",
     ],
+
+    category: "Project",
+
+    status: "Prototype",
+
+    detailTitle:
+      "For The Light — Solar Guardian Lantern",
+
+    summary:
+      "A solar-powered emergency lighting and intelligent rescue system designed for disaster-prone and off-grid communities.",
+
+    fullDescription:
+      "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
+
+    problem:
+      "People living in disaster-prone and off-grid communities may lose access to electricity, reliable lighting, communication, and emergency support during floods, cyclones, power failures, and other critical situations.",
+
+    objective:
+      "Develop a portable solar-powered lantern that provides sustainable lighting while also supporting emergency communication, location tracking, and sensor-based SOS alerts.",
+
+    methodology:
+      "The system combines a solar charging unit, Li-ion battery storage, LED lighting, microcontroller-based control, GPS/GSM communication, sensors, and an SOS alert mechanism. The hardware is developed through circuit design, embedded programming, component integration, PCB prototyping, and practical testing.",
+
+    tools: [
+      "Solar Charging System",
+      "Li-ion Battery",
+      "Microcontroller",
+      "GPS Module",
+      "GSM Module",
+      "Sensors",
+      "PCB Design",
+      "Embedded C/C++",
+    ],
+
+    results:
+      "The project integrates renewable-energy lighting and emergency-response features into a single portable platform intended to improve safety, communication, and resilience in disaster-prone and off-grid areas.",
+
+    detailImage: imagePath("ph-img-20.webp"),
+
+    detailTags: [
+      "Renewable Energy",
+      "Embedded Systems",
+      "Emergency Communication",
+      "Smart Safety",
+    ],
+
+    links: [],
   },
 
   {
@@ -331,6 +378,51 @@ export const highlightSections = [
       "Li-ion Safety",
       "HWS Test",
     ],
+
+    category: "Research",
+
+    status: "Ongoing",
+
+    detailTitle:
+      "COMSOL Battery Thermal Runaway Simulation",
+
+    summary:
+      "A multiphysics simulation study of lithium-ion pouch-cell thermal runaway, decomposition reactions, and worst-case temperature evolution.",
+
+    fullDescription:
+      "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
+
+    problem:
+      "Thermal runaway can cause rapid temperature rise, internal decomposition reactions, fire, gas generation, and catastrophic battery failure. Experimental abuse testing can also be expensive, hazardous, and difficult to control.",
+
+    objective:
+      "Develop a COMSOL-based thermal runaway model capable of predicting temperature evolution, heat-generation behavior, and critical thermal-safety conditions in a lithium-ion pouch cell.",
+
+    methodology:
+      "The model combines heat transfer in solids with temperature-dependent decomposition heat sources. Heat-Wait-Seek conditions, reaction kinetics, material properties, boundary conditions, and thermal-abuse scenarios are implemented to study the onset and progression of thermal runaway.",
+
+    tools: [
+      "COMSOL Multiphysics",
+      "Heat Transfer in Solids",
+      "Reaction Kinetics",
+      "Thermal Runaway Modeling",
+      "Heat-Wait-Seek Analysis",
+      "MATLAB",
+    ],
+
+    results:
+      "The simulation framework is designed to evaluate temperature rise, decomposition heat generation, thermal-runaway onset, and pouch-cell safety behavior under severe thermal-abuse conditions.",
+
+    detailImage: imagePath("TRC.png"),
+
+    detailTags: [
+      "Pouch Cell",
+      "Reaction Heat",
+      "Temperature Evolution",
+      "Battery Safety",
+    ],
+
+    links: [],
   },
 
   {
@@ -368,6 +460,53 @@ export const highlightSections = [
       "Neware",
       "BMS Testing",
     ],
+
+    category: "Project",
+
+    status: "Completed",
+
+    detailTitle:
+      "16S 100Ah Battery Pack Testing with Neware System",
+
+    summary:
+      "Practical testing and performance monitoring of a high-capacity 16S 100Ah lithium-ion battery pack using a Neware Battery Test System.",
+
+    fullDescription:
+      "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
+
+    problem:
+      "High-capacity battery packs require accurate test configuration, reliable electrical connections, continuous voltage monitoring, and controlled performance evaluation to detect unsafe behavior and pack-level inconsistencies.",
+
+    objective:
+      "Configure and test a 16S 100Ah battery pack using the Neware system and evaluate its electrical behavior, monitoring response, operational reliability, and pack-level safety.",
+
+    methodology:
+      "The battery pack was connected to the Neware Battery Test System using the required test and monitoring connections. The work included test-channel setup, cell-voltage connection verification, pack-voltage monitoring, BMS observation, controlled testing, and analysis of recorded performance data.",
+
+    tools: [
+      "Neware Battery Test System",
+      "16S Battery Pack",
+      "100Ah Li-ion Battery",
+      "BMS",
+      "Cell Voltage Monitoring",
+      "Pack Performance Analysis",
+    ],
+
+    results:
+      "The testing work provided practical experience in configuring, monitoring, and evaluating a high-capacity battery pack while supporting safer pack operation and reliable performance analysis.",
+
+    detailImage: imagePath(
+      "neware-16s-100ah-battery-test.jpeg"
+    ),
+
+    detailTags: [
+      "Neware BTS",
+      "Pack Monitoring",
+      "High-Capacity Storage",
+      "Battery Validation",
+    ],
+
+    links: [],
   },
 
   {
@@ -405,6 +544,54 @@ export const highlightSections = [
       "Daly BMS",
       "Battery Testing",
     ],
+
+    category: "Project",
+
+    status: "Completed",
+
+    detailTitle:
+      "15S 30-Cell Li-ion Battery Pack Assembly & Daly BMS Testing",
+
+    summary:
+      "Assembly and practical testing of a 15S lithium-ion battery pack containing 30 cells and integrated with a Daly BMS.",
+
+    fullDescription:
+      "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
+
+    problem:
+      "Improper cell arrangement, series-parallel connections, BMS wiring, sensing connections, or protection configuration can cause voltage imbalance, unreliable operation, component damage, and serious battery-safety risks.",
+
+    objective:
+      "Assemble a functional 15S 30-cell lithium-ion battery pack and validate its wiring, BMS integration, protection response, monitoring behavior, and overall pack operation.",
+
+    methodology:
+      "Thirty lithium-ion cells were arranged into the required 15S configuration. Cell groups, interconnections, balance leads, pack terminals, and the Daly BMS were assembled and verified. The completed pack was then inspected and tested to evaluate voltage sensing, wiring correctness, BMS response, and practical operation.",
+
+    tools: [
+      "15S Battery Pack",
+      "30 Li-ion Cells",
+      "15Ah Cells",
+      "Daly BMS",
+      "Multimeter",
+      "Cell Voltage Monitoring",
+      "Battery Pack Assembly",
+    ],
+
+    results:
+      "A complete 15S 30-cell battery pack was assembled and tested with a Daly BMS, providing practical experience in pack construction, sensing-wire verification, protection-system integration, and battery performance evaluation.",
+
+    detailImage: imagePath(
+      "15s-battery-pack-daly-bms.jpeg"
+    ),
+
+    detailTags: [
+      "Pack Assembly",
+      "BMS Integration",
+      "Balance Wiring",
+      "Battery Safety",
+    ],
+
+    links: [],
   },
 
   {
@@ -419,10 +606,10 @@ export const highlightSections = [
     description:
       "Practical engineering work using microcontrollers, circuit simulation, and programming tools.",
 
-    image: imagePath("research-solpe.jpg"),
+    image: imagePath("ph-img-21.webp"),
 
     images: [
-      imagePath("research-solpe.jpg"),
+      imagePath("ph-img-21.webp"),
     ],
 
     buttonText: "Explore Project",
@@ -435,12 +622,12 @@ export const highlightSections = [
       "Programming",
     ],
 
-    detailTitle:
-      "Embedded Systems and Circuit Simulation Projects",
-
     category: "Project",
 
     status: "Completed",
+
+    detailTitle:
+      "Embedded Systems and Circuit Simulation Projects",
 
     summary:
       "Practical engineering work using microcontrollers, circuit simulation, and programming tools.",
@@ -449,13 +636,13 @@ export const highlightSections = [
       "This project area includes microcontroller programming, circuit simulation, and electronics design using tools such as Proteus, Multisim, EasyEDA, C/C++, Python, and MATLAB.",
 
     problem:
-      "Practical engineering solutions require strong integration between circuit design, embedded programming, and simulation-based validation.",
+      "Practical engineering solutions require strong integration between circuit design, embedded programming, electronic components, PCB development, and simulation-based validation.",
 
     objective:
-      "Build practical skills in embedded systems, circuit simulation, and electronics prototyping.",
+      "Build practical skills in embedded systems, circuit simulation, electronics design, microcontroller programming, and engineering prototyping.",
 
     methodology:
-      "Microcontroller programming, circuit simulation, PCB-related design work, and analysis using engineering software tools.",
+      "Microcontroller programming, circuit simulation, schematic development, PCB-related design work, component selection, debugging, and analysis were performed using multiple engineering software and programming tools.",
 
     tools: [
       "C/C++",
@@ -464,17 +651,20 @@ export const highlightSections = [
       "Multisim",
       "EasyEDA",
       "MATLAB",
+      "Microcontrollers",
+      "PCB Design",
     ],
 
     results:
-      "Hands-on experience in microcontroller programming, circuit simulation, and electronics design workflows.",
+      "Developed hands-on experience in microcontroller programming, circuit simulation, electronics design, PCB workflows, debugging, and embedded-system prototyping.",
 
-    detailImage: imagePath("research-solpe.jpg"),
+    detailImage: imagePath("ph-img-21.webp"),
 
     detailTags: [
       "Embedded Systems",
       "Circuit Simulation",
       "Programming",
+      "PCB Design",
     ],
 
     links: [],
