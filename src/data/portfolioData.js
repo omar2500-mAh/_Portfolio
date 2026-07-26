@@ -41,12 +41,12 @@ export const heroData = {
     },
     {
       name: "Python",
-      icon: imagePath("software/python.png"),
+      icon: imagePath("software/Python.webp"),
       accent: "yellow",
     },
     {
       name: "ANSYS",
-      icon: imagePath("software/ansys.png"),
+      icon: imagePath("software/aansys.jpg"),
       accent: "red",
     },
     {
