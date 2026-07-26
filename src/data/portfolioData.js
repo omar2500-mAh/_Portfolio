@@ -1,1340 +1,541 @@
-/**
- * ============================================================================
- *  portfolioData.js — THE SINGLE SOURCE OF TRUTH FOR YOUR WHOLE WEBSITE
- * ============================================================================
- *
- * Edit ANY content on your site by changing this one file.
- * Every section reads from the arrays/objects below.
- *
- * Image rule:
- * Put all image files inside public/assets/images/
- * Then use imagePath("your-image-name.jpg")
- * ============================================================================
- */
-
-const imagePath = (fileName) =>
-  `${import.meta.env.BASE_URL}assets/images/${fileName}`;
-
 /* ------------------------------------------------------------------ */
-/*  1. HERO                                                           */
+/*  6. TECHNICAL SKILLS                                               */
 /* ------------------------------------------------------------------ */
-export const heroData = {
-  name: "Omar Faruque",
-  title: "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
-  tagline:
-    "Currently working as an Intern at OMI Battery Innovation Center and open to full-time opportunities in battery systems, BMS, EV energy storage, and power electronics.",
-
-  profileImage: imagePath("profile.jpg.jpg"),
-
-  status: "Open to research collaborations",
-
-  ctaButtons: [
-    {
-      label: "View Projects",
-      scrollTo: "research",
-      primary: true,
-    },
-    {
-      label: "View Research",
-      scrollTo: "research",
-      primary: false,
-    },
-    {
-      label: "Contact Me",
-      scrollTo: "contact",
-      primary: false,
-    },
-  ],
-
-  stats: [
-    {
-      value: "EEE",
-      label: "Major Discipline",
-    },
-    {
-      value: "Li-ion Battery",
-      label: "Core Research",
-    },
-    {
-      value: "BMS",
-      label: "Applied Focus",
-    },
-  ],
-};
-
-/* ------------------------------------------------------------------ */
-/*  2. ABOUT                                                          */
-/* ------------------------------------------------------------------ */
-export const aboutData = {
-  heading: "About Me",
-
-  paragraphs: [
-    "As an Electrical and Electronic Engineering undergraduate at Islamic University, Bangladesh, my focus is on keeping lithium-ion batteries safe, cool, and reliable. My current research investigates PCM-based thermal management of Li-ion battery packs, using COMSOL Multiphysics to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
-
-    "For the past three years, I have been working in the Materials Science Laboratory at Islamic University, where I have developed my research foundation in battery materials, energy storage, and simulation-based analysis.",
-
-    "Beyond academic research, I am working as a BMS and Battery Pack Testing Intern, gaining hands-on experience with 4S, 16S, and 32S BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis.",
-
-    "I am proficient with tools such as COMSOL Multiphysics, MATLAB, Python, C/C++, Proteus, Multisim, and EasyEDA, with hands-on experience in microcontroller programming, circuit simulation, and Li-ion battery modeling. Currently, I am actively seeking fully funded graduate study and scholarship opportunities in battery thermal management, BMS, or EV energy storage, where I can contribute to safer and smarter battery technologies while continuously expanding my research knowledge, technical skills, and practical engineering experience.",
-  ],
-
-  image: imagePath(
-    "WhatsApp Image 2026-06-15 at 4.29.13 PM.jpeg"
-  ),
-
-  infoCards: [
-    {
-      label: "Department",
-      value: "Electrical & Electronic Engineering",
-    },
-    {
-      label: "University",
-      value: "Islamic University, Bangladesh",
-    },
-    {
-      label: "Research Focus",
-      value: "Li-ion Battery Research",
-    },
-    {
-      label: "Thermal Management",
-      value: "PCM-Based Battery Cooling",
-    },
-    {
-      label: "Simulation",
-      value: "COMSOL Multiphysics",
-    },
-    {
-      label: "Practical Experience",
-      value: "BMS & Battery Pack Testing",
-    },
-    {
-      label: "EV Focus",
-      value: "EV Batteries",
-    },
-    {
-      label: "Technical Skills",
-      value: "Embedded Systems & PCB",
-    },
-  ],
-};
-
-/* ------------------------------------------------------------------ */
-/*  3. DYNAMIC HIGHLIGHTS + RESEARCH / PROJECT DETAILS                */
-/* ------------------------------------------------------------------ */
-export const highlightSections = [
+export const skills = [
   {
-    id: "hl-1",
+    id: "skill-battery-testing",
 
-    title: "Battery Thermal Management Research",
+    category: "Battery Testing & Characterization",
 
-    subtitle: "PCM-Based Li-ion Battery Pack Cooling",
+    icon: "activity",
+
+    badge: "Experimental",
+
+    layout: "wide",
+
+    metric: "CC–CV · HPPC · DCIR",
+
+    metricLabel:
+      "Cell and pack-level electrochemical test protocols",
 
     description:
-      "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
+      "Hands-on electrochemical characterization of lithium-ion and LFP cells using controlled test procedures, cycler data, and performance diagnostics.",
 
-    image: imagePath("Battery Pack.jpg"),
+    items: [
+      {
+        name: "Charge–Discharge Testing",
 
-    images: [
-      imagePath("Battery Pack.jpg"),
-      imagePath("c1.png"),
-      imagePath("battery-thermal-3.jpg"),
-      imagePath("battery-thermal-4.jpg"),
+        detail:
+          "CC–CV charging, constant-current discharging, capacity validation, energy-efficiency evaluation, and cycle-life testing.",
+      },
+
+      {
+        name: "Performance Characterization",
+
+        detail:
+          "Rate-capability, coulombic-efficiency, OCV/rest response, voltage-profile, and capacity-retention analysis.",
+      },
+
+      {
+        name: "Resistance & Pulse Testing",
+
+        detail:
+          "HPPC testing, DC internal-resistance measurement, pulse-response interpretation, and resistance-trend evaluation.",
+      },
+
+      {
+        name: "Cycler Data Interpretation",
+
+        detail:
+          "Extraction and interpretation of voltage, current, capacity, energy, efficiency, resistance, and degradation trends.",
+      },
     ],
-
-    buttonText: "Explore Research",
-
-    buttonLink: "#research",
-
-    tags: [
-      "Li-ion",
-      "PCM",
-      "Thermal Management",
-    ],
-
-    category: "Research",
-
-    status: "Ongoing",
-
-    detailTitle:
-      "PCM-Based Thermal Management of Li-ion Battery Packs",
-
-    summary:
-      "Investigating PCM-based cooling strategies to improve lithium-ion battery safety, temperature control, and reliability.",
-
-    fullDescription:
-      "This research focuses on phase change material based thermal management of lithium-ion battery packs. COMSOL Multiphysics is used to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
-
-    problem:
-      "Lithium-ion battery packs can experience excessive heat generation and uneven temperature distribution, which may reduce performance, shorten life, and create safety risks.",
-
-    objective:
-      "Develop and analyze PCM-based cooling strategies to keep battery packs safe, cool, and reliable during operation.",
-
-    methodology:
-      "COMSOL Multiphysics simulation is used to model heat generation, temperature distribution, and thermal behavior of composite PCM around Li-ion battery cells.",
 
     tools: [
-      "COMSOL Multiphysics",
-      "MATLAB",
-      "Li-ion Battery Modeling",
-      "Thermal Simulation",
+      "Neware BTS",
+      "CC–CV Cycling",
+      "HPPC",
+      "DCIR",
+      "OCV Characterization",
+      "Cycle-Life Testing",
     ],
 
-    results:
-      "The study aims to identify effective PCM cooling behavior and improve thermal stability for safer battery pack operation.",
-
-    detailImage: imagePath("graph.jpg"),
-
-    detailTags: [
-      "Li-ion",
-      "PCM",
-      "COMSOL",
-      "Thermal Management",
-    ],
-
-    links: [],
+    evidence:
+      "Applied during cell- and pack-level testing at OMI Battery Innovation Center for LFP energy-storage applications.",
   },
 
   {
-    id: "hl-2",
+    id: "skill-bms-pack",
 
-    title: "BMS & Battery Pack Testing",
+    category: "Battery Pack & BMS Engineering",
 
-    subtitle: "Practical Energy Storage Engineering",
+    icon: "battery",
+
+    badge: "Pack Level",
+
+    layout: "wide",
+
+    metric: "4S · 16S · 32S",
+
+    metricLabel:
+      "Practical BMS configurations for lithium-ion and LFP packs",
 
     description:
-      "Gaining hands-on experience with BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
+      "Pack-level engineering experience covering BMS configuration, monitoring, protection review, balancing considerations, wiring verification, and hardware troubleshooting.",
 
-    image: imagePath("pcb-2.png"),
+    items: [
+      {
+        name: "BMS Configuration",
 
-    images: [
-      imagePath("pcb-2.png"),
-      imagePath("bms-testing-2.jpg"),
-      imagePath("bms-testing-3.jpg"),
-      imagePath("bms-testing-4.jpg"),
+        detail:
+          "Practical work with 4S, 16S, and 32S BMS architectures for lithium-ion and LFP battery packs.",
+      },
+
+      {
+        name: "Protection Verification",
+
+        detail:
+          "Review of overvoltage, undervoltage, overcurrent, short-circuit, and temperature-protection behavior.",
+      },
+
+      {
+        name: "Pack Monitoring & Balancing",
+
+        detail:
+          "Cell-voltage monitoring, balance-lead verification, pack-status observation, and cell-balancing considerations.",
+      },
+
+      {
+        name: "Pack Integration",
+
+        detail:
+          "Support for sensing connections, BMS wiring, component placement, pack assembly, validation, and system-level troubleshooting.",
+      },
     ],
-
-    buttonText: "See Projects",
-
-    buttonLink: "#research",
-
-    tags: [
-      "BMS",
-      "Battery Pack",
-      "Testing",
-    ],
-
-    category: "Project",
-
-    status: "Ongoing",
-
-    detailTitle: "BMS & Battery Pack Testing",
-
-    summary:
-      "Hands-on work with BMS configurations, pack testing, PCB-related tasks, monitoring, and performance analysis.",
-
-    fullDescription:
-      "This work involves practical battery pack testing and BMS-related tasks, including 4S, 16S, and 32S BMS configurations, PCB-related work, pack monitoring, and performance analysis.",
-
-    problem:
-      "Reliable battery packs require proper monitoring, balancing, safety protection, and performance evaluation through practical testing.",
-
-    objective:
-      "Gain hands-on expertise in BMS configuration, battery pack testing, and performance monitoring for safer energy storage systems.",
-
-    methodology:
-      "Battery packs are tested and monitored using different BMS configurations, cell-voltage measurements, pack-level monitoring, wiring verification, protection checks, PCB-related work, and practical performance analysis.",
 
     tools: [
       "4S BMS",
       "16S BMS",
       "32S BMS",
-      "PCB Work",
+      "Daly BMS",
+      "LFP Packs",
       "Pack Monitoring",
     ],
 
-    results:
-      "Developing practical experience in battery pack safety, monitoring, protection, wiring verification, and testing for real engineering applications.",
-
-    detailImage: imagePath("pcb-2.png"),
-
-    detailTags: [
-      "BMS",
-      "Battery Pack",
-      "Testing",
-      "PCB",
-    ],
-
-    links: [],
+    evidence:
+      "Developed through BMS configuration, 15S/16S pack work, high-capacity battery testing, and practical pack-level validation.",
   },
 
   {
-    id: "hl-3",
+    id: "skill-electrochemical-modeling",
 
-    title: "For The Light — Solar Guardian Lantern",
+    category: "Electrochemical Battery Modeling",
 
-    subtitle:
-      "CTO — Disaster Response & Smart Safety System",
+    icon: "layers",
+
+    badge: "Physics Based",
+
+    layout: "standard",
+
+    metric: "P2D / DFN",
+
+    metricLabel:
+      "Porous-electrode lithium-ion cell modeling framework",
 
     description:
-      "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
+      "Physics-based lithium-ion cell modeling from electrode-scale transport and interfacial kinetics to complete voltage and state-variable prediction.",
 
-    image: imagePath("ph-img-20.webp"),
+    items: [
+      {
+        name: "P2D / Newman Formulation",
 
-    images: [
-      imagePath("ph-img-20.webp"),
-      imagePath("for-the-light-2.webp"),
-      imagePath("for-the-light-3.webp"),
-      imagePath("for-the-light-4.webp"),
+        detail:
+          "Porous-electrode modeling across negative electrode, separator, and positive electrode domains.",
+      },
+
+      {
+        name: "Interfacial Kinetics",
+
+        detail:
+          "Butler–Volmer reaction kinetics, exchange-current behavior, overpotential, and reaction-current distribution.",
+      },
+
+      {
+        name: "Mass & Charge Transport",
+
+        detail:
+          "Solid-particle diffusion, electrolyte concentration transport, and solid/electrolyte potential distributions.",
+      },
+
+      {
+        name: "Cell-Level Analysis",
+
+        detail:
+          "Voltage-response, SOC, current, concentration, heat-generation, and C-rate behavior interpretation.",
+      },
     ],
-
-    buttonText: "See Project",
-
-    buttonLink: "#research",
-
-    tags: [
-      "Solar Lantern",
-      "SOS System",
-      "GPS/GSM",
-      "Disaster Response",
-    ],
-
-    category: "Project",
-
-    status: "Prototype",
-
-    detailTitle:
-      "For The Light — Solar Guardian Lantern",
-
-    summary:
-      "A solar-powered emergency lighting and intelligent rescue system designed for disaster-prone and off-grid communities.",
-
-    fullDescription:
-      "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
-
-    problem:
-      "People living in disaster-prone and off-grid communities may lose access to electricity, reliable lighting, communication, and emergency support during floods, cyclones, power failures, and other critical situations.",
-
-    objective:
-      "Develop a portable solar-powered lantern that provides sustainable lighting while also supporting emergency communication, location tracking, and sensor-based SOS alerts.",
-
-    methodology:
-      "The system combines a solar charging unit, Li-ion battery storage, LED lighting, microcontroller-based control, GPS/GSM communication, sensors, and an SOS alert mechanism. The hardware is developed through circuit design, embedded programming, component integration, PCB prototyping, and practical testing.",
 
     tools: [
-      "Solar Charging System",
-      "Li-ion Battery",
-      "Microcontroller",
-      "GPS Module",
-      "GSM Module",
-      "Sensors",
-      "PCB Design",
-      "Embedded C/C++",
+      "COMSOL Battery Design",
+      "MATLAB",
+      "LFP/Graphite",
+      "P2D",
+      "Butler–Volmer",
+      "Equivalent-Circuit Models",
     ],
 
-    results:
-      "The project integrates renewable-energy lighting and emergency-response features into a single portable platform intended to improve safety, communication, and resilience in disaster-prone and off-grid areas.",
-
-    detailImage: imagePath("ph-img-20.webp"),
-
-    detailTags: [
-      "Renewable Energy",
-      "Embedded Systems",
-      "Emergency Communication",
-      "Smart Safety",
-    ],
-
-    links: [],
+    evidence:
+      "Implemented and studied electrochemical lithium-ion models through COMSOL-based academic and client-driven simulation work.",
   },
 
   {
-    id: "hl-4",
+    id: "skill-thermal-modeling",
 
-    title:
-      "COMSOL Battery Thermal Runaway Simulation",
+    category: "Thermal & Multiphysics Simulation",
 
-    subtitle:
-      "Multiphysics Modeling of Li-ion Battery Safety",
+    icon: "flame",
+
+    badge: "CAE",
+
+    layout: "standard",
+
+    metric: "≈33 °C",
+
+    metricLabel:
+      "Simulated pack temperature achieved using PCM cooling",
 
     description:
-      "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
+      "Coupled thermal analysis of cells and packs, including internal heat generation, transient heat transfer, phase change, and thermal-uniformity evaluation.",
 
-    image: imagePath("TRC.png"),
+    items: [
+      {
+        name: "Electrochemical–Thermal Coupling",
 
-    images: [
-      imagePath("TRC.png"),
-      imagePath("thermal-runaway-2.png"),
-      imagePath("thermal-runaway-3.png"),
-      imagePath("thermal-runaway-4.png"),
+        detail:
+          "Coupling of cell electrochemistry with temperature-dependent heat generation and thermal response.",
+      },
+
+      {
+        name: "Battery Heat Generation",
+
+        detail:
+          "Analysis of reversible entropic heat, irreversible polarization heat, ohmic heating, and total thermal loss.",
+      },
+
+      {
+        name: "Transient Heat Transfer",
+
+        detail:
+          "Conduction, natural convection, temperature-gradient, cell-to-pack, and time-dependent thermal analysis.",
+      },
+
+      {
+        name: "PCM Thermal Management",
+
+        detail:
+          "Paraffin/OM32 PCM and composite PCM enhanced using SiO₂ and expanded graphite for pack cooling.",
+      },
     ],
-
-    buttonText: "Explore Simulation",
-
-    buttonLink: "#research",
-
-    tags: [
-      "COMSOL",
-      "Thermal Runaway",
-      "Li-ion Safety",
-      "HWS Test",
-    ],
-
-    category: "Research",
-
-    status: "Ongoing",
-
-    detailTitle:
-      "COMSOL Battery Thermal Runaway Simulation",
-
-    summary:
-      "A multiphysics simulation study of lithium-ion pouch-cell thermal runaway, decomposition reactions, and worst-case temperature evolution.",
-
-    fullDescription:
-      "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
-
-    problem:
-      "Thermal runaway can cause rapid temperature rise, internal decomposition reactions, fire, gas generation, and catastrophic battery failure. Experimental abuse testing can also be expensive, hazardous, and difficult to control.",
-
-    objective:
-      "Develop a COMSOL-based thermal runaway model capable of predicting temperature evolution, heat-generation behavior, and critical thermal-safety conditions in a lithium-ion pouch cell.",
-
-    methodology:
-      "The model combines heat transfer in solids with temperature-dependent decomposition heat sources. Heat-Wait-Seek conditions, reaction kinetics, material properties, boundary conditions, and thermal-abuse scenarios are implemented to study the onset and progression of thermal runaway.",
 
     tools: [
       "COMSOL Multiphysics",
-      "Heat Transfer in Solids",
-      "Reaction Kinetics",
-      "Thermal Runaway Modeling",
-      "Heat-Wait-Seek Analysis",
+      "Heat Transfer",
+      "CFD",
       "MATLAB",
+      "ANSYS",
+      "Phase Change Materials",
     ],
 
-    results:
-      "The simulation framework is designed to evaluate temperature rise, decomposition heat generation, thermal-runaway onset, and pouch-cell safety behavior under severe thermal-abuse conditions.",
-
-    detailImage: imagePath("TRC.png"),
-
-    detailTags: [
-      "Pouch Cell",
-      "Reaction Heat",
-      "Temperature Evolution",
-      "Battery Safety",
-    ],
-
-    links: [],
+    evidence:
+      "Undergraduate thesis models PCM-cooled cylindrical-cell packs and evaluates peak temperature, thermal uniformity, and material trade-offs.",
   },
 
   {
-    id: "hl-5",
+    id: "skill-safety-degradation",
 
-    title:
-      "High-Capacity Battery Pack Testing",
+    category: "Battery Safety & Degradation Modeling",
 
-    subtitle:
-      "16S 100Ah Battery Pack Testing with Neware System",
+    icon: "radar",
+
+    badge: "Safety",
+
+    layout: "standard",
 
     description:
-      "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
+      "Modeling and interpretation of abuse-triggered battery failure, exothermic reactions, propagation risk, and performance degradation.",
 
-    image: imagePath(
-      "neware-16s-100ah-battery-test.jpeg"
-    ),
+    items: [
+      {
+        name: "Thermal Runaway",
 
-    images: [
-      imagePath(
-        "neware-16s-100ah-battery-test.jpeg"
-      ),
-      imagePath("neware-16s-test-2.jpeg"),
-      imagePath("neware-16s-test-3.jpeg"),
-      imagePath("neware-16s-test-4.jpeg"),
+        detail:
+          "ARC Heat–Wait–Seek simulation of self-heating onset, temperature acceleration, and runaway progression.",
+      },
+
+      {
+        name: "Reaction Kinetics",
+
+        detail:
+          "Arrhenius-based SEI, anode–electrolyte, cathode–solvent, and electrolyte decomposition reactions.",
+      },
+
+      {
+        name: "Failure Propagation",
+
+        detail:
+          "Cell-to-cell heat-transfer and propagation-risk analysis under different thermal boundary conditions.",
+      },
+
+      {
+        name: "Capacity-Fade Analysis",
+
+        detail:
+          "Interpretation of cycle-life degradation, efficiency drift, resistance increase, SEI growth, and thermal-aging pathways.",
+      },
     ],
-
-    buttonText: "See Project",
-
-    buttonLink: "#research",
-
-    tags: [
-      "16S Battery Pack",
-      "100Ah",
-      "Neware",
-      "BMS Testing",
-    ],
-
-    category: "Project",
-
-    status: "Completed",
-
-    detailTitle:
-      "16S 100Ah Battery Pack Testing with Neware System",
-
-    summary:
-      "Practical testing and performance monitoring of a high-capacity 16S 100Ah lithium-ion battery pack using a Neware Battery Test System.",
-
-    fullDescription:
-      "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
-
-    problem:
-      "High-capacity battery packs require accurate test configuration, reliable electrical connections, continuous voltage monitoring, and controlled performance evaluation to detect unsafe behavior and pack-level inconsistencies.",
-
-    objective:
-      "Configure and test a 16S 100Ah battery pack using the Neware system and evaluate its electrical behavior, monitoring response, operational reliability, and pack-level safety.",
-
-    methodology:
-      "The battery pack was connected to the Neware Battery Test System using the required test and monitoring connections. The work included test-channel setup, cell-voltage connection verification, pack-voltage monitoring, BMS observation, controlled testing, and analysis of recorded performance data.",
 
     tools: [
-      "Neware Battery Test System",
-      "16S Battery Pack",
-      "100Ah Li-ion Battery",
-      "BMS",
-      "Cell Voltage Monitoring",
-      "Pack Performance Analysis",
+      "ARC HWS",
+      "Arrhenius Kinetics",
+      "Thermal Runaway",
+      "Failure Propagation",
+      "SEI Growth",
+      "Cycle Aging",
     ],
 
-    results:
-      "The testing work provided practical experience in configuring, monitoring, and evaluating a high-capacity battery pack while supporting safer pack operation and reliable performance analysis.",
-
-    detailImage: imagePath(
-      "neware-16s-100ah-battery-test.jpeg"
-    ),
-
-    detailTags: [
-      "Neware BTS",
-      "Pack Monitoring",
-      "High-Capacity Storage",
-      "Battery Validation",
-    ],
-
-    links: [],
+    evidence:
+      "Supported by COMSOL thermal-runaway models and first-author literature research on lithium-ion degradation and safety.",
   },
 
   {
-    id: "hl-6",
+    id: "skill-model-validation",
 
-    title:
-      "Li-ion Battery Pack Assembly & BMS Testing",
+    category: "Model Calibration & Engineering Data",
 
-    subtitle:
-      "15S 30-Cell Battery Pack Developed and Tested",
+    icon: "braces",
+
+    badge: "Test to Model",
+
+    layout: "standard",
 
     description:
-      "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
+      "Connecting experimental battery-test data with simulation through parameter identification, post-processing, comparison, and model-quality assessment.",
 
-    image: imagePath(
-      "15s-battery-pack-daly-bms.jpeg"
-    ),
+    items: [
+      {
+        name: "Parameter Estimation",
 
-    images: [
-      imagePath(
-        "15s-battery-pack-daly-bms.jpeg"
-      ),
-      imagePath("15s-pack-2.jpeg"),
-      imagePath("15s-pack-3.jpeg"),
-      imagePath("15s-pack-4.jpeg"),
+        detail:
+          "Identification and adjustment of electrochemical, thermal, kinetic, and operating parameters.",
+      },
+
+      {
+        name: "Model Validation",
+
+        detail:
+          "Comparison of simulated voltage, capacity, temperature, and resistance behavior against cycler data and expected physical trends.",
+      },
+
+      {
+        name: "Sensitivity & Convergence",
+
+        detail:
+          "Parameter-sensitivity studies, mesh checks, time-step assessment, and interpretation of numerical stability.",
+      },
+
+      {
+        name: "Automated Post-Processing",
+
+        detail:
+          "Processing, visualization, correlation, and comparison of experimental and simulation results using scripts.",
+      },
     ],
-
-    buttonText: "See Project",
-
-    buttonLink: "#research",
-
-    tags: [
-      "15S Pack",
-      "30 Cells",
-      "Daly BMS",
-      "Battery Testing",
-    ],
-
-    category: "Project",
-
-    status: "Completed",
-
-    detailTitle:
-      "15S 30-Cell Li-ion Battery Pack Assembly & Daly BMS Testing",
-
-    summary:
-      "Assembly and practical testing of a 15S lithium-ion battery pack containing 30 cells and integrated with a Daly BMS.",
-
-    fullDescription:
-      "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
-
-    problem:
-      "Improper cell arrangement, series-parallel connections, BMS wiring, sensing connections, or protection configuration can cause voltage imbalance, unreliable operation, component damage, and serious battery-safety risks.",
-
-    objective:
-      "Assemble a functional 15S 30-cell lithium-ion battery pack and validate its wiring, BMS integration, protection response, monitoring behavior, and overall pack operation.",
-
-    methodology:
-      "Thirty lithium-ion cells were arranged into the required 15S configuration. Cell groups, interconnections, balance leads, pack terminals, and the Daly BMS were assembled and verified. The completed pack was then inspected and tested to evaluate voltage sensing, wiring correctness, BMS response, and practical operation.",
 
     tools: [
-      "15S Battery Pack",
-      "30 Li-ion Cells",
-      "15Ah Cells",
-      "Daly BMS",
-      "Multimeter",
-      "Cell Voltage Monitoring",
-      "Battery Pack Assembly",
+      "Python",
+      "NumPy",
+      "pandas",
+      "SciPy",
+      "Matplotlib",
+      "MATLAB Scripting",
     ],
 
-    results:
-      "A complete 15S 30-cell battery pack was assembled and tested with a Daly BMS, providing practical experience in pack construction, sensing-wire verification, protection-system integration, and battery performance evaluation.",
-
-    detailImage: imagePath(
-      "15s-battery-pack-daly-bms.jpeg"
-    ),
-
-    detailTags: [
-      "Pack Assembly",
-      "BMS Integration",
-      "Balance Wiring",
-      "Battery Safety",
-    ],
-
-    links: [],
+    evidence:
+      "Used to extract cycler trends, evaluate degradation, automate plots, and close the experimental test-to-model workflow.",
   },
 
-  
-];
-
-/* ------------------------------------------------------------------ */
-/*  4. GALLERY                                                        */
-/* ------------------------------------------------------------------ */
-export const galleryCategories = [
-  "Research",
-  "Project",
-  "Award",
-  "Event",
-  "Workshop",
-  "Presentation",
-];
-
-export const galleryItems = [
   {
-    id: "g-1",
-    title: "Battery Cell Testing",
+    id: "skill-electronics",
+
+    category: "Electronics, PCB & Embedded Systems",
+
+    icon: "circuit",
+
+    badge: "Hardware",
+
+    layout: "half",
+
     description:
-      "Characterising charge-discharge cycles in the lab.",
-    category: "Research",
-    date: "2025",
-    image: imagePath("gallery-1.jpg"),
-    link: "",
-  },
-
-  {
-    id: "g-2",
-    title: "Battery Pack Work",
-    description:
-      "Hands-on work with BMS configuration and pack monitoring.",
-    category: "Project",
-    date: "2025",
-    image: imagePath("gallery-2.jpg"),
-    link: "",
-  },
-
-  {
-    id: "g-3",
-    title: "Research Presentation",
-    description:
-      "Presenting research work on battery thermal management.",
-    category: "Presentation",
-    date: "2024",
-    image: imagePath("gallery-3.jpg"),
-    link: "",
-  },
-
-  {
-    id: "g-4",
-    title: "Engineering Workshop",
-    description:
-      "Hands-on embedded systems and circuit training session.",
-    category: "Workshop",
-    date: "2024",
-    image: imagePath("gallery-4.jpg"),
-    link: "",
-  },
-
-  {
-    id: "g-5",
-    title: "Materials Science Laboratory",
-    description:
-      "Research foundation in battery materials and simulation-based analysis.",
-    category: "Research",
-    date: "2025",
-    image: imagePath("gallery-5.jpg"),
-    link: "",
-  },
-
-  {
-    id: "g-6",
-    title: "Academic Recognition",
-    description:
-      "Recognition for academic and research contribution.",
-    category: "Award",
-    date: "2024",
-    image: imagePath("gallery-6.jpg"),
-    link: "",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  5. HONOURS / AWARDS / CERTIFICATES                                */
-/* ------------------------------------------------------------------ */
-export const awardsCertificates = [
-  {
-    id: "aw-1",
-    title: "Python Programming Boot-Camp",
-    organization: "IEEE IU Student Branch",
-    date: "2024",
-    category: "Certificate",
-    description:
-      "Successfully completed the Python Programming Boot-Camp: Beginner to Intermediate, strengthening practical skills in Python development.",
-    image: imagePath("python-bootcamp.webp"),
-    link:
-      "https://www.facebook.com/ieee.iu.student.branch/",
-  },
-
-  {
-    id: "aw-2",
-    title: "Digital Innovation Challenge 2024",
-    organization: "ActionAid Bangladesh",
-    date: "2024",
-    category: "Competition",
-    description:
-      "Participated in the Digital Innovation Challenge 2024, showcasing creative and technology-driven problem-solving ideas.",
-    image: imagePath(
-      "digital-innovation-challenge-2024.webp"
-    ),
-    link: "https://globalplatforms.org/",
-  },
-
-  {
-    id: "aw-3",
-    title: "Certified Volunteerism",
-    organization: "Lead Academy",
-    date: "June 2024",
-    category: "Certificate",
-    description:
-      "Completed the Certified Volunteerism: Connect, Engage & Develop course from Lead Academy, endorsed by the UN Global Compact and assured by Pearson.",
-    image: imagePath(
-      "certified-volunteerism.webp"
-    ),
-    link: "https://www.lead.academy/",
-  },
-
-  {
-    id: "aw-4",
-    title: "Virtual Internship",
-    organization:
-      "YSSE \n Communication Department",
-    date: "May 2024 - October 2024",
-    category: "Internship",
-    description:
-      "Completed the Virtual Internship Program in the YSSE Communication Department and received a Bronze Certificate for performance and contribution.",
-    image: imagePath(
-      "virtual-internship.webp"
-    ),
-    link: "https://ysseacademy.com/",
-  },
-
-  {
-    id: "aw-5",
-    title:
-      "IUSC National Science Festival 2024",
-    organization:
-      "Islamic University Science Club",
-    date: "March 2024",
-    category: "Award",
-    description:
-      "Achieved Runner-Up position in the Poster Presentation category at the 1st IUSC National Science Festival 2024.",
-    image: imagePath(
-      "iusc-national-science-festival-2024.jpeg"
-    ),
-    link:
-      "https://www.facebook.com/groups/1117675018875480/user/100086142219558",
-  },
-
-  {
-    id: "aw-6",
-    title: "Energy Innovation Challenge 2024",
-    organization: "PRAAN",
-    date: "2024",
-    category: "Competition",
-    description:
-      "Showcased an innovative solution in renewable energy, energy storage, and efficiency at the Energy Innovation Challenge 2024.",
-    image: imagePath(
-      "energy-innovation-challenge-2024.jpeg"
-    ),
-    link: "https://praan.org.bd/",
-  },
-
-  {
-    id: "aw-7",
-    title:
-      "Spoken English and IELTS Workshop 2025",
-    organization:
-      "Islamic University Career Club",
-    date: "19 January 2025",
-    category: "Workshop",
-    description:
-      "Received a certificate for active participation in the Workshop on Basics of Spoken English and IELTS Program.",
-    image: imagePath(
-      "spoken-english-ielts-workshop-2025.webp"
-    ),
-    link:
-      "https://www.facebook.com/IUCareerClub",
-  },
-
-  {
-    id: "aw-8",
-    title: "EcoPreneurs Bootcamp 2025",
-    organization: "LSS",
-    date: "2025",
-    category: "Bootcamp",
-    description:
-      "Participated in the EcoPreneurs Bootcamp 2025, focusing on green entrepreneurship and climate-resilient innovation.",
-    image: imagePath(
-      "ecopreneurs-bootcamp-2025.webp"
-    ),
-    link: "https://lss.org.bd/",
-  },
-
-  {
-    id: "aw-9",
-    title: "Green Energy Olympiad 2025",
-    organization: "Clean Bangladesh",
-    date: "2025",
-    category: "Olympiad",
-    description:
-      "Engaged in GEO 2025 to explore green energy initiatives, environmental development, and sustainable energy strategies.",
-    image: imagePath(
-      "green-energy-olympiad-2025.webp"
-    ),
-    link: "https://www.cleanbd.org/geo2026",
-  },
-
-  {
-    id: "aw-10",
-    title: "Global SDG Youth Summit 2025",
-    organization: "Global SDG Youth Summit",
-    date: "2025",
-    category: "Summit",
-    description:
-      "Participated as a delegate in the Global SDG Youth Summit 2025, exchanging ideas on innovation and solutions aligned with the United Nations Sustainable Development Goals.",
-    image: imagePath(
-      "global-sdg-youth-summit-2025.webp"
-    ),
-    link:
-      "https://www.facebook.com/GlobalSDGYouthSummit/",
-  },
-
-  {
-    id: "aw-11",
-    title: "Workshop on VLSI",
-    organization:
-      "ChipXpert Technologies Pvt. Ltd.",
-    date: "September 2025",
-    category: "Workshop",
-    description:
-      "Participated in a Two-Day Workshop on VLSI Design Flow, from RTL to GDS, using industry tools by ChipXpert Technologies Pvt. Ltd., Hyderabad.",
-    image: imagePath(
-      "ChipXpert Technologies Pvt. Ltd..webp"
-    ),
-    link: "https://chipxpert.in/",
-  },
-
-  {
-    id: "aw-12",
-    title: "PCB Designing Workshop",
-    organization:
-      "IEEE RAS IUT Student Branch & Cybernetics.",
-    date: "October 2025",
-    category: "Workshop",
-    description:
-      "Successfully completed the Cybernetics PCB Designing Workshop organized by IEEE Robotics and Automation Society IUT Student Branch, including three online sessions on PCB design fundamentals and practical electronics design workflow.",
-    image: imagePath(
-      "pcb-designing-workshop.jpg"
-    ),
-    link: "",
-  },
-
-  {
-    id: "aw-13",
-    title:
-      "Industrial Technology on Electrical Engineering & Instrumentation",
-    organization:
-      "Training Institute for Chemical Industries",
-    date: "February 2026",
-    category: "Training",
-    description:
-      "Completed a three-week industrial training course on Electrical Engineering and Instrumentation at the Training Institute for Chemical Industries, Polash, Narsingdi, Bangladesh, obtaining an A+ grade in the final evaluation.",
-    image: imagePath(
-      "industrial-technology-electrical-instrumentation.jpg"
-    ),
-    link: "https://tici.gov.bd/",
-  },
-
-  {
-    id: "aw-14",
-    title: "SOC Estimation with Kalman Filters",
-    organization: "Certified Course",
-    date: "June 2026",
-    category: "Certificate",
-    description:
-      "Successfully completed a certified course on State of Charge estimation using Kalman Filters, strengthening knowledge in battery modeling, estimation algorithms, and battery management system applications.",
-    image: imagePath(
-      "soc-estimation-kalman-filters.jpg"
-    ),
-    link: "https://lms.decibelslab.com/",
-  },
-
-  {
-    id: "aw-15",
-    title:
-      "Restoration Factory Bangladesh Incubation Program",
-    organization:
-      "UN Environment Programme, Bridge for Billions & iDE",
-    date: "December 2025",
-    category: "Incubation",
-    description:
-      "Awarded for successfully completing participation in The Restoration Factory Bangladesh incubation program, receiving innovation-focused entrepreneurship training, business mentorship, and support to develop the project 'For The Light', focused on restoration and conservation of the forest ecosystem.",
-    image: imagePath(
-      "restoration-factory-bangladesh.jpeg"
-    ),
-    link:
-      "https://www.bridgeforbillions.org/",
-  },
-
-  {
-    id: "aw-16",
-    title: "Precise Energy 2025",
-    organization:
-      "Energy of the Future / ASE Rosatom",
-    date: "October 2025",
-    category: "Olympiad",
-    description:
-      "Participated in the final stage of the Precise Energy 2025 Olympiad in Mathematics, Chemistry, and Physics for students of the Rooppur NPP region.",
-    image: imagePath("precise Energy.jpeg"),
-    link: "",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  6. SKILLS                                                         */
-/* ------------------------------------------------------------------ */
-export const skills = [
-  {
-    category: "Battery Thermal Management",
+      "Practical electronics development combining circuit simulation, embedded control, PCB workflows, sensors, measurement, and troubleshooting.",
 
     items: [
       {
-        name: "PCM-Based Cooling",
-        level: 85,
+        name: "PCB & Circuit Development",
+
+        detail:
+          "Schematic development, component placement, PCB prototyping, sensing connections, layout review, and circuit debugging.",
       },
+
       {
-        name:
-          "Li-ion Battery Pack Thermal Analysis",
-        level: 82,
+        name: "Embedded Programming",
+
+        detail:
+          "Microcontroller programming and control logic using C/C++, Arduino, PIC, ESP32, and STM32-oriented platforms.",
       },
+
       {
-        name: "CFD Simulation",
-        level: 80,
+        name: "Measurement & Diagnostics",
+
+        detail:
+          "Multimeter and oscilloscope operation, signal checking, sensor interfacing, calibration, and hardware fault diagnosis.",
+      },
+
+      {
+        name: "Power-Electronics Systems",
+
+        detail:
+          "Solar IPS/inverter control, PWM/SPWM concepts, protection logic, voltage/current monitoring, and power-management circuits.",
       },
     ],
+
+    tools: [
+      "C/C++",
+      "PIC",
+      "ESP32",
+      "STM32",
+      "Proteus",
+      "Multisim",
+      "EasyEDA",
+      "Altium",
+    ],
+
+    evidence:
+      "Demonstrated through BMS hardware support, PCB workshops, solar emergency systems, and PIC-based inverter-control development.",
   },
 
   {
-    category: "Simulation Tools",
+    id: "skill-engineering-tools",
+
+    category: "Engineering Software & Development Tools",
+
+    icon: "wrench",
+
+    badge: "Toolchain",
+
+    layout: "half",
+
+    description:
+      "A multidisciplinary engineering toolchain supporting simulation, data processing, electronics development, mechanical drafting, and technical delivery.",
 
     items: [
       {
-        name: "COMSOL Multiphysics",
-        level: 85,
+        name: "Simulation Environment",
+
+        detail:
+          "COMSOL Multiphysics, MATLAB, ANSYS, Proteus, and Multisim for physics, control, circuit, and system analysis.",
       },
+
       {
-        name: "MATLAB / Simulink",
-        level: 78,
+        name: "Programming Environment",
+
+        detail:
+          "Python, MATLAB scripting, C, C++, and Arduino-based development for analysis and embedded applications.",
+      },
+
+      {
+        name: "Design Environment",
+
+        detail:
+          "EasyEDA and Altium for PCB work; SolidWorks and AutoCAD for engineering drawing and design support.",
+      },
+
+      {
+        name: "Developing Capabilities",
+
+        detail:
+          "Currently expanding practical knowledge of PyBaMM, Simulink, machine learning, and battery state-estimation workflows.",
       },
     ],
-  },
 
-  {
-    category: "BMS & Battery Pack Testing",
-
-    items: [
-      {
-        name:
-          "4S / 16S / 32S BMS Configuration",
-        level: 80,
-      },
-      {
-        name:
-          "Battery Pack Testing with NEWARE BTS",
-        level: 82,
-      },
-      {
-        name:
-          "Pack Monitoring & Performance Analysis",
-        level: 78,
-      },
-    ],
-  },
-
-  {
-    category: "Programming",
-
-    items: [
-      {
-        name: "Python",
-        level: 75,
-      },
-      {
-        name: "C / C++",
-        level: 80,
-      },
-      {
-        name:
-          "ESP/PIC Microcontroller Programming",
-        level: 78,
-      },
-    ],
-  },
-
-  {
-    category: "Circuit & PCB Tools",
-
-    items: [
-      {
-        name: "Proteus",
-        level: 78,
-      },
-      {
-        name: "Multisim",
-        level: 74,
-      },
-      {
-        name: "EasyEDA",
-        level: 76,
-      },
-    ],
-  },
-
-  {
-    category: "Research & Writing",
-
-    items: [
-      {
-        name: "Technical Writing",
-        level: 80,
-      },
-      {
-        name: "Simulation-Based Analysis",
-        level: 82,
-      },
-      {
-        name: "Data Analysis",
-        level: 76,
-      },
-    ],
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  7. EDUCATION                                                      */
-/* ------------------------------------------------------------------ */
-export const education = [
-  {
-    id: "ed-1",
-
-    title:
-      "B.Sc. in Electrical & Electronic Engineering",
-
-    institution:
-      "Islamic University, Bangladesh",
-
-    date: "Ongoing",
-
-    description:
-      "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. My career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic background supports my current work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
-
-    tags: [
-      "EEE",
-      "Major: Power Electronics",
-      "Power Conversion",
-      "Battery Systems",
-      "BMS",
-      "EV Energy Storage",
-    ],
-
-    link: "",
-  },
-
-  {
-    id: "ed-2",
-
-    title:
-      "Higher Secondary Certificate (Science)",
-
-    institution: "College",
-
-    date: "Completed",
-
-    description:
-      "Foundation in physics, chemistry, and mathematics that shaped an early interest in energy and electronics.",
-
-    tags: [
-      "Science",
-    ],
-
-    link: "",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  8. EXPERIENCE                                                     */
-/* ------------------------------------------------------------------ */
-export const experience = [
-  {
-    id: "ex-1",
-
-    title: "Intern",
-
-    institution:
-      "OMI Battery Innovation Center",
-
-    date: "Apr 2026 — Present",
-
-    description:
-      "Part-time internship focused on LFP battery pack applications. Configured and analyzed 4S, 16S, and 32S Battery Management System architectures, supported PCB schematic and layout design, including component placement and pack-monitoring connections, and assisted with battery pack simulation, BMS performance analysis, system behavior interpretation, and pack-level safety evaluation.",
-
-    tags: [
-      "BMS",
-      "LFP Battery Pack",
-      "PCB Design",
-      "Pack Safety",
-    ],
-
-    link: "",
-  },
-
-  {
-    id: "ex-2",
-
-    title: "Research Assistant",
-
-    institution:
-      "Materials Science Laboratory, Department of Electrical & Electronic Engineering, Islamic University",
-
-    date: "Jan 2023 — Present",
-
-    description:
-      "Supported Li-ion battery and materials research related to electrochemical behavior, thermal behavior, and energy storage performance. Assisted with literature review, data interpretation, and technical documentation for battery and materials studies under the supervision of Dr. Momtazul Islam.",
-
-    tags: [
-      "Li-ion Battery",
-      "Materials Research",
-      "Energy Storage",
-      "Technical Documentation",
-    ],
-
-    link: "",
-  },
-
-  {
-    id: "ex-3",
-
-    title: "Intern",
-
-    institution:
-      "Simulation Support BD (SSBD)",
-
-    date: "Feb 2026 — Present",
-
-    description:
-      "Part-time internship supporting physics-based modeling and analysis tasks using COMSOL Multiphysics, MATLAB, and ANSYS. Worked on thermal and electrochemical simulation, parameter optimization, result visualization, and interpretation of simulation outputs while collaborating with senior engineers to validate models, improve simulation accuracy, and communicate technical findings.",
-
-    tags: [
+    tools: [
       "COMSOL",
       "MATLAB",
       "ANSYS",
-      "Simulation",
-      "Model Validation",
+      "Python",
+      "SolidWorks",
+      "AutoCAD",
+      "PyBaMM (Learning)",
+      "Simulink (Learning)",
     ],
 
-    link: "",
+    evidence:
+      "Selected tools reflect those repeatedly used across battery research, internships, simulation projects, and embedded-system work.",
   },
 
   {
-    id: "ex-4",
+    id: "skill-research-communication",
 
-    title: "Embedded Systems Developer",
+    category: "Research Engineering & Technical Communication",
 
-    institution:
-      "Solar Lighting & Security System — For The Light",
+    icon: "document",
 
-    date: "Feb 2024 — Jan 2026",
+    badge: "Research",
+
+    layout: "full",
 
     description:
-      "Developed solar-powered embedded hardware using microcontrollers, sensors, power-management circuits, and field-oriented renewable-energy design. Performed PCB prototyping, circuit testing, embedded programming, diagnostics, and hardware troubleshooting for a solar lighting and security system.",
+      "Transforming technical work into reproducible models, defensible engineering reports, peer-reviewed research, and clear presentations.",
 
-    tags: [
-      "Embedded Systems",
-      "Solar Energy",
-      "PCB Prototyping",
-      "Microcontrollers",
+    items: [
+      {
+        name: "Scientific Literature Analysis",
+
+        detail:
+          "Systematic interpretation of battery materials, degradation, performance, thermal behavior, and safety literature.",
+      },
+
+      {
+        name: "Model Documentation",
+
+        detail:
+          "Documentation of governing equations, assumptions, material parameters, boundary conditions, limitations, and validity ranges.",
+      },
+
+      {
+        name: "Engineering Reporting",
+
+        detail:
+          "Preparation of test records, result tables, simulation reports, technical documentation, and engineering presentations.",
+      },
+
+      {
+        name: "Research Publication",
+
+        detail:
+          "First-author peer-reviewed publication experience in lithium-ion battery development, degradation, performance, and safety.",
+      },
     ],
 
-    link: "",
-  },
-
-  {
-    id: "ex-5",
-
-    title: "Intern",
-
-    institution: "Mage Squad, YSSE",
-
-    date: "May 2024 — Aug 2024",
-
-    description:
-      "Part-time internship involving technical writing and communication. Authored technical articles on AI, innovation, sustainability, and development, while strengthening scientific communication, technical writing, and documentation skills for engineering reporting.",
-
-    tags: [
+    tools: [
       "Technical Writing",
-      "AI",
-      "Sustainability",
-      "Documentation",
+      "Literature Review",
+      "Data Visualization",
+      "LaTeX",
+      "Research Reporting",
+      "Technical Presentation",
     ],
 
-    link: "",
+    evidence:
+      "Includes a first-author Springer Nature review article and technical reporting across research, testing, and simulation roles.",
   },
 ];
-
-/* ------------------------------------------------------------------ */
-/*  9. PUBLICATIONS                                                   */
-/* ------------------------------------------------------------------ */
-export const publications = [];
-
-/* ------------------------------------------------------------------ */
-/*  10. CONTACT                                                       */
-/* ------------------------------------------------------------------ */
-export const contactInfo = {
-  heading: "Let's Connect",
-
-  intro:
-    "Open to research collaborations, graduate study opportunities, scholarship opportunities, and conversations about safer and smarter battery technologies.",
-
-  location: "",
-
-  phone: "+880-1719194874",
-
-  email: "omar.faruque@example.com",
-
-  formRecipient:
-    "omar.faruque@example.com",
-};
-
-/* ------------------------------------------------------------------ */
-/*  11. SOCIAL LINKS                                                  */
-/* ------------------------------------------------------------------ */
-export const socialLinks = [
-  {
-    platform: "Facebook",
-    icon: "facebook",
-    url: "https://facebook.com/",
-  },
-
-  {
-    platform: "LinkedIn",
-    icon: "linkedin",
-    url: "https://linkedin.com/in/",
-  },
-
-  {
-    platform: "GitHub",
-    icon: "github",
-    url: "https://github.com/",
-  },
-
-  {
-    platform: "Instagram",
-    icon: "instagram",
-    url: "https://instagram.com/",
-  },
-
-  {
-    platform: "Google Scholar",
-    icon: "scholar",
-    url: "",
-  },
-
-  {
-    platform: "ResearchGate",
-    icon: "researchgate",
-    url: "",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  NAVIGATION                                                        */
-/* ------------------------------------------------------------------ */
-export const navLinks = [
-  {
-    label: "Home",
-    to: "home",
-  },
-
-  {
-    label: "About",
-    to: "about",
-  },
-
-  {
-    label: "Research",
-    to: "research",
-  },
-
-  {
-    label: "Gallery",
-    to: "gallery",
-  },
-
-  {
-    label: "Awards",
-    to: "awards",
-  },
-
-  {
-    label: "Skills",
-    to: "skills",
-  },
-
-  {
-    label: "Journey",
-    to: "journey",
-  },
-
-  {
-    label: "Publications",
-    to: "publications",
-  },
-
-  {
-    label: "Contact",
-    to: "contact",
-  },
-];
-
-/* ------------------------------------------------------------------ */
-/*  SITE META                                                         */
-/* ------------------------------------------------------------------ */
-export const siteMeta = {
-  brandShort: "Omar Faruque",
-
-  brandInitials: "OF",
-
-  footerTagline:
-    "Electrical & Electronic Engineering · Battery thermal management, BMS, and EV energy storage.",
-
-  copyrightName: "Omar Faruque",
-};
