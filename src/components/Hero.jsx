@@ -1,222 +1,275 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 import { useData } from "../context/DataContext";
-import SmartImage from "./SmartImage";
-import SocialIcons from "./SocialIcons";
+
+const ACCENT_STYLES = {
+  blue: {
+    ring: "border-cyan-400/30",
+    glow: "shadow-[0_0_28px_rgba(34,211,238,0.28)]",
+    hover: "group-hover:border-cyan-300/60",
+    dot: "bg-cyan-300",
+  },
+  orange: {
+    ring: "border-orange-400/30",
+    glow: "shadow-[0_0_28px_rgba(251,146,60,0.28)]",
+    hover: "group-hover:border-orange-300/60",
+    dot: "bg-orange-300",
+  },
+  yellow: {
+    ring: "border-yellow-400/30",
+    glow: "shadow-[0_0_28px_rgba(250,204,21,0.28)]",
+    hover: "group-hover:border-yellow-300/60",
+    dot: "bg-yellow-300",
+  },
+  red: {
+    ring: "border-rose-400/30",
+    glow: "shadow-[0_0_28px_rgba(251,113,133,0.28)]",
+    hover: "group-hover:border-rose-300/60",
+    dot: "bg-rose-300",
+  },
+  green: {
+    ring: "border-emerald-400/30",
+    glow: "shadow-[0_0_28px_rgba(52,211,153,0.28)]",
+    hover: "group-hover:border-emerald-300/60",
+    dot: "bg-emerald-300",
+  },
+  purple: {
+    ring: "border-violet-400/30",
+    glow: "shadow-[0_0_28px_rgba(167,139,250,0.28)]",
+    hover: "group-hover:border-violet-300/60",
+    dot: "bg-violet-300",
+  },
+  gold: {
+    ring: "border-gold/30",
+    glow: "shadow-gold-glow",
+    hover: "group-hover:border-gold/60",
+    dot: "bg-gold",
+  },
+};
 
 export default function Hero() {
   const { data } = useData();
-  const { heroData, socialLinks } = data;
+  const hero = data.heroData;
 
-  const scrollTo = (id) => {
-    const el = document.getElementById(id);
-    if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 76;
-      window.scrollTo({ top, behavior: "smooth" });
-    }
-  };
+  if (!hero) return null;
+
+  const floatingSkills = hero.floatingSkills || [];
+  const stats = hero.stats || [];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center overflow-hidden bg-navy-gradient pt-24 pb-16"
+      className="relative overflow-hidden bg-navy-gradient py-20 sm:py-24 lg:py-28"
     >
-      {/* Background image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}assets/images/ph-img-21.webp)`,
-        }}
-      />
+      <div className="absolute inset-0 bg-mesh opacity-50" />
+      <div className="absolute -left-24 top-20 h-72 w-72 rounded-full bg-gold/[0.04] blur-3xl" />
+      <div className="absolute right-0 top-0 h-80 w-80 rounded-full bg-white/[0.02] blur-3xl" />
 
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70" />
-      <div className="absolute inset-0 bg-mesh opacity-35" />
-
-      {/* Glow effects */}
-      <motion.div
-        className="absolute -top-32 -right-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
-        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <motion.div
-        className="absolute bottom-0 -left-32 h-96 w-96 rounded-full bg-navy-800/60 blur-3xl"
-        animate={{ scale: [1, 1.15, 1] }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-      />
-
-      <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-5 sm:px-8 lg:grid-cols-12 lg:gap-8">
-        {/* Text column */}
-        <div className="lg:col-span-7 text-center lg:text-left">
-          {heroData.status && (
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 mb-6 backdrop-blur"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-white opacity-60" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-white" />
-              </span>
-              <span className="text-xs font-medium text-white/90 tracking-wide">
-                {heroData.status}
-              </span>
-            </motion.div>
+      <div className="relative mx-auto grid max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-2">
+        {/* Left content */}
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+        >
+          {hero.status && (
+            <div className="mb-5 inline-flex rounded-full border border-gold/25 bg-gold/10 px-4 py-2 text-sm font-medium text-gold-soft">
+              {hero.status}
+            </div>
           )}
 
-          {/* Name */}
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
-          >
-            <span className="inline-flex flex-nowrap items-baseline gap-4 sm:gap-5 lg:gap-7 whitespace-nowrap">
-              {heroData.name.split(" ").map((word) => (
-                <span key={word}>{word}</span>
-              ))}
-            </span>
-          </motion.h1>
+          <h1 className="font-display text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
+            {hero.name}
+          </h1>
 
-          {/* Department */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.25 }}
-            className="mt-5 text-lg sm:text-xl font-semibold leading-relaxed text-white/85 whitespace-pre-line"
-          >
-            {heroData.title}
-          </motion.p>
+          <p className="mt-4 whitespace-pre-line text-lg font-medium text-gold-soft sm:text-xl">
+            {hero.title}
+          </p>
 
-          {/* Tagline */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="mt-5 max-w-2xl text-base sm:text-lg leading-relaxed text-white/65 mx-auto lg:mx-0"
-          >
-            {heroData.tagline}
-          </motion.p>
+          <p className="mt-5 max-w-2xl text-base leading-relaxed text-white/65 sm:text-lg">
+            {hero.tagline}
+          </p>
 
-          {/* Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.45 }}
-            className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3"
-          >
-            {heroData.ctaButtons.map((btn) =>
-              btn.href ? (
+          {hero.ctaButtons?.length > 0 && (
+            <div className="mt-8 flex flex-wrap gap-3">
+              {hero.ctaButtons.map((button) => (
                 <a
-                  key={btn.label}
-                  href={btn.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={ctaClass(btn.primary)}
+                  key={button.label}
+                  href={`#${button.scrollTo}`}
+                  className={
+                    button.primary
+                      ? "rounded-full bg-gold-gradient px-6 py-3 text-sm font-semibold text-navy-950 shadow-gold-glow transition hover:scale-[1.02]"
+                      : "rounded-full border border-white/12 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white/80 transition hover:bg-white/[0.08]"
+                  }
                 >
-                  {btn.label}
-                  {btn.primary && <ArrowRight className="h-4 w-4" />}
+                  {button.label}
                 </a>
-              ) : (
-                <button
-                  key={btn.label}
-                  onClick={() => scrollTo(btn.scrollTo)}
-                  className={ctaClass(btn.primary)}
+              ))}
+            </div>
+          )}
+
+          {stats.length > 0 && (
+            <div className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {stats.map((stat, index) => (
+                <div
+                  key={`${stat.label}-${index}`}
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] px-5 py-4"
                 >
-                  {btn.label}
-                  {btn.primary && <ArrowRight className="h-4 w-4" />}
-                </button>
-              )
-            )}
-          </motion.div>
+                  <div className="text-xl font-bold text-white">
+                    {stat.value}
+                  </div>
 
-          {/* Social Icons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.55 }}
-            className="mt-8 flex justify-center lg:justify-start"
-          >
-            <SocialIcons links={socialLinks} variant="dark" />
-          </motion.div>
-        </div>
+                  <div className="mt-1 text-xs uppercase tracking-[0.14em] text-white/45">
+                    {stat.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+        </motion.div>
 
-        {/* Image column */}
+        {/* Right portrait + orbit */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
+          initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="lg:col-span-5 flex justify-center"
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="relative mx-auto w-full max-w-[560px]"
         >
-          <div className="relative">
-            <motion.div
-              className="absolute -inset-4 rounded-[2rem] bg-white/15 opacity-20 blur-2xl"
-              animate={{ opacity: [0.15, 0.3, 0.15] }}
-              transition={{ duration: 5, repeat: Infinity }}
-            />
+          <div className="relative mx-auto flex w-full max-w-[460px] items-center justify-center">
+            {/* Desktop orbit system */}
+            <div className="relative hidden h-[540px] w-[540px] lg:block">
+              <div className="absolute inset-0 rounded-full border border-white/[0.05]" />
+              <div className="absolute inset-[48px] rounded-full border border-white/[0.05]" />
+              <div className="absolute inset-[96px] rounded-full border border-white/[0.04]" />
 
-            <div className="relative h-72 w-72 sm:h-80 sm:w-80 lg:h-96 lg:w-96 rounded-[2rem] border border-white/10 bg-white/5 p-2 backdrop-blur-sm shadow-elevate animate-float-slow">
-              <SmartImage
-                src={heroData.profileImage}
-                alt={heroData.name}
-                className="h-full w-full rounded-[1.6rem]"
-                placeholderLabel="Add profile.jpg"
-              />
+              <div className="absolute left-1/2 top-1/2 z-20 w-[340px] -translate-x-1/2 -translate-y-1/2">
+                <PortraitCard profileImage={hero.profileImage} name={hero.name} />
+              </div>
+
+              <motion.div
+                className="absolute inset-0"
+                animate={{ rotate: 360 }}
+                transition={{
+                  duration: 30,
+                  ease: "linear",
+                  repeat: Infinity,
+                }}
+              >
+                {floatingSkills.slice(0, 6).map((skill, index) => {
+                  const angle = index * 60;
+                  return (
+                    <OrbitBadge
+                      key={`${skill.name}-${index}`}
+                      skill={skill}
+                      angle={angle}
+                      radius={238}
+                    />
+                  );
+                })}
+              </motion.div>
             </div>
 
-            {/* Floating stat badges */}
-            {heroData.stats?.slice(0, 3).map((s, i) => (
-              <motion.div
-                key={s.label}
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.7 + i * 0.15, type: "spring" }}
-                className="absolute rounded-2xl border border-white/10 bg-charcoal-light/90 backdrop-blur-md px-4 py-2.5 shadow-glass"
-                style={badgePos(i)}
-              >
-                <div className="text-white font-display font-bold text-lg leading-none">
-                  {s.value}
-                </div>
-                <div className="text-[10px] uppercase tracking-wider text-white/50 mt-1">
-                  {s.label}
-                </div>
-              </motion.div>
-            ))}
+            {/* Mobile compact layout */}
+            <div className="w-full lg:hidden">
+              <div className="mx-auto max-w-[330px]">
+                <PortraitCard profileImage={hero.profileImage} name={hero.name} />
+
+                {floatingSkills.length > 0 && (
+                  <div className="mt-5 grid grid-cols-3 gap-3">
+                    {floatingSkills.slice(0, 6).map((skill, index) => (
+                      <CompactBadge
+                        key={`${skill.name}-${index}`}
+                        skill={skill}
+                      />
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
-
-      {/* Scroll cue */}
-      <motion.div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
-        <span className="text-[10px] uppercase tracking-[0.2em] text-white/40">
-          Scroll
-        </span>
-        <div className="h-9 w-5 rounded-full border border-white/20 flex justify-center pt-1.5">
-          <span className="h-1.5 w-1 rounded-full bg-white" />
-        </div>
-      </motion.div>
     </section>
   );
 }
 
-function ctaClass(primary) {
-  return primary
-    ? "inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-navy-900 shadow-gold-glow transition-transform hover:scale-[1.03] active:scale-95"
-    : "inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white/85 backdrop-blur transition-colors hover:bg-white/10 hover:border-white/40";
+function PortraitCard({ profileImage, name }) {
+  return (
+    <div className="relative rounded-[2rem] border border-white/10 bg-white/[0.04] p-3 shadow-elevate">
+      <div className="overflow-hidden rounded-[1.7rem] border border-white/10">
+        <img
+          src={profileImage}
+          alt={name}
+          className="aspect-[4/5] w-full object-cover"
+        />
+      </div>
+    </div>
+  );
 }
 
-function badgePos(i) {
-  const map = [
-    { top: "-1rem", left: "-1.5rem" },
-    { top: "45%", right: "-2rem" },
-    { bottom: "-1rem", left: "1rem" },
-  ];
+function OrbitBadge({
+  skill,
+  angle,
+  radius,
+}) {
+  const accent =
+    ACCENT_STYLES[skill.accent] ||
+    ACCENT_STYLES.gold;
 
-  return map[i];
+  return (
+    <div
+      className="absolute left-1/2 top-1/2"
+      style={{
+        transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(-${radius}px)`,
+      }}
+    >
+      <motion.div
+        whileHover={{
+          scale: 1.1,
+        }}
+        className="group"
+        style={{
+          transform: `rotate(-${angle}deg)`,
+        }}
+      >
+        <div
+          className={`relative flex h-16 w-16 items-center justify-center rounded-2xl border bg-navy-950/90 backdrop-blur-md transition-all duration-300 ${accent.ring} ${accent.glow} ${accent.hover}`}
+          title={skill.name}
+        >
+          <span
+            className={`absolute -bottom-1.5 h-2 w-2 rounded-full ${accent.dot}`}
+          />
+
+          <img
+            src={skill.icon}
+            alt={skill.name}
+            className="h-9 w-9 object-contain"
+          />
+        </div>
+      </motion.div>
+    </div>
+  );
+}
+
+function CompactBadge({ skill }) {
+  const accent =
+    ACCENT_STYLES[skill.accent] ||
+    ACCENT_STYLES.gold;
+
+  return (
+    <motion.div
+      whileHover={{ y: -3, scale: 1.03 }}
+      className={`group flex items-center gap-2 rounded-2xl border bg-navy-950/80 px-3 py-2.5 backdrop-blur-sm transition-all duration-300 ${accent.ring} ${accent.glow} ${accent.hover}`}
+      title={skill.name}
+    >
+      <img
+        src={skill.icon}
+        alt={skill.name}
+        className="h-7 w-7 object-contain"
+      />
+
+      <span className="truncate text-xs font-medium text-white/75 group-hover:text-white">
+        {skill.name}
+      </span>
+    </motion.div>
+  );
 }
