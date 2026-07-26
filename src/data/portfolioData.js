@@ -152,36 +152,50 @@ export const aboutData = {
 };
 
 /* ------------------------------------------------------------------ */
-/*  3. DYNAMIC HIGHLIGHTS + RESEARCH / PROJECT DETAILS                */
+/*  3. FOCUS AREAS                                                    */
 /* ------------------------------------------------------------------ */
+
 export const highlightSections = [
   {
     id: "hl-1",
 
-    title: "Battery Thermal Management Research",
+    title:
+      "Battery Electrochemical and Thermal Management",
 
-    subtitle: "PCM-Based Li-ion Battery Pack Cooling",
+    subtitle:
+      "Cell Modeling and PCM-Based Pack Cooling",
 
     description:
-      "Investigating phase change material based thermal management systems for lithium-ion battery packs. The work focuses on heat generation, temperature distribution, and composite PCM cooling behavior under real operating conditions.",
+      "Modeling how a lithium-ion cell works and how PCM cooling can control battery-pack temperature. The completed studies cover electrochemical behavior, material comparison, PCM thickness, and cell spacing.",
 
-    image: imagePath("Battery Pack.jpg"),
+    image:
+      imagePath(
+        "Battery Pack.jpg"
+      ),
 
     images: [
-      imagePath("Battery Pack.jpg"),
+      imagePath(
+        "Battery Pack.jpg"
+      ),
       imagePath("c1.png"),
-      imagePath("battery-thermal-3.jpg"),
-      imagePath("battery-thermal-4.jpg"),
+      imagePath(
+        "battery-thermal-3.jpg"
+      ),
+      imagePath(
+        "battery-thermal-4.jpg"
+      ),
     ],
 
-    buttonText: "Explore Research",
+    buttonText:
+      "Explore Research",
 
     buttonLink: "#research",
 
     tags: [
-      "Li-ion",
-      "PCM",
-      "Thermal Management",
+      "Electrochemical Modeling",
+      "PCM Cooling",
+      "Material Comparison",
+      "Cell Spacing",
     ],
 
     category: "Research",
@@ -189,40 +203,45 @@ export const highlightSections = [
     status: "Ongoing",
 
     detailTitle:
-      "PCM-Based Thermal Management of Li-ion Battery Packs",
+      "Electrochemical and PCM Thermal Modeling of a Li-ion Battery Pack",
 
     summary:
-      "Investigating PCM-based cooling strategies to improve lithium-ion battery safety, temperature control, and reliability.",
+      "Built a battery model and completed design studies to understand how PCM material, PCM thickness, and cell spacing affect temperature control and temperature uniformity.",
 
     fullDescription:
-      "This research focuses on phase change material based thermal management of lithium-ion battery packs. COMSOL Multiphysics is used to simulate heat generation, thermal distribution, and composite PCM cooling behavior under real operating conditions.",
+      "This research connects a physics-based electrochemical cell model with a thermal model of a battery pack. The aim is to explain cell behavior, heat generation, and the cooling effect of phase change materials in a clear and practical way.",
 
     problem:
-      "Lithium-ion battery packs can experience excessive heat generation and uneven temperature distribution, which may reduce performance, shorten life, and create safety risks.",
+      "Battery cells generate heat during operation, and all cells may not remain at the same temperature. High temperature and uneven heating can reduce performance, shorten battery life, and increase safety risk.",
 
     objective:
-      "Develop and analyze PCM-based cooling strategies to keep battery packs safe, cool, and reliable during operation.",
+      "Find a practical battery-pack design that keeps the cells cooler and reduces the temperature difference between the hottest and coolest cells.",
 
     methodology:
-      "COMSOL Multiphysics simulation is used to model heat generation, temperature distribution, and thermal behavior of composite PCM around Li-ion battery cells.",
+      "COMSOL Multiphysics was used to model LFP/graphite cell behavior and pack-level heat transfer. Existing PCM materials were compared, including paraffin or OM32 and composite PCM options using SiO2 and expanded graphite. PCM thicknesses of 10, 20, 25, and 30 mm were studied together with cell pitches of 24, 26, 28, and 30 mm. The results were generated from available and established material-property data.",
+
+    results:
+      "The electrochemical model, material comparison, PCM-thickness study, and cell-spacing study are complete. In the tested design space, increasing PCM thickness generally reduced temperature non-uniformity. The lowest peak temperature difference was about 6.00 K at 30 mm cell pitch and 30 mm PCM thickness.",
+
+    nextStep:
+      "Further studies are planned. A gelatin-based thermal material was considered, but it has not been simulated because reliable thermal-property data were not available. The study will be extended when suitable data are found.",
 
     tools: [
       "COMSOL Multiphysics",
       "MATLAB",
-      "Li-ion Battery Modeling",
-      "Thermal Simulation",
+      "Python",
+      "Electrochemical Modeling",
+      "Heat Transfer",
     ],
 
-    results:
-      "The study aims to identify effective PCM cooling behavior and improve thermal stability for safer battery pack operation.",
-
-    detailImage: imagePath("graph.jpg"),
+    detailImage:
+      imagePath("graph.jpg"),
 
     detailTags: [
-      "Li-ion",
-      "PCM",
-      "COMSOL",
-      "Thermal Management",
+      "LFP/Graphite Cell",
+      "Temperature Uniformity",
+      "PCM Thickness",
+      "Cell Pitch",
     ],
 
     links: [],
@@ -231,71 +250,88 @@ export const highlightSections = [
   {
     id: "hl-2",
 
-    title: "BMS & Battery Pack Testing",
+    title:
+      "BMS and Battery Pack Testing",
 
-    subtitle: "Practical Energy Storage Engineering",
+    subtitle:
+      "Monitoring, Protection, and Performance Checks",
 
     description:
-      "Gaining hands-on experience with BMS configurations, battery pack testing, PCB-related work, pack monitoring, and performance analysis for safer battery systems.",
+      "Hands-on work with battery management systems and battery packs, including wiring checks, voltage monitoring, protection review, and performance testing.",
 
-    image: imagePath("pcb-2.png"),
+    image:
+      imagePath("pcb-2.png"),
 
     images: [
       imagePath("pcb-2.png"),
-      imagePath("bms-testing-2.jpg"),
-      imagePath("bms-testing-3.jpg"),
-      imagePath("bms-testing-4.jpg"),
+      imagePath(
+        "bms-testing-2.jpg"
+      ),
+      imagePath(
+        "bms-testing-3.jpg"
+      ),
+      imagePath(
+        "bms-testing-4.jpg"
+      ),
     ],
 
-    buttonText: "See Projects",
+    buttonText:
+      "See Projects",
 
     buttonLink: "#research",
 
     tags: [
-      "BMS",
+      "BMS Configuration",
       "Battery Pack",
-      "Testing",
+      "Voltage Monitoring",
+      "Protection Testing",
     ],
 
-    category: "Project",
+    category: "Engineering",
 
     status: "Ongoing",
 
-    detailTitle: "BMS & Battery Pack Testing",
+    detailTitle:
+      "BMS Configuration and Battery Pack Testing",
 
     summary:
-      "Hands-on work with BMS configurations, pack testing, PCB-related tasks, monitoring, and performance analysis.",
+      "Working with 4S, 16S, and 32S BMS setups to check pack wiring, cell voltage, protection behavior, balancing, and overall battery performance.",
 
     fullDescription:
-      "This work involves practical battery pack testing and BMS-related tasks, including 4S, 16S, and 32S BMS configurations, PCB-related work, pack monitoring, and performance analysis.",
+      "This work focuses on the practical side of safe battery-pack operation. It includes connecting and checking BMS wiring, monitoring individual cell groups, reviewing protection settings, and studying pack behavior during testing.",
 
     problem:
-      "Reliable battery packs require proper monitoring, balancing, safety protection, and performance evaluation through practical testing.",
+      "A battery pack can become unsafe or unreliable if its cells are not monitored correctly, if the wiring is wrong, or if the protection system does not respond as expected.",
 
     objective:
-      "Gain hands-on expertise in BMS configuration, battery pack testing, and performance monitoring for safer energy storage systems.",
+      "Build practical skills in configuring and checking BMS-equipped battery packs for safe and reliable operation.",
 
     methodology:
-      "Battery packs are tested and monitored using different BMS configurations, cell-voltage measurements, pack-level monitoring, wiring verification, protection checks, PCB-related work, and practical performance analysis.",
+      "Different BMS configurations are connected and checked using cell-voltage measurements, pack-voltage monitoring, balance-wire verification, protection review, and practical charge-discharge observations.",
+
+    results:
+      "Developed hands-on experience with 4S, 16S, and 32S BMS systems, pack monitoring, wiring verification, protection checks, and battery-test data interpretation.",
+
+    nextStep:
+      "Continue testing larger packs and improve skills in BMS communication, fault diagnosis, balancing, and pack-level validation.",
 
     tools: [
       "4S BMS",
       "16S BMS",
       "32S BMS",
-      "PCB Work",
-      "Pack Monitoring",
+      "Multimeter",
+      "Neware BTS",
+      "PCB Tools",
     ],
 
-    results:
-      "Developing practical experience in battery pack safety, monitoring, protection, wiring verification, and testing for real engineering applications.",
-
-    detailImage: imagePath("pcb-2.png"),
+    detailImage:
+      imagePath("pcb-2.png"),
 
     detailTags: [
-      "BMS",
-      "Battery Pack",
-      "Testing",
-      "PCB",
+      "Cell Monitoring",
+      "Balance Wiring",
+      "Pack Safety",
+      "Battery Validation",
     ],
 
     links: [],
@@ -304,32 +340,45 @@ export const highlightSections = [
   {
     id: "hl-3",
 
-    title: "For The Light — Solar Guardian Lantern",
+    title:
+      "For The Light — Solar Guardian Lantern",
 
     subtitle:
-      "CTO — Disaster Response & Smart Safety System",
+      "Solar Lighting and Emergency Safety System",
 
     description:
-      "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
+      "A solar-powered emergency lantern designed to provide lighting, battery backup, and safety support for disaster-prone and off-grid communities.",
 
-    image: imagePath("ph-img-20.webp"),
+    image:
+      imagePath(
+        "ph-img-20.webp"
+      ),
 
     images: [
-      imagePath("ph-img-20.webp"),
-      imagePath("for-the-light-2.webp"),
-      imagePath("for-the-light-3.webp"),
-      imagePath("for-the-light-4.webp"),
+      imagePath(
+        "ph-img-20.webp"
+      ),
+      imagePath(
+        "for-the-light-2.webp"
+      ),
+      imagePath(
+        "for-the-light-3.webp"
+      ),
+      imagePath(
+        "for-the-light-4.webp"
+      ),
     ],
 
-    buttonText: "See Project",
+    buttonText:
+      "See Project",
 
     buttonLink: "#research",
 
     tags: [
-      "Solar Lantern",
-      "SOS System",
-      "GPS/GSM",
-      "Disaster Response",
+      "Solar Energy",
+      "Emergency Lighting",
+      "GPS and GSM",
+      "Embedded System",
     ],
 
     category: "Project",
@@ -340,41 +389,46 @@ export const highlightSections = [
       "For The Light — Solar Guardian Lantern",
 
     summary:
-      "A solar-powered emergency lighting and intelligent rescue system designed for disaster-prone and off-grid communities.",
+      "Developing a portable solar lantern that combines clean lighting with emergency communication and safety features.",
 
     fullDescription:
-      "Developing a solar-powered emergency lantern that works as both a sustainable lighting solution and an intelligent rescue system. The device integrates solar charging, Li-ion battery storage, LED lighting, GPS/GSM communication, and sensor-based SOS alerts for disaster-prone and off-grid communities.",
+      "The project is designed for places where electricity and communication may be limited, especially during floods, cyclones, and power failures. It combines solar charging, lithium-ion battery storage, LED lighting, sensors, and emergency communication features.",
 
     problem:
-      "People living in disaster-prone and off-grid communities may lose access to electricity, reliable lighting, communication, and emergency support during floods, cyclones, power failures, and other critical situations.",
+      "People in off-grid and disaster-prone areas may lose access to lighting, mobile communication, and emergency support when they need them most.",
 
     objective:
-      "Develop a portable solar-powered lantern that provides sustainable lighting while also supporting emergency communication, location tracking, and sensor-based SOS alerts.",
+      "Create a portable device that provides dependable lighting and helps users send emergency information during difficult conditions.",
 
     methodology:
-      "The system combines a solar charging unit, Li-ion battery storage, LED lighting, microcontroller-based control, GPS/GSM communication, sensors, and an SOS alert mechanism. The hardware is developed through circuit design, embedded programming, component integration, PCB prototyping, and practical testing.",
+      "The system is developed through circuit design, microcontroller programming, sensor connection, solar charging, battery integration, PCB prototyping, and practical hardware testing.",
+
+    results:
+      "A working project concept and hardware prototype were developed by combining renewable-energy lighting with emergency-support functions in one portable system.",
+
+    nextStep:
+      "Improve the enclosure, communication reliability, power use, and field-testing process for real community use.",
 
     tools: [
-      "Solar Charging System",
+      "Solar Panel",
       "Li-ion Battery",
       "Microcontroller",
       "GPS Module",
       "GSM Module",
       "Sensors",
       "PCB Design",
-      "Embedded C/C++",
     ],
 
-    results:
-      "The project integrates renewable-energy lighting and emergency-response features into a single portable platform intended to improve safety, communication, and resilience in disaster-prone and off-grid areas.",
-
-    detailImage: imagePath("ph-img-20.webp"),
+    detailImage:
+      imagePath(
+        "ph-img-20.webp"
+      ),
 
     detailTags: [
+      "Disaster Response",
+      "Off-Grid Community",
+      "SOS Alert",
       "Renewable Energy",
-      "Embedded Systems",
-      "Emergency Communication",
-      "Smart Safety",
     ],
 
     links: [],
@@ -384,32 +438,40 @@ export const highlightSections = [
     id: "hl-4",
 
     title:
-      "COMSOL Battery Thermal Runaway Simulation",
+      "Battery Thermal Runaway Simulation",
 
     subtitle:
-      "Multiphysics Modeling of Li-ion Battery Safety",
+      "Understanding Battery Failure and Heat Spread",
 
     description:
-      "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
+      "Using simulation to study how a lithium-ion cell can overheat, enter thermal runaway, and transfer heat to nearby cells.",
 
-    image: imagePath("TRC.png"),
+    image:
+      imagePath("TRC.png"),
 
     images: [
       imagePath("TRC.png"),
-      imagePath("thermal-runaway-2.png"),
-      imagePath("thermal-runaway-3.png"),
-      imagePath("thermal-runaway-4.png"),
+      imagePath(
+        "thermal-runaway-2.png"
+      ),
+      imagePath(
+        "thermal-runaway-3.png"
+      ),
+      imagePath(
+        "thermal-runaway-4.png"
+      ),
     ],
 
-    buttonText: "Explore Simulation",
+    buttonText:
+      "Explore Simulation",
 
     buttonLink: "#research",
 
     tags: [
-      "COMSOL",
       "Thermal Runaway",
-      "Li-ion Safety",
-      "HWS Test",
+      "Battery Safety",
+      "Heat Spread",
+      "COMSOL",
     ],
 
     category: "Research",
@@ -417,42 +479,45 @@ export const highlightSections = [
     status: "Ongoing",
 
     detailTitle:
-      "COMSOL Battery Thermal Runaway Simulation",
+      "Thermal Runaway and Cell-to-Cell Heat Propagation Simulation",
 
     summary:
-      "A multiphysics simulation study of lithium-ion pouch-cell thermal runaway, decomposition reactions, and worst-case temperature evolution.",
+      "Building a simulation that shows when dangerous self-heating begins and how heat may spread from one battery cell to another.",
 
     fullDescription:
-      "Simulating lithium-ion battery thermal runaway behavior in COMSOL Multiphysics using heat transfer, reaction heat generation, and temperature evolution models. The work focuses on pouch cell thermal safety, Heat-Wait-Seek abuse conditions, decomposition heat sources, and temperature rise prediction under worst-case operating scenarios.",
+      "Thermal runaway is a rapid and dangerous rise in battery temperature. This work uses simulation to study the heat-producing reactions inside a failing cell and the movement of heat between nearby cells.",
 
     problem:
-      "Thermal runaway can cause rapid temperature rise, internal decomposition reactions, fire, gas generation, and catastrophic battery failure. Experimental abuse testing can also be expensive, hazardous, and difficult to control.",
+      "Severe overheating can cause battery damage, fire, and failure of nearby cells. Physical abuse testing is also expensive and risky.",
 
     objective:
-      "Develop a COMSOL-based thermal runaway model capable of predicting temperature evolution, heat-generation behavior, and critical thermal-safety conditions in a lithium-ion pouch cell.",
+      "Use simulation to identify unsafe temperature conditions and understand how battery failure may spread through a pack.",
 
     methodology:
-      "The model combines heat transfer in solids with temperature-dependent decomposition heat sources. Heat-Wait-Seek conditions, reaction kinetics, material properties, boundary conditions, and thermal-abuse scenarios are implemented to study the onset and progression of thermal runaway.",
+      "A Heat-Wait-Seek simulation is built in COMSOL using temperature-dependent reaction heat. Single-cell and multi-cell models are used to study self-heating, temperature rise, and heat transfer to neighboring cells.",
+
+    results:
+      "A simulation framework was developed to study thermal-runaway onset and heat propagation under severe conditions. It helps examine safety risks before carrying out physical abuse tests.",
+
+    nextStep:
+      "Extend the model with more pack layouts, cooling conditions, and material data, followed by comparison with experimental results when available.",
 
     tools: [
       "COMSOL Multiphysics",
-      "Heat Transfer in Solids",
+      "Heat-Wait-Seek",
+      "Heat Transfer",
       "Reaction Kinetics",
-      "Thermal Runaway Modeling",
-      "Heat-Wait-Seek Analysis",
       "MATLAB",
     ],
 
-    results:
-      "The simulation framework is designed to evaluate temperature rise, decomposition heat generation, thermal-runaway onset, and pouch-cell safety behavior under severe thermal-abuse conditions.",
-
-    detailImage: imagePath("TRC.png"),
+    detailImage:
+      imagePath("TRC.png"),
 
     detailTags: [
+      "Self-Heating",
+      "Failure Propagation",
       "Pouch Cell",
-      "Reaction Heat",
-      "Temperature Evolution",
-      "Battery Safety",
+      "Safety Analysis",
     ],
 
     links: [],
@@ -465,78 +530,89 @@ export const highlightSections = [
       "High-Capacity Battery Pack Testing",
 
     subtitle:
-      "16S 100Ah Battery Pack Testing with Neware System",
+      "16S 100Ah Pack Testing with Neware BTS",
 
     description:
-      "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
+      "Completed practical testing of a 16S 100Ah lithium-ion battery pack using a Neware Battery Test System.",
 
-    image: imagePath(
-      "neware-16s-100ah-battery-test.jpeg"
-    ),
+    image:
+      imagePath(
+        "neware-16s-100ah-battery-test.jpeg"
+      ),
 
     images: [
       imagePath(
         "neware-16s-100ah-battery-test.jpeg"
       ),
-      imagePath("neware-16s-test-2.jpeg"),
-      imagePath("neware-16s-test-3.jpeg"),
-      imagePath("neware-16s-test-4.jpeg"),
+      imagePath(
+        "neware-16s-test-2.jpeg"
+      ),
+      imagePath(
+        "neware-16s-test-3.jpeg"
+      ),
+      imagePath(
+        "neware-16s-test-4.jpeg"
+      ),
     ],
 
-    buttonText: "See Project",
+    buttonText:
+      "See Project",
 
     buttonLink: "#research",
 
     tags: [
       "16S Battery Pack",
-      "100Ah",
-      "Neware",
-      "BMS Testing",
+      "100Ah Capacity",
+      "Neware BTS",
+      "Performance Testing",
     ],
 
-    category: "Project",
+    category: "Testing",
 
     status: "Completed",
 
     detailTitle:
-      "16S 100Ah Battery Pack Testing with Neware System",
+      "Testing a 16S 100Ah Battery Pack with Neware BTS",
 
     summary:
-      "Practical testing and performance monitoring of a high-capacity 16S 100Ah lithium-ion battery pack using a Neware Battery Test System.",
+      "Set up, monitored, and evaluated a high-capacity battery pack using controlled battery-test equipment.",
 
     fullDescription:
-      "Tested a 16S 100Ah lithium-ion battery pack using the Neware Battery Test System. This work involved cell-level connections, voltage monitoring, test setup, pack monitoring, and performance evaluation to support safer and more reliable high-capacity battery systems.",
+      "The work involved preparing the test setup, checking the pack and cell-monitoring connections, observing voltage behavior, and reviewing performance data from a 16S 100Ah battery pack.",
 
     problem:
-      "High-capacity battery packs require accurate test configuration, reliable electrical connections, continuous voltage monitoring, and controlled performance evaluation to detect unsafe behavior and pack-level inconsistencies.",
+      "Large battery packs need careful connection checks and controlled testing because wiring errors, cell imbalance, or abnormal voltage can affect performance and safety.",
 
     objective:
-      "Configure and test a 16S 100Ah battery pack using the Neware system and evaluate its electrical behavior, monitoring response, operational reliability, and pack-level safety.",
+      "Test the pack safely and understand its electrical behavior under controlled operating conditions.",
 
     methodology:
-      "The battery pack was connected to the Neware Battery Test System using the required test and monitoring connections. The work included test-channel setup, cell-voltage connection verification, pack-voltage monitoring, BMS observation, controlled testing, and analysis of recorded performance data.",
-
-    tools: [
-      "Neware Battery Test System",
-      "16S Battery Pack",
-      "100Ah Li-ion Battery",
-      "BMS",
-      "Cell Voltage Monitoring",
-      "Pack Performance Analysis",
-    ],
+      "The battery pack was connected to the Neware test system. Test channels, pack voltage, cell-monitoring leads, and BMS response were checked before and during the test. The recorded data were then reviewed.",
 
     results:
-      "The testing work provided practical experience in configuring, monitoring, and evaluating a high-capacity battery pack while supporting safer pack operation and reliable performance analysis.",
+      "Completed the test setup and pack-level monitoring process, gaining practical experience in high-capacity battery testing, connection verification, and performance evaluation.",
 
-    detailImage: imagePath(
-      "neware-16s-100ah-battery-test.jpeg"
-    ),
+    nextStep:
+      "Continue with longer cycle tests, resistance checks, and detailed comparison of pack performance under different operating conditions.",
+
+    tools: [
+      "Neware BTS",
+      "16S Battery Pack",
+      "100Ah Battery",
+      "BMS",
+      "Voltage Monitoring",
+    ],
+
+    detailImage:
+      imagePath(
+        "neware-16s-100ah-battery-test.jpeg"
+      ),
 
     detailTags: [
-      "Neware BTS",
       "Pack Monitoring",
-      "High-Capacity Storage",
-      "Battery Validation",
+      "Test Setup",
+      "Battery Data",
+      "Safety Check",
     ],
 
     links: [],
@@ -546,28 +622,36 @@ export const highlightSections = [
     id: "hl-6",
 
     title:
-      "Li-ion Battery Pack Assembly & BMS Testing",
+      "Li-ion Battery Pack Assembly and BMS Testing",
 
     subtitle:
-      "15S 30-Cell Battery Pack Developed and Tested",
+      "15S Pack Built from 30 Cells",
 
     description:
-      "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
+      "Completed the assembly and testing of a 15S lithium-ion battery pack made from 30 cells and connected to a Daly BMS.",
 
-    image: imagePath(
-      "15s-battery-pack-daly-bms.jpeg"
-    ),
+    image:
+      imagePath(
+        "15s-battery-pack-daly-bms.jpeg"
+      ),
 
     images: [
       imagePath(
         "15s-battery-pack-daly-bms.jpeg"
       ),
-      imagePath("15s-pack-2.jpeg"),
-      imagePath("15s-pack-3.jpeg"),
-      imagePath("15s-pack-4.jpeg"),
+      imagePath(
+        "15s-pack-2.jpeg"
+      ),
+      imagePath(
+        "15s-pack-3.jpeg"
+      ),
+      imagePath(
+        "15s-pack-4.jpeg"
+      ),
     ],
 
-    buttonText: "See Project",
+    buttonText:
+      "See Project",
 
     buttonLink: "#research",
 
@@ -583,51 +667,52 @@ export const highlightSections = [
     status: "Completed",
 
     detailTitle:
-      "15S 30-Cell Li-ion Battery Pack Assembly & Daly BMS Testing",
+      "15S 30-Cell Battery Pack Assembly and Daly BMS Testing",
 
     summary:
-      "Assembly and practical testing of a 15S lithium-ion battery pack containing 30 cells and integrated with a Daly BMS.",
+      "Built a 15S battery pack using 30 lithium-ion cells and checked its wiring, voltage sensing, BMS connection, and basic operation.",
 
     fullDescription:
-      "Built a 15S lithium-ion battery pack consisting of 30 cells, where each cell was rated at 15Ah. The pack was assembled and tested with a Daly BMS to verify wiring configuration, protection behavior, pack operation, and practical battery system performance.",
+      "Each cell was rated at 15Ah. The cells were arranged into the required series and parallel groups, connected to the Daly BMS, and checked before practical operation.",
 
     problem:
-      "Improper cell arrangement, series-parallel connections, BMS wiring, sensing connections, or protection configuration can cause voltage imbalance, unreliable operation, component damage, and serious battery-safety risks.",
+      "Incorrect cell grouping, balance wiring, or BMS connection can cause wrong voltage readings, poor performance, component damage, or safety problems.",
 
     objective:
-      "Assemble a functional 15S 30-cell lithium-ion battery pack and validate its wiring, BMS integration, protection response, monitoring behavior, and overall pack operation.",
+      "Build a working battery pack and confirm that the cell groups, balance wires, BMS, and pack terminals are connected correctly.",
 
     methodology:
-      "Thirty lithium-ion cells were arranged into the required 15S configuration. Cell groups, interconnections, balance leads, pack terminals, and the Daly BMS were assembled and verified. The completed pack was then inspected and tested to evaluate voltage sensing, wiring correctness, BMS response, and practical operation.",
+      "The cells were arranged into a 15S configuration. Cell-group voltage, interconnections, balance leads, pack terminals, and Daly BMS wiring were checked with measurement tools before operation.",
+
+    results:
+      "Successfully assembled and tested the 15S 30-cell pack, gaining practical experience in battery-pack construction, balance-wire checking, BMS integration, and safe operation.",
+
+    nextStep:
+      "Continue with controlled charge-discharge testing, longer-term monitoring, and more detailed pack-performance analysis.",
 
     tools: [
+      "Daly BMS",
       "15S Battery Pack",
       "30 Li-ion Cells",
       "15Ah Cells",
-      "Daly BMS",
       "Multimeter",
-      "Cell Voltage Monitoring",
-      "Battery Pack Assembly",
+      "Assembly Tools",
     ],
 
-    results:
-      "A complete 15S 30-cell battery pack was assembled and tested with a Daly BMS, providing practical experience in pack construction, sensing-wire verification, protection-system integration, and battery performance evaluation.",
-
-    detailImage: imagePath(
-      "15s-battery-pack-daly-bms.jpeg"
-    ),
+    detailImage:
+      imagePath(
+        "15s-battery-pack-daly-bms.jpeg"
+      ),
 
     detailTags: [
       "Pack Assembly",
-      "BMS Integration",
       "Balance Wiring",
-      "Battery Safety",
+      "Voltage Check",
+      "BMS Integration",
     ],
 
     links: [],
   },
-
-  
 ];
 
 /* ------------------------------------------------------------------ */
