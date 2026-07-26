@@ -28,38 +28,38 @@ export const heroData = {
 
   profileImage: imagePath("profile.jpg.jpg"),
 
-  floatingSkills: [
-    {
-      name: "COMSOL",
-      icon: imagePath("software/comsol.png"),
-      accent: "blue",
-    },
-    {
-      name: "MATLAB",
-      icon: imagePath("software/matlab.png"),
-      accent: "orange",
-    },
-    {
-      name: "Python",
-      icon: imagePath("software/Python.webp"),
-      accent: "yellow",
-    },
-    {
-      name: "ANSYS",
-      icon: imagePath("software/aansys.jpg"),
-      accent: "red",
-    },
-    {
-      name: "Proteus",
-      icon: imagePath("software/proteus.png"),
-      accent: "green",
-    },
-    {
-      name: "EasyEDA",
-      icon: imagePath("software/easyeda.png"),
-      accent: "purple",
-    },
-  ],
+ floatingSkills: [
+  {
+    name: "COMSOL",
+    icon: imagePath("software/comsol.png"),
+    accent: "blue",
+  },
+  {
+    name: "MATLAB",
+    icon: imagePath("software/matlab.png"),
+    accent: "orange",
+  },
+  {
+    name: "Python",
+    icon: imagePath("software/Python.webp"),
+    accent: "yellow",
+  },
+  {
+    name: "ANSYS",
+    icon: imagePath("software/ansys.jpg"),
+    accent: "red",
+  },
+  {
+    name: "Proteus",
+    icon: imagePath("software/proteus.png"),
+    accent: "green",
+  },
+  {
+    name: "EasyEDA",
+    icon: imagePath("software/images.png"),
+    accent: "purple",
+  },
+],
 
   status: "Open to research collaborations",
 
