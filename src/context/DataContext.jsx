@@ -1,28 +1,39 @@
-import { createContext, useContext, useEffect, useState, useCallback } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useState,
+  useCallback,
+} from "react";
+
 import * as base from "../data/portfolioData";
 
 /**
  * DataContext
  * -----------
- * Single hook (useData) that gives every component its content.
+ * This file provides portfolio data to all website components.
  *
- * Priority:  localStorage override  →  portfolioData.js default
+ * Priority:
+ * localStorage admin data → portfolioData.js default data
  *
- * The /admin panel writes overrides into localStorage. If the visitor
- * has never used the admin panel, the site simply uses portfolioData.js.
- * Clearing the override (admin "Reset") falls back to the file again.
+ * If the admin panel has saved any changes, those changes will be used.
+ * Otherwise, data will come directly from portfolioData.js.
  */
 
 const STORAGE_KEY = "omar_portfolio_overrides_v1";
 
-// The keys an admin can override. Each maps to an export in portfolioData.js.
+/**
+ * These sections can be edited from the admin panel.
+ *
+ * researchProjects has been removed because the Research and
+ * Dynamic Highlights sections are now merged into highlightSections.
+ */
 const EDITABLE_KEYS = [
   "heroData",
   "aboutData",
   "highlightSections",
   "galleryItems",
   "galleryCategories",
-  "researchProjects",
   "awardsCertificates",
   "skills",
   "education",
@@ -34,76 +45,121 @@ const EDITABLE_KEYS = [
   "siteMeta",
 ];
 
+/**
+ * Read previously saved admin data from localStorage.
+ */
 function readOverrides() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    return raw ? JSON.parse(raw) : {};
-  } catch {
+    const rawData = localStorage.getItem(STORAGE_KEY);
+
+    return rawData ? JSON.parse(rawData) : {};
+  } catch (error) {
+    console.error("Could not read portfolio data from localStorage:", error);
+
     return {};
   }
 }
 
-function buildData(overrides) {
-  const merged = {};
+/**
+ * Merge admin data with the default portfolioData.js content.
+ */
+function buildData(overrides = {}) {
+  const mergedData = {};
+
   for (const key of EDITABLE_KEYS) {
-    merged[key] =
+    mergedData[key] =
       overrides[key] !== undefined ? overrides[key] : base[key];
   }
-  return merged;
+
+  return mergedData;
 }
 
 const DataContext = createContext(null);
 
+/**
+ * DataProvider
+ *
+ * Wraps the full application and provides portfolio data everywhere.
+ */
 export function DataProvider({ children }) {
   const [overrides, setOverrides] = useState(() => readOverrides());
+
   const [data, setData] = useState(() => buildData(readOverrides()));
 
-  // Rebuild merged data whenever overrides change
+  /**
+   * Rebuild website data whenever admin changes are updated.
+   */
   useEffect(() => {
     setData(buildData(overrides));
   }, [overrides]);
 
-  // Keep multiple tabs in sync
+  /**
+   * Keep portfolio data synchronized between multiple browser tabs.
+   */
   useEffect(() => {
-    const onStorage = (e) => {
-      if (e.key === STORAGE_KEY) setOverrides(readOverrides());
+    const handleStorageChange = (event) => {
+      if (event.key === STORAGE_KEY) {
+        setOverrides(readOverrides());
+      }
     };
-    window.addEventListener("storage", onStorage);
-    return () => window.removeEventListener("storage", onStorage);
+
+    window.addEventListener("storage", handleStorageChange);
+
+    return () => {
+      window.removeEventListener("storage", handleStorageChange);
+    };
   }, []);
 
-  const persist = useCallback((next) => {
-    setOverrides(next);
+  /**
+   * Save admin changes into localStorage.
+   */
+  const persist = useCallback((nextOverrides) => {
+    setOverrides(nextOverrides);
+
     try {
-      // Only store keys that actually differ — keeps storage small
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next));
-    } catch (err) {
-      console.error("Could not save to localStorage:", err);
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(nextOverrides)
+      );
+    } catch (error) {
+      console.error("Could not save portfolio data:", error);
     }
   }, []);
 
-  // Replace a single section's data (used by the admin panel)
+  /**
+   * Update one portfolio section from the admin panel.
+   */
   const updateSection = useCallback(
     (key, value) => {
-      persist({ ...overrides, [key]: value });
+      persist({
+        ...overrides,
+        [key]: value,
+      });
     },
     [overrides, persist]
   );
 
-  // Remove all admin overrides → revert to portfolioData.js
+  /**
+   * Remove all admin changes and return to portfolioData.js defaults.
+   */
   const resetAll = useCallback(() => {
     setOverrides({});
+
     try {
       localStorage.removeItem(STORAGE_KEY);
-    } catch {
-      /* ignore */
+    } catch (error) {
+      console.error("Could not reset portfolio data:", error);
     }
   }, []);
 
-  // Export current data as a portfolioData-style snapshot (for download)
-  const exportData = useCallback(() => buildData(overrides), [overrides]);
+  /**
+   * Export the currently active portfolio data.
+   */
+  const exportData = useCallback(() => {
+    return buildData(overrides);
+  }, [overrides]);
 
-  const value = {
+  const contextValue = {
     data,
     base,
     editableKeys: EDITABLE_KEYS,
@@ -113,11 +169,24 @@ export function DataProvider({ children }) {
     hasOverrides: Object.keys(overrides).length > 0,
   };
 
-  return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
+  return (
+    <DataContext.Provider value={contextValue}>
+      {children}
+    </DataContext.Provider>
+  );
 }
 
+/**
+ * Custom hook used by portfolio components.
+ */
 export function useData() {
-  const ctx = useContext(DataContext);
-  if (!ctx) throw new Error("useData must be used inside <DataProvider>");
-  return ctx;
+  const context = useContext(DataContext);
+
+  if (!context) {
+    throw new Error(
+      "useData must be used inside the DataProvider component."
+    );
+  }
+
+  return context;
 }
