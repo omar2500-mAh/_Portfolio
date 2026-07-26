@@ -24,7 +24,7 @@ export const heroData = {
     "Electrical & Electronic Engineering\nIslamic University, Bangladesh",
 
  tagline:
-  "Currently working as an Intern at OMI Battery Innovation Center and open to\nfull-time opportunities in battery systems, BMS, EV energy storage, and power electronics.",
+  "Currently working as an Intern at OMI Battery Innovation Center and open to full-time \n opportunities in battery systems, BMS, EV energy storage, and power electronics.",
   profileImage: imagePath("profile.jpg.jpg"),
 
  floatingSkills: [
