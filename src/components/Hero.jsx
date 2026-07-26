@@ -1,10 +1,10 @@
 import { motion } from "framer-motion";
 import {
+  ArrowRight,
   Facebook,
   Github,
   Instagram,
   Linkedin,
-  ExternalLink,
 } from "lucide-react";
 
 import { useData } from "../context/DataContext";
@@ -18,7 +18,7 @@ const ACCENT_STYLES = {
     border: "border-cyan-400/40",
     hoverBorder: "group-hover:border-cyan-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(34,211,238,0.28)] group-hover:shadow-[0_0_42px_rgba(34,211,238,0.65)]",
+      "shadow-[0_0_25px_rgba(34,211,238,0.25)] group-hover:shadow-[0_0_42px_rgba(34,211,238,0.65)]",
     dot: "bg-cyan-300",
   },
 
@@ -26,7 +26,7 @@ const ACCENT_STYLES = {
     border: "border-orange-400/40",
     hoverBorder: "group-hover:border-orange-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(251,146,60,0.28)] group-hover:shadow-[0_0_42px_rgba(251,146,60,0.65)]",
+      "shadow-[0_0_25px_rgba(251,146,60,0.25)] group-hover:shadow-[0_0_42px_rgba(251,146,60,0.65)]",
     dot: "bg-orange-300",
   },
 
@@ -34,7 +34,7 @@ const ACCENT_STYLES = {
     border: "border-yellow-400/40",
     hoverBorder: "group-hover:border-yellow-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(250,204,21,0.28)] group-hover:shadow-[0_0_42px_rgba(250,204,21,0.65)]",
+      "shadow-[0_0_25px_rgba(250,204,21,0.25)] group-hover:shadow-[0_0_42px_rgba(250,204,21,0.65)]",
     dot: "bg-yellow-300",
   },
 
@@ -42,7 +42,7 @@ const ACCENT_STYLES = {
     border: "border-rose-400/40",
     hoverBorder: "group-hover:border-rose-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(251,113,133,0.28)] group-hover:shadow-[0_0_42px_rgba(251,113,133,0.65)]",
+      "shadow-[0_0_25px_rgba(251,113,133,0.25)] group-hover:shadow-[0_0_42px_rgba(251,113,133,0.65)]",
     dot: "bg-rose-300",
   },
 
@@ -50,7 +50,7 @@ const ACCENT_STYLES = {
     border: "border-emerald-400/40",
     hoverBorder: "group-hover:border-emerald-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(52,211,153,0.28)] group-hover:shadow-[0_0_42px_rgba(52,211,153,0.65)]",
+      "shadow-[0_0_25px_rgba(52,211,153,0.25)] group-hover:shadow-[0_0_42px_rgba(52,211,153,0.65)]",
     dot: "bg-emerald-300",
   },
 
@@ -58,7 +58,7 @@ const ACCENT_STYLES = {
     border: "border-violet-400/40",
     hoverBorder: "group-hover:border-violet-300/80",
     glow:
-      "shadow-[0_0_26px_rgba(167,139,250,0.28)] group-hover:shadow-[0_0_42px_rgba(167,139,250,0.65)]",
+      "shadow-[0_0_25px_rgba(167,139,250,0.25)] group-hover:shadow-[0_0_42px_rgba(167,139,250,0.65)]",
     dot: "bg-violet-300",
   },
 
@@ -66,33 +66,33 @@ const ACCENT_STYLES = {
     border: "border-gold/40",
     hoverBorder: "group-hover:border-gold/80",
     glow:
-      "shadow-[0_0_26px_rgba(212,175,55,0.28)] group-hover:shadow-[0_0_42px_rgba(212,175,55,0.60)]",
+      "shadow-[0_0_25px_rgba(212,175,55,0.25)] group-hover:shadow-[0_0_42px_rgba(212,175,55,0.60)]",
     dot: "bg-gold",
   },
 };
 
 /* ------------------------------------------------------------------ */
-/*  SOCIAL ICONS                                                      */
+/*  SOCIAL ICON MAPPING                                               */
 /* ------------------------------------------------------------------ */
 
 const SOCIAL_ICONS = {
-  Facebook,
-  LinkedIn: Linkedin,
-  GitHub: Github,
-  Instagram,
+  facebook: Facebook,
+  linkedin: Linkedin,
+  github: Github,
+  instagram: Instagram,
 };
 
 /* ------------------------------------------------------------------ */
-/*  ELLIPTICAL ORBIT CALCULATION                                      */
+/*  ELLIPTICAL ORBIT                                                  */
 /* ------------------------------------------------------------------ */
 
-const ORBIT_STEPS = 90;
+const ORBIT_STEPS = 96;
 
 function buildEllipseOrbit(
   index,
   total,
-  radiusX = 235,
-  radiusY = 205
+  radiusX = 238,
+  radiusY = 190
 ) {
   const safeTotal = Math.max(total, 1);
 
@@ -124,7 +124,7 @@ function buildEllipseOrbit(
 }
 
 /* ------------------------------------------------------------------ */
-/*  HERO                                                              */
+/*  HERO COMPONENT                                                    */
 /* ------------------------------------------------------------------ */
 
 export default function Hero() {
@@ -153,19 +153,27 @@ export default function Hero() {
 
   const socialLinks =
     Array.isArray(data?.socialLinks)
-      ? data.socialLinks.filter(
-          (item) =>
-            item?.url &&
-            SOCIAL_ICONS[item.platform]
-        )
+      ? data.socialLinks.filter((item) => {
+          const platform =
+            item?.platform
+              ?.toLowerCase()
+              .trim();
+
+          return (
+            Boolean(item?.url) &&
+            Boolean(
+              SOCIAL_ICONS[platform]
+            )
+          );
+        })
       : [];
 
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden bg-navy-gradient pb-20 pt-28 sm:pt-32 lg:flex lg:items-center lg:py-28"
+      className="relative min-h-screen overflow-hidden bg-navy-gradient pb-20 pt-28 sm:pt-32 lg:flex lg:items-center lg:py-24"
     >
-      {/* Background */}
+      {/* Background layers */}
       <div className="absolute inset-0 bg-mesh opacity-50" />
 
       <div className="absolute -left-32 top-28 h-80 w-80 rounded-full bg-gold/[0.05] blur-3xl" />
@@ -174,7 +182,7 @@ export default function Hero() {
 
       <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent" />
 
-      <div className="relative mx-auto grid w-full max-w-7xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
+      <div className="relative mx-auto grid w-full max-w-[92rem] items-center gap-12 px-5 sm:px-8 lg:grid-cols-[1.12fr_0.88fr] lg:gap-2">
         {/* ========================================================== */}
         {/* LEFT CONTENT                                               */}
         {/* ========================================================== */}
@@ -191,7 +199,7 @@ export default function Hero() {
           transition={{
             duration: 0.7,
           }}
-          className="relative z-10"
+          className="relative z-10 lg:pr-4"
         >
           {hero.status && (
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/25 bg-gold/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.16em] text-gold-soft">
@@ -201,7 +209,7 @@ export default function Hero() {
             </div>
           )}
 
-          <h1 className="font-display text-4xl font-bold leading-[1.05] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
+          <h1 className="font-display text-4xl font-bold leading-[1.04] text-white sm:text-5xl lg:text-6xl xl:text-7xl">
             {hero.name}
           </h1>
 
@@ -212,7 +220,7 @@ export default function Hero() {
           )}
 
           {hero.tagline && (
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg">
+            <p className="mt-6 max-w-[870px] whitespace-pre-line text-base leading-[1.75] text-white/60 sm:text-[17px]">
               {hero.tagline}
             </p>
           )}
@@ -227,27 +235,24 @@ export default function Hero() {
                     href={`#${button.scrollTo}`}
                     className={
                       button.primary
-                        ? "inline-flex items-center justify-center rounded-full bg-gold-gradient px-6 py-3 text-sm font-semibold text-navy-950 shadow-gold-glow transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+                        ? "group inline-flex items-center justify-center gap-2 rounded-full bg-gold-gradient px-6 py-3 text-sm font-semibold text-navy-950 shadow-gold-glow transition-transform duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
                         : "inline-flex items-center justify-center rounded-full border border-white/15 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white/80 transition-all duration-300 hover:-translate-y-0.5 hover:border-white/25 hover:bg-white/[0.08] hover:text-white"
                     }
                   >
                     {button.label}
+
+                    {button.primary && (
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    )}
                   </a>
                 )
               )}
             </div>
           )}
 
-          {/* Social media icons */}
-          {socialLinks.length > 0 && (
-            <SocialLinksRow
-              links={socialLinks}
-            />
-          )}
-
-          {/* Stats */}
+          {/* Focus cards */}
           {stats.length > 0 && (
-            <div className="mt-9 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3">
+            <div className="mt-8 grid max-w-[690px] grid-cols-1 gap-3 sm:grid-cols-3">
               {stats.map(
                 (stat, index) => (
                   <motion.div
@@ -263,10 +268,13 @@ export default function Hero() {
                     transition={{
                       duration: 0.45,
                       delay:
-                        0.35 +
+                        0.34 +
                         index * 0.08,
                     }}
-                    className="rounded-2xl border border-white/10 bg-white/[0.035] px-4 py-4 backdrop-blur-sm"
+                    whileHover={{
+                      y: -4,
+                    }}
+                    className="rounded-2xl border border-white/10 bg-white/[0.035] px-5 py-4 backdrop-blur-sm transition-colors duration-300 hover:border-gold/25 hover:bg-white/[0.055]"
                   >
                     <div className="font-display text-lg font-bold text-white">
                       {stat.value}
@@ -279,6 +287,13 @@ export default function Hero() {
                 )
               )}
             </div>
+          )}
+
+          {/* Social icons below the focus cards */}
+          {socialLinks.length > 0 && (
+            <SocialLinksRow
+              links={socialLinks}
+            />
           )}
         </motion.div>
 
@@ -299,16 +314,18 @@ export default function Hero() {
             duration: 0.75,
             delay: 0.1,
           }}
-          className="relative mx-auto w-full max-w-[660px]"
+          className="relative mx-auto w-full max-w-[640px] lg:translate-x-5 xl:translate-x-8"
         >
-          {/* Desktop */}
-          <div className="relative hidden h-[600px] w-[640px] lg:block">
-            {/* Orbit lines */}
-            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[410px] w-[470px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.07]" />
+          {/* Desktop elliptical orbit */}
+          <div className="relative hidden h-[590px] w-[620px] lg:block">
+            {/* Orbit path lines */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[380px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.065]" />
 
-            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[350px] w-[420px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.035]" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[325px] w-[430px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.035]" />
 
-            {/* Back half of orbit */}
+            <div className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-[430px] w-[525px] -translate-x-1/2 -translate-y-1/2 rounded-[50%] border border-white/[0.022]" />
+
+            {/* Upper half of orbit — behind portrait */}
             <div
               className="pointer-events-none absolute inset-0 z-10"
               style={{
@@ -331,8 +348,8 @@ export default function Hero() {
               )}
             </div>
 
-            {/* Portrait remains between back and front orbit */}
-            <div className="absolute left-1/2 top-1/2 z-20 w-[350px] -translate-x-1/2 -translate-y-1/2">
+            {/* Portrait between the two orbit layers */}
+            <div className="absolute left-1/2 top-1/2 z-20 w-[330px] -translate-x-1/2 -translate-y-1/2">
               <PortraitCard
                 profileImage={
                   hero.profileImage
@@ -341,7 +358,7 @@ export default function Hero() {
               />
             </div>
 
-            {/* Front half of orbit */}
+            {/* Lower half of orbit — in front of portrait */}
             <div
               className="pointer-events-none absolute inset-0 z-30"
               style={{
@@ -366,7 +383,7 @@ export default function Hero() {
           </div>
 
           {/* Mobile and tablet */}
-          <div className="mx-auto w-full max-w-[400px] lg:hidden">
+          <div className="mx-auto w-full max-w-[390px] lg:hidden">
             <PortraitCard
               profileImage={
                 hero.profileImage
@@ -390,6 +407,32 @@ export default function Hero() {
           </div>
         </motion.div>
       </div>
+
+      {/* Scroll indicator */}
+      <a
+        href="#about"
+        aria-label="Scroll to About section"
+        className="absolute bottom-5 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-white/30 transition-colors hover:text-gold sm:flex"
+      >
+        <span className="text-[9px] font-semibold uppercase tracking-[0.28em]">
+          Scroll
+        </span>
+
+        <span className="flex h-7 w-4 items-start justify-center rounded-full border border-current p-1">
+          <motion.span
+            animate={{
+              y: [0, 10, 0],
+              opacity: [0.35, 1, 0.35],
+            }}
+            transition={{
+              duration: 1.8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            className="h-1.5 w-1 rounded-full bg-current"
+          />
+        </span>
+      </a>
     </section>
   );
 }
@@ -400,11 +443,19 @@ export default function Hero() {
 
 function SocialLinksRow({ links }) {
   return (
-    <div className="mt-6 flex flex-wrap items-center gap-3">
+    <div className="mt-5 flex flex-wrap items-center gap-3">
       {links.map((item) => {
+        const platform =
+          item.platform
+            ?.toLowerCase()
+            .trim();
+
         const Icon =
-          SOCIAL_ICONS[item.platform] ||
-          ExternalLink;
+          SOCIAL_ICONS[platform];
+
+        if (!Icon) {
+          return null;
+        }
 
         return (
           <motion.a
@@ -412,16 +463,16 @@ function SocialLinksRow({ links }) {
             href={item.url}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label={item.platform}
+            title={item.platform}
             whileHover={{
               y: -3,
               scale: 1.08,
             }}
             whileTap={{
-              scale: 0.95,
+              scale: 0.94,
             }}
-            aria-label={item.platform}
-            title={item.platform}
-            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.04] text-white/45 backdrop-blur-sm transition-all duration-300 hover:border-gold/35 hover:bg-gold/10 hover:text-gold-soft hover:shadow-gold-glow"
+            className="group flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/[0.045] text-white/45 shadow-soft backdrop-blur-md transition-all duration-300 hover:border-gold/35 hover:bg-gold/10 hover:text-gold-soft hover:shadow-gold-glow"
           >
             <Icon className="h-[18px] w-[18px]" />
           </motion.a>
@@ -450,14 +501,14 @@ function PortraitCard({
           className="aspect-[4/5] w-full object-cover object-top"
         />
 
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/25 via-transparent to-transparent" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-950/20 via-transparent to-transparent" />
       </div>
     </div>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/*  DESKTOP ORBIT BADGE                                               */
+/*  DESKTOP SOFTWARE ORBIT BADGE                                      */
 /* ------------------------------------------------------------------ */
 
 function EllipseOrbitBadge({
@@ -475,8 +526,8 @@ function EllipseOrbitBadge({
     buildEllipseOrbit(
       index,
       total,
-      235,
-      205
+      238,
+      190
     );
 
   return (
@@ -487,8 +538,8 @@ function EllipseOrbitBadge({
           : "pointer-events-none"
       }`}
       style={{
-        marginLeft: -32,
-        marginTop: -32,
+        marginLeft: -30,
+        marginTop: -30,
         willChange: "transform",
       }}
       animate={{
@@ -505,7 +556,7 @@ function EllipseOrbitBadge({
         whileHover={
           interactive
             ? {
-                scale: 1.18,
+                scale: 1.16,
               }
             : undefined
         }
@@ -514,20 +565,20 @@ function EllipseOrbitBadge({
         }}
         className="group relative"
       >
-        {/* Colored glow */}
+        {/* Software-colored glow */}
         <span
           className={`pointer-events-none absolute inset-1 rounded-2xl opacity-25 blur-xl transition-opacity duration-300 group-hover:opacity-90 ${accent.dot}`}
         />
 
-        {/* Software icon */}
+        {/* Icon container */}
         <div
-          className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl border bg-navy-950/90 backdrop-blur-md transition-all duration-300 ${accent.border} ${accent.hoverBorder} ${accent.glow}`}
+          className={`relative z-10 flex h-[60px] w-[60px] items-center justify-center rounded-2xl border bg-navy-950/90 backdrop-blur-md transition-all duration-300 ${accent.border} ${accent.hoverBorder} ${accent.glow}`}
           title={skill.name}
         >
           <img
             src={skill.icon}
             alt={`${skill.name} icon`}
-            className="h-10 w-10 object-contain"
+            className="h-9 w-9 object-contain"
           />
 
           <span
@@ -535,9 +586,9 @@ function EllipseOrbitBadge({
           />
         </div>
 
-        {/* Name appears on hover */}
+        {/* Software name on hover */}
         {interactive && (
-          <div className="pointer-events-none absolute left-1/2 top-[74px] z-20 -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-navy-950/95 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/80 opacity-0 shadow-soft backdrop-blur-md transition-all duration-200 group-hover:translate-y-1 group-hover:opacity-100">
+          <div className="pointer-events-none absolute left-1/2 top-[70px] z-20 -translate-x-1/2 whitespace-nowrap rounded-lg border border-white/10 bg-navy-950/95 px-2.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.12em] text-white/80 opacity-0 shadow-soft backdrop-blur-md transition-all duration-200 group-hover:translate-y-1 group-hover:opacity-100">
             {skill.name}
           </div>
         )}
