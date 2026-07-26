@@ -957,7 +957,7 @@ export const awardsCertificates = [
 /* ------------------------------------------------------------------ */
 export const skills = [
   {
-    id: "hard-skills",
+    id: "Core-skills",
 
     category: "Hard Skills",
 
