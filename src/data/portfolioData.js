@@ -1446,7 +1446,91 @@ export const experience = [
 /* ------------------------------------------------------------------ */
 /*  9. PUBLICATIONS                                                   */
 /* ------------------------------------------------------------------ */
-export const publications = [];
+
+export const publications = [
+  {
+    id: "pub-1",
+
+    title:
+      "A Comprehensive Review of Past and Present Developments of Li-ion Batteries",
+
+    authors:
+      "O. Faruque, Md Johurul Isalm, O. Faruq, and M. M. Alam",
+
+    venue:
+      "Discover Sustainability, Volume 7, Article 881",
+
+    paperType: "Review Article",
+
+    status: "Published",
+
+    publishedDate: "13 April 2026",
+
+    year: "2026",
+
+    citation:
+      "Faruque, O., Isalm, M. J., Faruq, O., and Alam, M. M. A comprehensive review of past and present developments of Li-ion batteries. Discover Sustainability 7, 881 (2026).",
+
+    abstract:
+      "This review examines the development of lithium-ion batteries, including electrode and electrolyte materials, electrochemical behavior, battery management systems, degradation, thermal management, mechanical abuse, thermal runaway, insulation-resistance testing, and battery safety.",
+
+    keywords: [
+      "Lithium-ion Batteries",
+      "Battery Management System",
+      "Electrolytes",
+      "Anodes",
+      "Cathodes",
+      "Cycle Life",
+      "Battery Safety",
+    ],
+
+    link:
+      "https://doi.org/10.1007/s43621-026-02920-8",
+
+    downloadUrl:
+      "https://link.springer.com/content/pdf/10.1007/s43621-026-02920-8.pdf",
+  },
+
+  {
+    id: "pub-2",
+
+    title:
+      "Optimal Approaches for Total Harmonic Distortion Reduction in Multilevel Inverter Output Currents",
+
+    authors: "",
+
+    venue: "Manuscript Under Review",
+
+    paperType: "Research Article",
+
+    status: "Under Review",
+
+    publishedDate: "Under Review",
+
+    year: "",
+
+    citation: "",
+
+    abstract:
+      "This paper investigates methods for reducing Total Harmonic Distortion in a seven-level Cascaded H-Bridge inverter. It combines Artificial Neural Network modeling with the Whale Optimization Algorithm to improve switching angles. It also studies interference elimination, phase matching, high-pass filtering, and low-pass filtering. The simulated low-pass-filter case reports THD of approximately 2.06%.",
+
+    keywords: [
+      "Multilevel Inverter",
+      "Total Harmonic Distortion",
+      "Cascaded H-Bridge",
+      "Artificial Neural Network",
+      "Whale Optimization Algorithm",
+      "Interference Elimination",
+      "MATLAB",
+      "Simulink",
+    ],
+
+    link: "",
+
+    downloadUrl:
+      `${import.meta.env.BASE_URL}assets/papers/optimal-approaches-thd-reduction.pdf`,
+  },
+];
 
 /* ------------------------------------------------------------------ */
 /*  10. CONTACT                                                       */
@@ -1557,122 +1641,7 @@ export const navLinks = [
     to: "contact",
   },
 ];
-/* ------------------------------------------------------------------ */
-/*  12. RESEARCH PAPERS                                               */
-/* ------------------------------------------------------------------ */
 
-export const researchPapers = [
-  {
-    id: "paper-1",
-
-    title:
-      "A Comprehensive Review of Past and Present Developments of Li-ion Batteries",
-
-    authors:
-      "O. Faruque, Md Johurul Isalm, O. Faruq, and M. M. Alam",
-
-    journal:
-      "Discover Sustainability",
-
-    publicationInfo:
-      "Volume 7, Article 881",
-
-    paperType:
-      "Review Article",
-
-    status:
-      "Published",
-
-    publishedDate:
-      "13 April 2026",
-
-    year:
-      "2026",
-
-    abstract:
-      "This review explains the development of lithium-ion batteries from early battery technologies to modern energy-storage systems. It covers electrode and electrolyte materials, electrochemical behavior, battery management systems, degradation, thermal management, mechanical abuse, thermal runaway, insulation-resistance testing, and battery safety.",
-
-    keywords: [
-      "Lithium-ion Batteries",
-      "Battery Management System",
-      "Electrolytes",
-      "Anodes",
-      "Cathodes",
-      "Cycle Life",
-      "Battery Safety",
-    ],
-
-    doi:
-      "https://doi.org/10.1007/s43621-026-02920-8",
-
-    articleUrl:
-      "https://link.springer.com/article/10.1007/s43621-026-02920-8",
-
-    downloadUrl:
-      "https://link.springer.com/content/pdf/10.1007/s43621-026-02920-8.pdf",
-
-    coverImage:
-      imagePath("Battery Pack.jpg"),
-  },
-
-  {
-    id: "paper-2",
-
-    title:
-      "Optimal Approaches for Total Harmonic Distortion Reduction in Multilevel Inverter Output Currents",
-
-    /*
-     * The uploaded manuscript does not show the author list
-     * in its extracted title-page content.
-     *
-     * Add the exact author list here when ready.
-     * Leaving it empty will hide the Authors row.
-     */
-    authors: "",
-
-    journal:
-      "Manuscript Under Review",
-
-    publicationInfo:
-      "Submitted Research Paper",
-
-    paperType:
-      "Research Article",
-
-    status:
-      "Under Review",
-
-    publishedDate:
-      "Under Review",
-
-    year:
-      "2026",
-
-    abstract:
-      "This paper studies methods for reducing Total Harmonic Distortion in the output of a seven-level Cascaded H-Bridge inverter. It combines Artificial Neural Network modeling with the Whale Optimization Algorithm to select improved switching angles. It also evaluates an interference-elimination circuit, phase matching, high-pass filtering, and low-pass filtering. The manuscript reports that low-pass filtering reduced THD to approximately 2.06% in the simulated case.",
-
-    keywords: [
-      "Multilevel Inverter",
-      "Total Harmonic Distortion",
-      "Cascaded H-Bridge",
-      "Artificial Neural Network",
-      "Whale Optimization Algorithm",
-      "Interference Elimination",
-      "MATLAB",
-      "Simulink",
-    ],
-
-    doi: "",
-
-    articleUrl: "",
-
-    downloadUrl:
-      "/assets/papers/optimal-approaches-thd-reduction.pdf",
-
-    coverImage:
-      imagePath("pcb-2.png"),
-  },
-];
 /* ------------------------------------------------------------------ */
 /*  SITE META                                                         */
 /* ------------------------------------------------------------------ */
