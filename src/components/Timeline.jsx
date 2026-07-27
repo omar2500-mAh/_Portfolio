@@ -3,6 +3,7 @@ import {
   BriefcaseBusiness,
   CalendarDays,
   ExternalLink,
+  FileText,
   GraduationCap,
   MapPin,
 } from "lucide-react";
@@ -14,11 +15,9 @@ const COLUMN_META = {
   education: {
     Icon: GraduationCap,
 
-    eyebrow:
-      "Academic Background",
+    eyebrow: "Academic Background",
 
-    title:
-      "Education",
+    title: "Education",
 
     description:
       "Academic foundations in electrical engineering, power electronics, battery systems, and energy technology.",
@@ -36,11 +35,9 @@ const COLUMN_META = {
   experience: {
     Icon: BriefcaseBusiness,
 
-    eyebrow:
-      "Professional Practice",
+    eyebrow: "Professional Practice",
 
-    title:
-      "Experience",
+    title: "Experience",
 
     description:
       "Research, internships, simulation, battery engineering, embedded systems, and technical communication.",
@@ -59,22 +56,15 @@ const COLUMN_META = {
 export default function Timeline() {
   const { data } = useData();
 
-  const education = Array.isArray(
-    data?.education
-  )
+  const education = Array.isArray(data?.education)
     ? data.education
     : [];
 
-  const experience = Array.isArray(
-    data?.experience
-  )
+  const experience = Array.isArray(data?.experience)
     ? data.experience
     : [];
 
-  if (
-    !education.length &&
-    !experience.length
-  ) {
+  if (!education.length && !experience.length) {
     return null;
   }
 
@@ -118,22 +108,16 @@ export default function Timeline() {
 }
 
 /* ================================================================ */
-/* COLUMN                                                           */
+/* JOURNEY COLUMN                                                    */
 /* ================================================================ */
 
-function JourneyColumn({
-  type,
-  items,
-}) {
-  const meta =
-    COLUMN_META[type];
-
-  const ColumnIcon =
-    meta.Icon;
+function JourneyColumn({ type, items }) {
+  const meta = COLUMN_META[type];
+  const ColumnIcon = meta.Icon;
 
   return (
     <div>
-      {/* Column header */}
+      {/* Column heading */}
       <div className="mb-6 flex items-start gap-4">
         <div
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${meta.iconStyle}`}
@@ -158,26 +142,21 @@ function JourneyColumn({
 
       {/* Cards */}
       <div className="space-y-5">
-        {items.map(
-          (item, index) => (
-            <JourneyCard
-              key={
-                item.id ||
-                `${type}-${index}`
-              }
-              item={item}
-              type={type}
-              index={index}
-            />
-          )
-        )}
+        {items.map((item, index) => (
+          <JourneyCard
+            key={item.id || `${type}-${index}`}
+            item={item}
+            type={type}
+            index={index}
+          />
+        ))}
       </div>
     </div>
   );
 }
 
 /* ================================================================ */
-/* CARD                                                             */
+/* JOURNEY CARD                                                      */
 /* ================================================================ */
 
 function JourneyCard({
@@ -185,8 +164,7 @@ function JourneyCard({
   type,
   index,
 }) {
-  const meta =
-    COLUMN_META[type];
+  const meta = COLUMN_META[type];
 
   const isEducation =
     type === "education";
@@ -209,16 +187,13 @@ function JourneyCard({
     item.status ||
     "";
 
-  const tags = Array.isArray(
-    item.tags
-  )
+  const tags = Array.isArray(item.tags)
     ? item.tags
     : [];
 
-  const isInternalWebsite =
-    item.website?.startsWith(
-      "#"
-    );
+  const hasActions =
+    Boolean(item.website) ||
+    Boolean(item.curriculumUrl);
 
   return (
     <motion.article
@@ -252,7 +227,6 @@ function JourneyCard({
         {/* Card header */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 items-start gap-4">
-            {/* Logo */}
             <OrganizationLogo
               logo={item.logo}
               logoAlt={
@@ -260,12 +234,9 @@ function JourneyCard({
                 organization ||
                 title
               }
-              fallbackType={
-                type
-              }
+              fallbackType={type}
             />
 
-            {/* Title and organization */}
             <div className="min-w-0">
               <h4 className="font-display text-lg font-bold leading-snug text-white transition-colors group-hover:text-gold-soft sm:text-xl">
                 {title}
@@ -324,48 +295,49 @@ function JourneyCard({
         )}
 
         {/* Bottom area */}
-        {(tags.length > 0 ||
-          item.website) && (
-          <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-4 xl:flex-row xl:items-end xl:justify-between">
-            {/* Tags */}
+        {(tags.length > 0 || hasActions) && (
+          <div className="mt-5 border-t border-white/[0.07] pt-4">
+            {/* Skills */}
             {tags.length > 0 && (
               <div className="flex flex-wrap gap-1.5">
-                {tags.map(
-                  (tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-medium text-white/45 transition-colors hover:border-gold/20 hover:text-white/70"
-                    >
-                      {tag}
-                    </span>
-                  )
-                )}
+                {tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-medium text-white/45 transition-colors hover:border-gold/20 hover:text-white/70"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             )}
 
-            {/* Website button */}
-            {item.website && (
-              <a
-                href={item.website}
-                target={
-                  isInternalWebsite
-                    ? undefined
-                    : "_blank"
-                }
-                rel={
-                  isInternalWebsite
-                    ? undefined
-                    : "noopener noreferrer"
-                }
-                className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full border border-gold/25 bg-gold/[0.07] px-4 py-2 text-xs font-semibold text-gold-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-gold hover:text-navy-950 xl:self-auto"
-              >
-                {item.websiteLabel ||
-                  (isEducation
-                    ? "Visit Institution"
-                    : "Visit Website")}
+            {/* Website and curriculum buttons */}
+            {hasActions && (
+              <div className="mt-4 flex flex-wrap items-center gap-2.5">
+                {item.website && (
+                  <ActionLink
+                    href={item.website}
+                    label={
+                      item.websiteLabel ||
+                      (isEducation
+                        ? "Visit Institution"
+                        : "Visit Website")
+                    }
+                    type="website"
+                  />
+                )}
 
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
+                {item.curriculumUrl && (
+                  <ActionLink
+                    href={item.curriculumUrl}
+                    label={
+                      item.curriculumLabel ||
+                      "View Curriculum PDF"
+                    }
+                    type="document"
+                  />
+                )}
+              </div>
             )}
           </div>
         )}
@@ -375,7 +347,56 @@ function JourneyCard({
 }
 
 /* ================================================================ */
-/* LOGO                                                             */
+/* ACTION BUTTON                                                     */
+/* ================================================================ */
+
+function ActionLink({
+  href,
+  label,
+  type,
+}) {
+  const isHashLink =
+    href.startsWith("#");
+
+  const isDocument =
+    type === "document";
+
+  const Icon = isDocument
+    ? FileText
+    : ExternalLink;
+
+  return (
+    <a
+      href={href}
+      target={
+        isHashLink
+          ? undefined
+          : "_blank"
+      }
+      rel={
+        isHashLink
+          ? undefined
+          : "noopener noreferrer"
+      }
+      className={
+        isDocument
+          ? "inline-flex items-center justify-center gap-2 rounded-full bg-gold-gradient px-4 py-2 text-xs font-semibold text-navy-950 shadow-gold-glow transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02]"
+          : "inline-flex items-center justify-center gap-2 rounded-full border border-gold/25 bg-gold/[0.07] px-4 py-2 text-xs font-semibold text-gold-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-gold hover:text-navy-950"
+      }
+    >
+      <Icon className="h-3.5 w-3.5" />
+
+      {label}
+
+      {!isDocument && (
+        <ExternalLink className="h-3.5 w-3.5" />
+      )}
+    </a>
+  );
+}
+
+/* ================================================================ */
+/* ORGANIZATION LOGO                                                 */
 /* ================================================================ */
 
 function OrganizationLogo({
@@ -384,8 +405,7 @@ function OrganizationLogo({
   fallbackType,
 }) {
   const FallbackIcon =
-    fallbackType ===
-    "education"
+    fallbackType === "education"
       ? GraduationCap
       : BriefcaseBusiness;
 
@@ -397,9 +417,7 @@ function OrganizationLogo({
           alt={logoAlt}
           className="h-full w-full"
           imgClassName="h-full w-full object-contain"
-          placeholderLabel={
-            logoAlt
-          }
+          placeholderLabel={logoAlt}
         />
       ) : (
         <FallbackIcon className="h-6 w-6 text-gold" />
