@@ -1280,190 +1280,263 @@ export const skills = [
 
 export const education = [
   {
-    id: "edu-1",
+  id: "edu-1",
 
-    degree:
-      "B.Sc. in Electrical & Electronic Engineering",
+  degree:
+    "B.Sc. in Electrical & Electronic Engineering",
 
-    institution:
-      "Islamic University, Bangladesh",
+  institution:
+    "Islamic University, Bangladesh",
 
-    location:
-      "Kushtia, Bangladesh",
+  location:
+    "Kushtia, Bangladesh",
 
-    period:
-      "Ongoing",
+  period:
+    "Ongoing",
 
-    logo:
-      imagePath(
-        "logos/islamic-university.jpg"
-      ),
+  logo:
+    imagePath(
+      "logos/islamic-university.jpg"
+    ),
 
-    logoAlt:
-      "Islamic University logo",
+  logoAlt:
+    "Islamic University logo",
 
-    website:
-      "https://www.iu.ac.bd/",
+  website:
+    "https://www.iu.ac.bd/",
 
-    websiteLabel:
-      "Visit University",
+  websiteLabel:
+    "Visit University",
 
-    curriculumUrl:
-      `${import.meta.env.BASE_URL}assets/Important File/EEE-Curriculum.pdf.pdf`,
+  curriculumUrl:
+    `${import.meta.env.BASE_URL}assets/Important%20File/EEE-Curriculum.pdf`,
 
-    curriculumLabel:
-      "View Curriculum PDF",
+  curriculumLabel:
+    "View Curriculum PDF",
 
-    description:
-      "Undergraduate study in Electrical and Electronic Engineering with a concentration in Power Electronics. The curriculum develops strong foundations in electrical circuits, electronics, electrical machines, control systems, microprocessors, power-system analysis, protection, renewable energy, engineering simulation, laboratory practice, and project-based learning. This academic preparation supports my work in Li-ion battery systems, BMS, EV energy storage, power conversion, and simulation-based research.",
+  description:
+    "Undergraduate study in Electrical and Electronic Engineering with a concentration in Power Electronics. My selected career-relevant curriculum includes VLSI design, power electronics, microprocessors and microcontrollers, control systems, measurements and instrumentation, electrical materials, renewable energy, power systems, protection, laboratory work, thesis research, and industrial training. These areas support my work in Li-ion battery systems, BMS, EV energy storage, embedded electronics, power conversion, and simulation-based engineering.",
 
-    programStats: [
-      {
-        value: "4 Years",
-        label: "Program Duration",
-      },
-      {
-        value: "8",
-        label: "Semesters",
-      },
-      {
-        value: "160",
-        label: "Total Credits",
-      },
-    ],
+  programStats: [
+    {
+      value: "4 Years",
+      label: "Program Duration",
+    },
+    {
+      value: "8",
+      label: "Semesters",
+    },
+    {
+      value: "160",
+      label: "Total Credits",
+    },
+  ],
 
-    courses: [
-      {
-        code: "EEE-1101",
-        title: "Electrical Circuits I",
-        group: "Circuits",
-      },
-      {
-        code: "EEE-1201",
-        title: "Electrical Circuits II",
-        group: "Circuits",
-      },
-      {
-        code: "EEE-2101",
-        title: "Electronics I",
-        group: "Electronics",
-      },
-      {
-        code: "EEE-2103",
-        title: "Electrical Machines I",
-        group: "Machines",
-      },
-      {
-        code: "EEE-2201",
-        title: "Electronics II",
-        group: "Electronics",
-      },
-      {
-        code: "EEE-2203",
-        title: "Electrical Machines II",
-        group: "Machines",
-      },
-      {
-        code: "EEE-2205",
-        title: "Digital Electronics",
-        group: "Digital Systems",
-      },
-      {
-        code: "EEE-3101",
-        title: "Electronics III",
-        group: "Electronics",
-      },
-      {
-        code: "EEE-3103",
-        title:
-          "Measurements and Instrumentation",
-        group: "Instrumentation",
-      },
-      {
-        code: "EEE-3107",
-        title:
-          "Microprocessor, Microcontrollers and Peripherals",
-        group: "Embedded Systems",
-      },
-      {
-        code: "EEE-3201",
-        title: "Power System Analysis I",
-        group: "Power Systems",
-      },
-      {
-        code: "EEE-3203",
-        title:
-          "Control System Engineering",
-        group: "Control",
-      },
-      {
-        code: "EEE-3207",
-        title:
-          "Electrical Properties of Materials",
-        group: "Materials",
-      },
-      {
-        code: "EEE-4101",
-        title: "Power System Analysis II",
-        group: "Power Systems",
-      },
-      {
-        code: "EEE-4111",
-        title: "Power Electronics",
-        group: "Power Electronics",
-      },
-      {
-        code: "EEE-4112",
-        title:
-          "Power Electronics Sessional",
-        group: "Laboratory",
-      },
-      {
-        code: "EEE-4201",
-        title:
-          "Switchgear and Protection",
-        group: "Protection",
-      },
-      {
-        code: "EEE-4202",
-        title:
-          "Switchgear and Protection Sessional",
-        group: "Laboratory",
-      },
-      {
-        code: "EEE-4223",
-        title:
-          "Renewable Energy for Sustainable Development",
-        group: "Renewable Energy",
-      },
-      {
-        code: "EEE-4229",
-        title:
-          "Power System Operation and Control",
-        group: "Power and Control",
-      },
-      {
-        code: "EEE-4000",
-        title: "Thesis / Project",
-        group: "Capstone",
-      },
-      {
-        code: "EEE-4100",
-        title:
-          "Industrial Attachment / Training / Internship",
-        group: "Professional",
-      },
-    ],
+  /*
+   * Array order controls the display order.
+   * VLSI Design is intentionally placed first.
+   */
+  courses: [
+    {
+      code: "EEE-4215",
 
-    tags: [
-      "Electrical Engineering",
-      "Power Electronics",
-      "Control Systems",
-      "Embedded Systems",
-      "Power Systems",
-      "Renewable Energy",
-    ],
-  },
+      title:
+        "VLSI Design",
+
+      group:
+        "VLSI",
+    },
+
+    {
+      code: "EEE-4111",
+
+      title:
+        "Power Electronics",
+
+      group:
+        "Power Electronics",
+    },
+
+    {
+      code: "EEE-4112",
+
+      title:
+        "Power Electronics Sessional",
+
+      group:
+        "Laboratory",
+    },
+
+    {
+      code: "EEE-3107",
+
+      title:
+        "Microprocessor, Microcontrollers and Peripherals",
+
+      group:
+        "Embedded Systems",
+    },
+
+    {
+      code: "EEE-3203",
+
+      title:
+        "Control System Engineering",
+
+      group:
+        "Control",
+    },
+
+    {
+      code: "EEE-3103",
+
+      title:
+        "Measurements and Instrumentation",
+
+      group:
+        "Instrumentation",
+    },
+
+    {
+      code: "EEE-3207",
+
+      title:
+        "Electrical Properties of Materials",
+
+      group:
+        "Materials",
+    },
+
+    {
+      code: "EEE-3108",
+
+      title:
+        "Microprocessor, Microcontrollers and Peripherals Sessional",
+
+      group:
+        "Laboratory",
+    },
+
+    {
+      code: "EEE-3204",
+
+      title:
+        "Control System Engineering Sessional",
+
+      group:
+        "Laboratory",
+    },
+
+    {
+      code: "EEE-3104",
+
+      title:
+        "Measurements and Instrumentation Sessional",
+
+      group:
+        "Laboratory",
+    },
+
+    {
+      code: "EEE-4223",
+
+      title:
+        "Renewable Energy for Sustainable Development",
+
+      group:
+        "Energy",
+    },
+
+    {
+      code: "EEE-2205",
+
+      title:
+        "Digital Electronics",
+
+      group:
+        "Digital Systems",
+    },
+
+    {
+      code: "EEE-3101",
+
+      title:
+        "Electronics III",
+
+      group:
+        "Electronics",
+    },
+
+    {
+      code: "EEE-3201",
+
+      title:
+        "Power System Analysis I",
+
+      group:
+        "Power Systems",
+    },
+
+    {
+      code: "EEE-4101",
+
+      title:
+        "Power System Analysis II",
+
+      group:
+        "Power Systems",
+    },
+
+    {
+      code: "EEE-4229",
+
+      title:
+        "Power System Operation and Control",
+
+      group:
+        "Power and Control",
+    },
+
+    {
+      code: "EEE-4201",
+
+      title:
+        "Switchgear and Protection",
+
+      group:
+        "Protection",
+    },
+
+    {
+      code: "EEE-4000",
+
+      title:
+        "Thesis / Project",
+
+      group:
+        "Research",
+    },
+
+    {
+      code: "EEE-4100",
+
+      title:
+        "Industrial Attachment Training / Internship",
+
+      group:
+        "Professional",
+    },
+  ],
+
+  tags: [
+    "VLSI Design",
+    "Power Electronics",
+    "Battery Systems",
+    "Embedded Systems",
+    "Control Systems",
+    "Energy Systems",
+  ],
+},
 
   {
     id: "edu-2",
