@@ -1272,59 +1272,7 @@ export const skills = [
     ],
   },
 ];
-{
-  id: "edu-1",
 
-  degree:
-    "B.Sc. in Electrical & Electronic Engineering",
-
-  institution:
-    "Islamic University, Bangladesh",
-
-  location:
-    "Kushtia, Bangladesh",
-
-  period:
-    "Ongoing",
-
-  logo:
-    imagePath(
-      "logos/islamic-university.png"
-    ),
-
-  logoAlt:
-    "Islamic University logo",
-
-  website:
-    "https://www.iu.ac.bd/",
-
-  websiteLabel:
-    "Visit University",
-
-  /*
-   * Required PDF location:
-   * public/assets/Important File/EEE-Curriculum.pdf
-   *
-   * %20 represents the space in the folder name.
-   */
-  curriculumUrl:
-    `${import.meta.env.BASE_URL}assets/Important%20File/EEE-Curriculum.pdf`,
-
-  curriculumLabel:
-    "View Curriculum PDF",
-
-  description:
-    "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. Career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic foundation supports my work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
-
-  tags: [
-    "EEE",
-    "Major: Power Electronics",
-    "Power Conversion",
-    "Battery Systems",
-    "BMS",
-    "EV Energy Storage",
-  ],
-},
 
       /* ------------------------------------------------------------------ */
 /*  7. EDUCATION                                                      */
