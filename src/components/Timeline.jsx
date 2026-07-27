@@ -1,7 +1,10 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {
+  BookOpenCheck,
   BriefcaseBusiness,
   CalendarDays,
+  ChevronDown,
   ExternalLink,
   FileText,
   GraduationCap,
@@ -20,7 +23,7 @@ const COLUMN_META = {
     title: "Education",
 
     description:
-      "Academic foundations in electrical engineering, power electronics, battery systems, and energy technology.",
+      "Academic foundations in electrical engineering, power electronics, energy systems, and applied technology.",
 
     iconStyle:
       "border-blue-400/25 bg-blue-400/10 text-blue-300",
@@ -56,15 +59,22 @@ const COLUMN_META = {
 export default function Timeline() {
   const { data } = useData();
 
-  const education = Array.isArray(data?.education)
+  const education = Array.isArray(
+    data?.education
+  )
     ? data.education
     : [];
 
-  const experience = Array.isArray(data?.experience)
+  const experience = Array.isArray(
+    data?.experience
+  )
     ? data.experience
     : [];
 
-  if (!education.length && !experience.length) {
+  if (
+    !education.length &&
+    !experience.length
+  ) {
     return null;
   }
 
@@ -111,13 +121,15 @@ export default function Timeline() {
 /* JOURNEY COLUMN                                                    */
 /* ================================================================ */
 
-function JourneyColumn({ type, items }) {
+function JourneyColumn({
+  type,
+  items,
+}) {
   const meta = COLUMN_META[type];
   const ColumnIcon = meta.Icon;
 
   return (
     <div>
-      {/* Column heading */}
       <div className="mb-6 flex items-start gap-4">
         <div
           className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${meta.iconStyle}`}
@@ -140,16 +152,20 @@ function JourneyColumn({ type, items }) {
         </div>
       </div>
 
-      {/* Cards */}
       <div className="space-y-5">
-        {items.map((item, index) => (
-          <JourneyCard
-            key={item.id || `${type}-${index}`}
-            item={item}
-            type={type}
-            index={index}
-          />
-        ))}
+        {items.map(
+          (item, index) => (
+            <JourneyCard
+              key={
+                item.id ||
+                `${type}-${index}`
+              }
+              item={item}
+              type={type}
+              index={index}
+            />
+          )
+        )}
       </div>
     </div>
   );
@@ -187,8 +203,22 @@ function JourneyCard({
     item.status ||
     "";
 
-  const tags = Array.isArray(item.tags)
+  const tags = Array.isArray(
+    item.tags
+  )
     ? item.tags
+    : [];
+
+  const programStats = Array.isArray(
+    item.programStats
+  )
+    ? item.programStats
+    : [];
+
+  const courses = Array.isArray(
+    item.courses
+  )
+    ? item.courses
     : [];
 
   const hasActions =
@@ -218,13 +248,13 @@ function JourneyCard({
       }}
       className="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] shadow-elevate backdrop-blur-sm transition-all duration-300 hover:border-gold/25 hover:bg-white/[0.05]"
     >
-      {/* Colored top line */}
+      {/* Accent line */}
       <div
         className={`absolute left-0 top-0 h-px w-full bg-gradient-to-r ${meta.accent}`}
       />
 
       <div className="p-5 sm:p-6">
-        {/* Card header */}
+        {/* Header */}
         <div className="flex items-start justify-between gap-4">
           <div className="flex min-w-0 items-start gap-4">
             <OrganizationLogo
@@ -294,55 +324,206 @@ function JourneyCard({
           </p>
         )}
 
-        {/* Bottom area */}
-        {(tags.length > 0 || hasActions) && (
-          <div className="mt-5 border-t border-white/[0.07] pt-4">
-            {/* Skills */}
-            {tags.length > 0 && (
-              <div className="flex flex-wrap gap-1.5">
-                {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-medium text-white/45 transition-colors hover:border-gold/20 hover:text-white/70"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
+        {/* Program information */}
+        {programStats.length > 0 && (
+          <div className="mt-4 grid grid-cols-3 gap-2">
+            {programStats.map(
+              (stat) => (
+                <div
+                  key={`${stat.value}-${stat.label}`}
+                  className="rounded-xl border border-white/[0.08] bg-black/15 px-3 py-3 text-center"
+                >
+                  <div className="font-display text-base font-bold text-white">
+                    {stat.value}
+                  </div>
+
+                  <div className="mt-1 text-[9px] font-semibold uppercase tracking-[0.12em] text-white/35">
+                    {stat.label}
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+        )}
+
+        {/* Relevant curriculum courses */}
+        {courses.length > 0 && (
+          <RelevantCoursework
+            courses={courses}
+          />
+        )}
+
+        {/* Tags */}
+        {tags.length > 0 && (
+          <div className="mt-5 flex flex-wrap gap-1.5 border-t border-white/[0.07] pt-4">
+            {tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-medium text-white/45 transition-colors hover:border-gold/20 hover:text-white/70"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
+
+        {/* Buttons */}
+        {hasActions && (
+          <div
+            className={`flex flex-wrap items-center gap-2.5 ${
+              tags.length > 0
+                ? "mt-4"
+                : "mt-5 border-t border-white/[0.07] pt-4"
+            }`}
+          >
+            {item.website && (
+              <ActionLink
+                href={item.website}
+                label={
+                  item.websiteLabel ||
+                  (isEducation
+                    ? "Visit Institution"
+                    : "Visit Website")
+                }
+                type="website"
+              />
             )}
 
-            {/* Website and curriculum buttons */}
-            {hasActions && (
-              <div className="mt-4 flex flex-wrap items-center gap-2.5">
-                {item.website && (
-                  <ActionLink
-                    href={item.website}
-                    label={
-                      item.websiteLabel ||
-                      (isEducation
-                        ? "Visit Institution"
-                        : "Visit Website")
-                    }
-                    type="website"
-                  />
-                )}
-
-                {item.curriculumUrl && (
-                  <ActionLink
-                    href={item.curriculumUrl}
-                    label={
-                      item.curriculumLabel ||
-                      "View Curriculum PDF"
-                    }
-                    type="document"
-                  />
-                )}
-              </div>
+            {item.curriculumUrl && (
+              <ActionLink
+                href={
+                  item.curriculumUrl
+                }
+                label={
+                  item.curriculumLabel ||
+                  "View Curriculum PDF"
+                }
+                type="document"
+              />
             )}
           </div>
         )}
       </div>
     </motion.article>
+  );
+}
+
+/* ================================================================ */
+/* RELEVANT COURSEWORK                                               */
+/* ================================================================ */
+
+function RelevantCoursework({
+  courses,
+}) {
+  const [showAll, setShowAll] =
+    useState(false);
+
+  const initialCount = 6;
+
+  const displayedCourses =
+    showAll
+      ? courses
+      : courses.slice(
+          0,
+          initialCount
+        );
+
+  const hiddenCount = Math.max(
+    courses.length -
+      initialCount,
+    0
+  );
+
+  return (
+    <div className="mt-5 rounded-2xl border border-white/[0.08] bg-black/15 p-4">
+      <div className="flex items-center justify-between gap-4">
+        <div className="flex items-center gap-2">
+          <BookOpenCheck className="h-4 w-4 text-gold" />
+
+          <div>
+            <h5 className="text-xs font-semibold text-white/80">
+              Selected Curriculum
+              Courses
+            </h5>
+
+            <p className="mt-0.5 text-[10px] text-white/35">
+              Relevant to power,
+              electronics, control,
+              energy, and embedded
+              systems
+            </p>
+          </div>
+        </div>
+
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-semibold text-white/40">
+          {courses.length} courses
+        </span>
+      </div>
+
+      <motion.div
+        layout
+        className="mt-4 grid gap-2 sm:grid-cols-2"
+      >
+        {displayedCourses.map(
+          (course) => (
+            <motion.div
+              layout
+              key={`${course.code}-${course.title}`}
+              initial={{
+                opacity: 0,
+                y: 8,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              className="rounded-xl border border-white/[0.07] bg-white/[0.025] p-3 transition-colors hover:border-gold/20 hover:bg-white/[0.045]"
+            >
+              <div className="flex items-start justify-between gap-2">
+                <span className="text-[10px] font-bold uppercase tracking-[0.1em] text-gold">
+                  {course.code}
+                </span>
+
+                {course.group && (
+                  <span className="rounded-full bg-white/[0.04] px-2 py-0.5 text-[8px] font-semibold uppercase tracking-[0.08em] text-white/30">
+                    {course.group}
+                  </span>
+                )}
+              </div>
+
+              <p className="mt-1.5 text-xs font-medium leading-relaxed text-white/60">
+                {course.title}
+              </p>
+            </motion.div>
+          )
+        )}
+      </motion.div>
+
+      {hiddenCount > 0 && (
+        <button
+          type="button"
+          onClick={() =>
+            setShowAll(
+              (current) =>
+                !current
+            )
+          }
+          className="mt-3 inline-flex items-center gap-1.5 text-[11px] font-semibold text-gold transition-colors hover:text-gold-light"
+        >
+          {showAll
+            ? "Show Fewer Courses"
+            : `Show All Courses (+${hiddenCount})`}
+
+          <ChevronDown
+            className={`h-3.5 w-3.5 transition-transform ${
+              showAll
+                ? "rotate-180"
+                : ""
+            }`}
+          />
+        </button>
+      )}
+    </div>
   );
 }
 
@@ -387,10 +568,6 @@ function ActionLink({
       <Icon className="h-3.5 w-3.5" />
 
       {label}
-
-      {!isDocument && (
-        <ExternalLink className="h-3.5 w-3.5" />
-      )}
     </a>
   );
 }
@@ -405,7 +582,8 @@ function OrganizationLogo({
   fallbackType,
 }) {
   const FallbackIcon =
-    fallbackType === "education"
+    fallbackType ===
+    "education"
       ? GraduationCap
       : BriefcaseBusiness;
 
@@ -417,7 +595,9 @@ function OrganizationLogo({
           alt={logoAlt}
           className="h-full w-full"
           imgClassName="h-full w-full object-contain"
-          placeholderLabel={logoAlt}
+          placeholderLabel={
+            logoAlt
+          }
         />
       ) : (
         <FallbackIcon className="h-6 w-6 text-gold" />
