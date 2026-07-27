@@ -73,7 +73,7 @@ export default function Publications() {
       <div className="relative mx-auto max-w-5xl px-5 sm:px-8">
         <SectionHeading
           eyebrow="Research Output"
-          title="Publications & Papers"
+          title="Publications"
           subtitle="Published research and manuscripts currently under review."
         />
 
