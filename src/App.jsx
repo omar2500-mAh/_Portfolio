@@ -10,7 +10,6 @@ import Gallery from "./components/Gallery";
 import Awards from "./components/Awards";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
-
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
@@ -20,17 +19,41 @@ function Portfolio() {
 
   const visible = {
     home: true,
+
     about: true,
-    research: data.highlightSections?.length > 0,
-    gallery: data.galleryItems?.length > 0,
-    awards: data.awardsCertificates?.length > 0,
-    skills: data.skills?.length > 0,
-    journey: data.education?.length > 0 || data.experience?.length > 0,
-    publications: data.publications?.length > 0,
+
+    research:
+      Array.isArray(data?.highlightSections) &&
+      data.highlightSections.length > 0,
+
+    publications:
+      Array.isArray(data?.publications) &&
+      data.publications.length > 0,
+
+    gallery:
+      Array.isArray(data?.galleryItems) &&
+      data.galleryItems.length > 0,
+
+    awards:
+      Array.isArray(data?.awardsCertificates) &&
+      data.awardsCertificates.length > 0,
+
+    skills:
+      Array.isArray(data?.skills) &&
+      data.skills.length > 0,
+
+    journey:
+      (Array.isArray(data?.education) &&
+        data.education.length > 0) ||
+      (Array.isArray(data?.experience) &&
+        data.experience.length > 0),
+
     contact: true,
   };
 
-  const visibleSections = Object.keys(visible).filter((key) => visible[key]);
+  const visibleSections = Object.keys(visible).filter(
+    (key) => visible[key]
+  );
 
   return (
     <div className="relative">
@@ -38,14 +61,32 @@ function Portfolio() {
 
       <main>
         <Hero />
+
         <About />
 
-        {visible.research && <DynamicHighlights />}
-        {visible.gallery && <Gallery />}
-        {visible.awards && <Awards />}
-        {visible.skills && <Skills />}
-        {visible.journey && <Timeline />}
-        {visible.publications && <Publications />}
+        {visible.research && (
+          <DynamicHighlights />
+        )}
+
+        {visible.publications && (
+          <Publications />
+        )}
+
+        {visible.gallery && (
+          <Gallery />
+        )}
+
+        {visible.awards && (
+          <Awards />
+        )}
+
+        {visible.skills && (
+          <Skills />
+        )}
+
+        {visible.journey && (
+          <Timeline />
+        )}
 
         <Contact />
       </main>
@@ -58,8 +99,15 @@ function Portfolio() {
 export default function App() {
   return (
     <Routes>
-      <Route path="/" element={<Portfolio />} />
-      <Route path="/admin" element={<Admin />} />
+      <Route
+        path="/"
+        element={<Portfolio />}
+      />
+
+      <Route
+        path="/admin"
+        element={<Admin />}
+      />
     </Routes>
   );
 }
