@@ -1309,7 +1309,7 @@ export const education = [
       "Visit University",
 
     curriculumUrl:
-      `${import.meta.env.BASE_URL}assets/Important%20File/EEE-Curriculum.pdf`,
+      `${import.meta.env.BASE_URL}assets/Important File/EEE-Curriculum.pdf.pdf`,
 
     curriculumLabel:
       "View Curriculum PDF",
