@@ -9,7 +9,7 @@ import Gallery from "./components/Gallery";
 import Awards from "./components/Awards";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
-import Publications from "./components/Publications";
+import ResearchPapers from "./components/ResearchPapers";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
