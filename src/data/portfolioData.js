@@ -1272,7 +1272,7 @@ export const skills = [
     ],
   },
 ];
-/* ------------------------------------------------------------------ */
+//* ------------------------------------------------------------------ */
 /*  EDUCATION                                                         */
 /* ------------------------------------------------------------------ */
 
@@ -1388,14 +1388,14 @@ export const experience = [
 
     logo:
       imagePath(
-        "logos/omi-battery.png"
+        "logos/omi-battery.jpg"
       ),
 
     logoAlt:
       "OMI Battery Innovation Center logo",
 
     website:
-      "https://omi1.com/battery/",
+      "https://www.linkedin.com/company/omielectricpowertrain/",
 
     websiteLabel:
       "Visit OMI Battery",
@@ -1433,7 +1433,7 @@ export const experience = [
      */
     logo:
       imagePath(
-        "logos/islamic-university.png"
+        "logos/islamic-university.jpg"
       ),
 
     logoAlt:
@@ -1480,7 +1480,7 @@ export const experience = [
       "Simulation Support BD logo",
 
     website:
-      "https://sites.google.com/view/ssbd204",
+      "https://www.linkedin.com/company/simulation-support-bd-ssbd/posts/?feedView=all",
 
     websiteLabel:
       "Visit SSBD",
@@ -1514,7 +1514,7 @@ export const experience = [
 
     logo:
       imagePath(
-        "logos/for-the-light.png"
+        "logos/for-the-light.jpg"
       ),
 
     logoAlt:
@@ -1525,7 +1525,7 @@ export const experience = [
      * your own portfolio.
      */
     website:
-      "#research",
+      "https://www.linkedin.com/company/106695284/admin/dashboard/",
 
     websiteLabel:
       "View Project",
@@ -1558,7 +1558,7 @@ export const experience = [
 
     logo:
       imagePath(
-        "logos/ysse.png"
+        "logos/ysse.jpg"
       ),
 
     logoAlt:
