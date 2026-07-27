@@ -7,6 +7,7 @@ import {
   Download,
   ExternalLink,
   FileText,
+  MapPin,
   Users,
 } from "lucide-react";
 import { useData } from "../context/DataContext";
@@ -62,10 +63,10 @@ export default function Publications() {
       id="publications"
       className="relative overflow-hidden bg-navy-gradient py-20 sm:py-24"
     >
-      {/* Background */}
+      {/* Background decoration */}
       <div className="absolute inset-0 bg-mesh opacity-45" />
 
-      <div className="absolute -right-28 top-16 h-72 w-72 rounded-full border border-white/[0.035]" />
+      <div className="absolute -right-32 top-16 h-72 w-72 rounded-full border border-white/[0.035]" />
 
       <div className="absolute -left-24 bottom-0 h-72 w-72 rounded-full bg-gold/[0.025] blur-3xl" />
 
@@ -76,7 +77,7 @@ export default function Publications() {
           subtitle="Published research and manuscripts currently under review."
         />
 
-        {/* Papers display one by one */}
+        {/* One paper per row */}
         <div className="space-y-5">
           {items.map((publication, index) => (
             <PublicationCard
@@ -104,6 +105,13 @@ function PublicationCard({
   const isPublished =
     publication.status === "Published";
 
+  /*
+   * Published paper:
+   * Shows actual publication date.
+   *
+   * Under-review paper:
+   * Shows only "Under Review" in the date position.
+   */
   const displayDate = isPublished
     ? publication.publishedDate
     : "Under Review";
@@ -143,18 +151,18 @@ function PublicationCard({
       }}
       className="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] shadow-elevate backdrop-blur-sm transition-all duration-300 hover:border-gold/25 hover:bg-white/[0.048]"
     >
-      {/* Status accent */}
+      {/* Colored top line */}
       <div
         className={`absolute left-0 top-0 h-px w-full bg-gradient-to-r ${status.accent}`}
       />
 
-      {/* Soft glow */}
+      {/* Soft status glow */}
       <div
         className={`pointer-events-none absolute -right-20 -top-24 h-56 w-56 rounded-full blur-3xl ${status.glow}`}
       />
 
       <div className="relative p-5 sm:p-6">
-        {/* Top information */}
+        {/* Top area */}
         <div className="flex items-start gap-4">
           <div
             className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border ${status.iconBox}`}
@@ -163,7 +171,7 @@ function PublicationCard({
           </div>
 
           <div className="min-w-0 flex-1">
-            {/* Status, date and type */}
+            {/* Status, date and paper type */}
             <div className="mb-2.5 flex flex-wrap items-center gap-2">
               <span
                 className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-[11px] font-semibold ${status.badge}`}
@@ -199,7 +207,8 @@ function PublicationCard({
         </div>
 
         {/* Metadata */}
-        <div className="mt-4 grid gap-2 border-l border-white/[0.08] pl-4 sm:grid-cols-2">
+        <div className="mt-4 space-y-2 border-l border-white/[0.08] pl-4">
+          {/* Authors */}
           {publication.authors && (
             <div className="flex items-start gap-2 text-xs leading-relaxed text-white/50">
               <Users className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
@@ -208,11 +217,13 @@ function PublicationCard({
                 <span className="font-semibold text-white/70">
                   Authors:
                 </span>{" "}
+
                 {publication.authors}
               </p>
             </div>
           )}
 
+          {/* Published journal or submitted conference */}
           {publication.venue && (
             <div className="flex items-start gap-2 text-xs leading-relaxed text-white/50">
               <BookOpen className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
@@ -220,13 +231,34 @@ function PublicationCard({
               <p>
                 <span className="font-semibold text-white/70">
                   {isPublished
-                    ? "Publication:"
+                    ? "Published in:"
                     : "Submitted to:"}
                 </span>{" "}
+
                 {publication.venue}
               </p>
             </div>
           )}
+
+          {/* Conference date and location */}
+          {!isPublished &&
+            publication.venueDetails && (
+              <div className="flex items-start gap-2 text-xs leading-relaxed text-white/45">
+                <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-gold" />
+
+                <p>
+                  {publication.venueDetails}
+                </p>
+              </div>
+            )}
+
+          {/* Optional IEEE conference record */}
+          {!isPublished &&
+            publication.conferenceRecord && (
+              <p className="pl-[22px] text-[10px] font-semibold uppercase tracking-[0.12em] text-white/30">
+                {publication.conferenceRecord}
+              </p>
+            )}
         </div>
 
         {/* Compact abstract */}
@@ -243,7 +275,7 @@ function PublicationCard({
           </p>
         )}
 
-        {/* Bottom */}
+        {/* Bottom area */}
         <div className="mt-4 flex flex-col gap-4 border-t border-white/[0.07] pt-4 md:flex-row md:items-center md:justify-between">
           {/* Keywords */}
           {visibleKeywords.length > 0 && (
