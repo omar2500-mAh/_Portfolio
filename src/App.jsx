@@ -5,11 +5,12 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import DynamicHighlights from "./components/DynamicHighlights";
+import Publications from "./components/Publications";
 import Gallery from "./components/Gallery";
 import Awards from "./components/Awards";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
-import ResearchPapers from "./components/ResearchPapers";
+
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
