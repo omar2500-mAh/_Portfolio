@@ -1272,105 +1272,59 @@ export const skills = [
     ],
   },
 ];
-//* ------------------------------------------------------------------ */
-/*  EDUCATION                                                         */
-/* ------------------------------------------------------------------ */
+{
+  id: "edu-1",
 
-export const education = [
-  {
-    id: "edu-1",
+  degree:
+    "B.Sc. in Electrical & Electronic Engineering",
 
-    degree:
-      "B.Sc. in Electrical & Electronic Engineering",
+  institution:
+    "Islamic University, Bangladesh",
 
-    institution:
-      "Islamic University, Bangladesh",
+  location:
+    "Kushtia, Bangladesh",
 
-    location:
-      "Kushtia, Bangladesh",
+  period:
+    "Ongoing",
 
-    period:
-      "Ongoing",
+  logo:
+    imagePath(
+      "logos/islamic-university.png"
+    ),
 
-    logo:
-      imagePath(
-        "logos/islamic-university.jpg"
-      ),
+  logoAlt:
+    "Islamic University logo",
 
-    logoAlt:
-      "Islamic University logo",
+  website:
+    "https://www.iu.ac.bd/",
 
-    website:
-      "https://www.iu.ac.bd/",
+  websiteLabel:
+    "Visit University",
 
-    websiteLabel:
-      "Visit University",
+  /*
+   * Required PDF location:
+   * public/assets/Important File/EEE-Curriculum.pdf
+   *
+   * %20 represents the space in the folder name.
+   */
+  curriculumUrl:
+    `${import.meta.env.BASE_URL}assets/Important%20File/EEE-Curriculum.pdf`,
 
-    description:
-      "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. Career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic foundation supports my work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
+  curriculumLabel:
+    "View Curriculum PDF",
 
-    tags: [
-      "EEE",
-      "Major: Power Electronics",
-      "Power Conversion",
-      "Battery Systems",
-      "BMS",
-      "EV Energy Storage",
-    ],
-  },
+  description:
+    "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. Career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic foundation supports my work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
 
-  {
-    id: "edu-2",
-
-    institution:
-      "GOVERNMENT BROJOMOHUN COLLEGE",
-
-    location:
-      "Barisal, Bangladesh",
-    degree:
-      "Higher Secondary Certificate — Science",
-
-    /*
-     * Replace “College” with your exact
-     * college name.
-     */
-    institution:
-      "College",
-
-    location:
-      "Bangladesh",
-
-    period:
-      "Completed",
-
-    logo:
-      imagePath(
-        "logos/college.jpg"
-      ),
-
-    logoAlt:
-      "College logo",
-
-    /*
-     * Add your actual college website here.
-     * Empty value hides the website button.
-     */
-    website: "",
-
-    websiteLabel:
-      "Visit College",
-
-    description:
-      "Foundation in physics, chemistry, and mathematics that shaped an early interest in energy, electronics, and engineering.",
-
-    tags: [
-      "Science",
-      "Physics",
-      "Chemistry",
-      "Mathematics",
-    ],
-  },
-];
+  tags: [
+    "EEE",
+    "Major: Power Electronics",
+    "Power Conversion",
+    "Battery Systems",
+    "BMS",
+    "EV Energy Storage",
+  ],
+},
 /* ------------------------------------------------------------------ */
 /*  EXPERIENCE                                                        */
 /* ------------------------------------------------------------------ */
