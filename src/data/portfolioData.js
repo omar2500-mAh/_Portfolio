@@ -1294,7 +1294,7 @@ export const education = [
 
     logo:
       imagePath(
-        "logos/islamic-university.png"
+        "logos/islamic-university.jpg"
       ),
 
     logoAlt:
@@ -1322,6 +1322,11 @@ export const education = [
   {
     id: "edu-2",
 
+    institution:
+      "GOVERNMENT BROJOMOHUN COLLEGE",
+
+    location:
+      "Barisal, Bangladesh",
     degree:
       "Higher Secondary Certificate — Science",
 
@@ -1340,7 +1345,7 @@ export const education = [
 
     logo:
       imagePath(
-        "logos/college.png"
+        "logos/college.jpg"
       ),
 
     logoAlt:
@@ -1473,7 +1478,7 @@ export const experience = [
 
     logo:
       imagePath(
-        "logos/ssbd.png"
+        "logos/ssbd.jpg"
       ),
 
     logoAlt:
