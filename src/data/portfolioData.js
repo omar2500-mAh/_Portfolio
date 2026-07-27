@@ -1273,22 +1273,41 @@ export const skills = [
   },
 ];
 /* ------------------------------------------------------------------ */
-/*  7. EDUCATION                                                      */
+/*  EDUCATION                                                         */
 /* ------------------------------------------------------------------ */
+
 export const education = [
   {
-    id: "ed-1",
+    id: "edu-1",
 
-    title:
+    degree:
       "B.Sc. in Electrical & Electronic Engineering",
 
     institution:
       "Islamic University, Bangladesh",
 
-    date: "Ongoing",
+    location:
+      "Kushtia, Bangladesh",
+
+    period:
+      "Ongoing",
+
+    logo:
+      imagePath(
+        "logos/islamic-university.png"
+      ),
+
+    logoAlt:
+      "Islamic University logo",
+
+    website:
+      "https://www.iu.ac.bd/",
+
+    websiteLabel:
+      "Visit University",
 
     description:
-      "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. My career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic background supports my current work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
+      "Undergraduate study in Electrical and Electronic Engineering with a major concentration in Power Electronics. Career-relevant coursework includes Power Electronics, Power Electronics Sessional, Electrical Circuits, Electronics, Electrical Machines, Control Systems, Microprocessors and Interfacing, Power System Analysis, and Switchgear and Protection. This academic foundation supports my work in Li-ion battery thermal management, BMS, EV battery systems, power conversion, and simulation-based energy storage research.",
 
     tags: [
       "EEE",
@@ -1298,47 +1317,91 @@ export const education = [
       "BMS",
       "EV Energy Storage",
     ],
-
-    link: "",
   },
 
   {
-    id: "ed-2",
+    id: "edu-2",
 
-    title:
-      "Higher Secondary Certificate (Science)",
+    degree:
+      "Higher Secondary Certificate — Science",
 
-    institution: "College",
+    /*
+     * Replace “College” with your exact
+     * college name.
+     */
+    institution:
+      "College",
 
-    date: "Completed",
+    location:
+      "Bangladesh",
+
+    period:
+      "Completed",
+
+    logo:
+      imagePath(
+        "logos/college.png"
+      ),
+
+    logoAlt:
+      "College logo",
+
+    /*
+     * Add your actual college website here.
+     * Empty value hides the website button.
+     */
+    website: "",
+
+    websiteLabel:
+      "Visit College",
 
     description:
-      "Foundation in physics, chemistry, and mathematics that shaped an early interest in energy and electronics.",
+      "Foundation in physics, chemistry, and mathematics that shaped an early interest in energy, electronics, and engineering.",
 
     tags: [
       "Science",
+      "Physics",
+      "Chemistry",
+      "Mathematics",
     ],
-
-    link: "",
   },
 ];
+/* ------------------------------------------------------------------ */
+/*  EXPERIENCE                                                        */
+/* ------------------------------------------------------------------ */
 
-/* ------------------------------------------------------------------ */
-/*  8. EXPERIENCE                                                     */
-/* ------------------------------------------------------------------ */
 export const experience = [
   {
-    id: "ex-1",
+    id: "exp-1",
 
-    title: "Intern",
+    role:
+      "Intern",
 
-    institution:
+    organization:
       "OMI Battery Innovation Center",
 
-    date: "Apr 2026 — Present",
+    location:
+      "Bangladesh",
+
+    period:
+      "Apr 2026 — Present",
+
+    logo:
+      imagePath(
+        "logos/omi-battery.png"
+      ),
+
+    logoAlt:
+      "OMI Battery Innovation Center logo",
+
+    website:
+      "https://omi1.com/battery/",
+
+    websiteLabel:
+      "Visit OMI Battery",
 
     description:
-      "Part-time internship focused on LFP battery pack applications. Configured and analyzed 4S, 16S, and 32S Battery Management System architectures, supported PCB schematic and layout design, including component placement and pack-monitoring connections, and assisted with battery pack simulation, BMS performance analysis, system behavior interpretation, and pack-level safety evaluation.",
+      "Part-time internship focused on LFP battery-pack applications. Configured and analyzed 4S, 16S, and 32S Battery Management System architectures, supported PCB schematic and layout design, including component placement and pack-monitoring connections, and assisted with battery-pack simulation, BMS performance analysis, system-behavior interpretation, and pack-level safety evaluation.",
 
     tags: [
       "BMS",
@@ -1346,22 +1409,44 @@ export const experience = [
       "PCB Design",
       "Pack Safety",
     ],
-
-    link: "",
   },
 
   {
-    id: "ex-2",
+    id: "exp-2",
 
-    title: "Research Assistant",
+    role:
+      "Research Assistant",
 
-    institution:
+    organization:
       "Materials Science Laboratory, Department of Electrical & Electronic Engineering, Islamic University",
 
-    date: "Jan 2023 — Present",
+    location:
+      "Kushtia, Bangladesh",
+
+    period:
+      "Jan 2023 — Present",
+
+    /*
+     * Use the university logo because
+     * a separate laboratory logo was
+     * not provided.
+     */
+    logo:
+      imagePath(
+        "logos/islamic-university.png"
+      ),
+
+    logoAlt:
+      "Islamic University logo",
+
+    website:
+      "https://www.iu.ac.bd/",
+
+    websiteLabel:
+      "Visit University",
 
     description:
-      "Supported Li-ion battery and materials research related to electrochemical behavior, thermal behavior, and energy storage performance. Assisted with literature review, data interpretation, and technical documentation for battery and materials studies under the supervision of Dr. Momtazul Islam.",
+      "Supported Li-ion battery and materials research related to electrochemical behavior, thermal behavior, and energy-storage performance. Assisted with literature review, data interpretation, and technical documentation for battery and materials studies under the supervision of Dr. Momtazul Islam.",
 
     tags: [
       "Li-ion Battery",
@@ -1369,22 +1454,39 @@ export const experience = [
       "Energy Storage",
       "Technical Documentation",
     ],
-
-    link: "",
   },
 
   {
-    id: "ex-3",
+    id: "exp-3",
 
-    title: "Intern",
+    role:
+      "Intern",
 
-    institution:
-      "Simulation Support BD (SSBD)",
+    organization:
+      "Simulation Support BD — SSBD",
 
-    date: "Feb 2026 — Present",
+    location:
+      "Bangladesh",
+
+    period:
+      "Feb 2026 — Present",
+
+    logo:
+      imagePath(
+        "logos/ssbd.png"
+      ),
+
+    logoAlt:
+      "Simulation Support BD logo",
+
+    website:
+      "https://sites.google.com/view/ssbd204",
+
+    websiteLabel:
+      "Visit SSBD",
 
     description:
-      "Part-time internship supporting physics-based modeling and analysis tasks using COMSOL Multiphysics, MATLAB, and ANSYS. Worked on thermal and electrochemical simulation, parameter optimization, result visualization, and interpretation of simulation outputs while collaborating with senior engineers to validate models, improve simulation accuracy, and communicate technical findings.",
+      "Part-time internship supporting physics-based modeling and analysis using COMSOL Multiphysics, MATLAB, and ANSYS. Worked on thermal and electrochemical simulation, parameter optimization, result visualization, and interpretation of simulation outputs while collaborating with senior engineers to validate models, improve simulation accuracy, and communicate technical findings.",
 
     tags: [
       "COMSOL",
@@ -1393,19 +1495,40 @@ export const experience = [
       "Simulation",
       "Model Validation",
     ],
-
-    link: "",
   },
 
   {
-    id: "ex-4",
+    id: "exp-4",
 
-    title: "Embedded Systems Developer",
+    role:
+      "Embedded Systems Developer",
 
-    institution:
+    organization:
       "Solar Lighting & Security System — For The Light",
 
-    date: "Feb 2024 — Jan 2026",
+    location:
+      "Bangladesh",
+
+    period:
+      "Feb 2024 — Jan 2026",
+
+    logo:
+      imagePath(
+        "logos/for-the-light.png"
+      ),
+
+    logoAlt:
+      "For The Light project logo",
+
+    /*
+     * This opens the project inside
+     * your own portfolio.
+     */
+    website:
+      "#research",
+
+    websiteLabel:
+      "View Project",
 
     description:
       "Developed solar-powered embedded hardware using microcontrollers, sensors, power-management circuits, and field-oriented renewable-energy design. Performed PCB prototyping, circuit testing, embedded programming, diagnostics, and hardware troubleshooting for a solar lighting and security system.",
@@ -1416,21 +1539,39 @@ export const experience = [
       "PCB Prototyping",
       "Microcontrollers",
     ],
-
-    link: "",
   },
 
   {
-    id: "ex-5",
+    id: "exp-5",
 
-    title: "Intern",
+    role:
+      "Intern",
 
-    institution: "Mage Squad, YSSE",
+    organization:
+      "Mage Squad, YSSE",
 
-    date: "May 2024 — Aug 2024",
+    location:
+      "Bangladesh",
+
+    period:
+      "May 2024 — Aug 2024",
+
+    logo:
+      imagePath(
+        "logos/ysse.png"
+      ),
+
+    logoAlt:
+      "YSSE logo",
+
+    website:
+      "https://ysseglobal.org/",
+
+    websiteLabel:
+      "Visit YSSE",
 
     description:
-      "Part-time internship involving technical writing and communication. Authored technical articles on AI, innovation, sustainability, and development, while strengthening scientific communication, technical writing, and documentation skills for engineering reporting.",
+      "Part-time internship involving technical writing and communication. Authored technical articles on AI, innovation, sustainability, and development while strengthening scientific communication, technical writing, and documentation skills for engineering reporting.",
 
     tags: [
       "Technical Writing",
@@ -1438,11 +1579,8 @@ export const experience = [
       "Sustainability",
       "Documentation",
     ],
-
-    link: "",
   },
 ];
-
 /* ------------------------------------------------------------------ */
 /*  9. PUBLICATIONS                                                   */
 /* ------------------------------------------------------------------ */
