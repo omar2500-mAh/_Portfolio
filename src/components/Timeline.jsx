@@ -1,118 +1,409 @@
 import { motion } from "framer-motion";
-import { GraduationCap, Briefcase, ExternalLink } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  CalendarDays,
+  ExternalLink,
+  GraduationCap,
+  MapPin,
+} from "lucide-react";
 import { useData } from "../context/DataContext";
 import SectionHeading from "./SectionHeading";
+import SmartImage from "./SmartImage";
 
-/** A single vertical timeline list */
-function TimelineList({ items, icon: Icon }) {
+const COLUMN_META = {
+  education: {
+    Icon: GraduationCap,
+
+    eyebrow:
+      "Academic Background",
+
+    title:
+      "Education",
+
+    description:
+      "Academic foundations in electrical engineering, power electronics, battery systems, and energy technology.",
+
+    iconStyle:
+      "border-blue-400/25 bg-blue-400/10 text-blue-300",
+
+    dateStyle:
+      "border-blue-400/25 bg-blue-400/10 text-blue-300",
+
+    accent:
+      "from-blue-400 via-blue-400/30 to-transparent",
+  },
+
+  experience: {
+    Icon: BriefcaseBusiness,
+
+    eyebrow:
+      "Professional Practice",
+
+    title:
+      "Experience",
+
+    description:
+      "Research, internships, simulation, battery engineering, embedded systems, and technical communication.",
+
+    iconStyle:
+      "border-amber-400/25 bg-amber-400/10 text-amber-300",
+
+    dateStyle:
+      "border-amber-400/25 bg-amber-400/10 text-amber-300",
+
+    accent:
+      "from-amber-400 via-amber-400/30 to-transparent",
+  },
+};
+
+export default function Timeline() {
+  const { data } = useData();
+
+  const education = Array.isArray(
+    data?.education
+  )
+    ? data.education
+    : [];
+
+  const experience = Array.isArray(
+    data?.experience
+  )
+    ? data.experience
+    : [];
+
+  if (
+    !education.length &&
+    !experience.length
+  ) {
+    return null;
+  }
+
   return (
-    <div className="relative">
-      {/* vertical line */}
-      <div className="absolute left-4 top-2 bottom-2 w-px bg-gradient-to-b from-gold/40 via-white/15 to-transparent" />
+    <section
+      id="journey"
+      className="relative overflow-hidden bg-navy-gradient py-24 sm:py-28"
+    >
+      {/* Background */}
+      <div className="absolute inset-0 bg-mesh opacity-45" />
 
-      <div className="space-y-8">
-        {items.map((item, i) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="relative pl-12"
-          >
-            {/* node */}
-            <span className="absolute left-0 top-1 flex h-8 w-8 items-center justify-center rounded-full bg-charcoal-light border border-gold/30 shadow-gold-glow">
-              <Icon className="h-3.5 w-3.5 text-gold" />
-            </span>
+      <div className="absolute -right-32 top-20 h-80 w-80 rounded-full border border-white/[0.035]" />
 
-            <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-5 backdrop-blur-sm hover:border-gold/20 transition-colors">
-              <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
-                <span className="text-xs font-semibold text-gold tracking-wide">
-                  {item.date}
-                </span>
-              </div>
-              <h4 className="font-display font-bold text-white text-lg leading-snug">
-                {item.title}
-              </h4>
-              <p className="text-sm font-medium text-white/55 mt-0.5">
-                {item.institution}
-              </p>
-              {item.description && (
-                <p className="mt-2.5 text-sm text-white/60 leading-relaxed">
-                  {item.description}
-                </p>
-              )}
+      <div className="absolute -left-24 bottom-10 h-72 w-72 rounded-full bg-gold/[0.025] blur-3xl" />
 
-              {item.tags?.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {item.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-md bg-white/5 px-2 py-0.5 text-xs text-white/50 border border-white/5"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              )}
+      <div className="relative mx-auto max-w-[88rem] px-5 sm:px-8">
+        <SectionHeading
+          eyebrow="My Journey"
+          title="Education & Experience"
+          subtitle="Academic foundations and hands-on engineering, side by side."
+        />
 
-              {item.link && (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-gold hover:text-gold-light"
-                >
-                  Learn more <ExternalLink className="h-3 w-3" />
-                </a>
-              )}
-            </div>
-          </motion.div>
-        ))}
+        <div className="grid items-start gap-8 lg:grid-cols-2">
+          {education.length > 0 && (
+            <JourneyColumn
+              type="education"
+              items={education}
+            />
+          )}
+
+          {experience.length > 0 && (
+            <JourneyColumn
+              type="experience"
+              items={experience}
+            />
+          )}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ================================================================ */
+/* COLUMN                                                           */
+/* ================================================================ */
+
+function JourneyColumn({
+  type,
+  items,
+}) {
+  const meta =
+    COLUMN_META[type];
+
+  const ColumnIcon =
+    meta.Icon;
+
+  return (
+    <div>
+      {/* Column header */}
+      <div className="mb-6 flex items-start gap-4">
+        <div
+          className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border ${meta.iconStyle}`}
+        >
+          <ColumnIcon className="h-5 w-5" />
+        </div>
+
+        <div>
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-gold">
+            {meta.eyebrow}
+          </p>
+
+          <h3 className="mt-1 font-display text-2xl font-bold text-white">
+            {meta.title}
+          </h3>
+
+          <p className="mt-1 max-w-xl text-sm leading-relaxed text-white/45">
+            {meta.description}
+          </p>
+        </div>
+      </div>
+
+      {/* Cards */}
+      <div className="space-y-5">
+        {items.map(
+          (item, index) => (
+            <JourneyCard
+              key={
+                item.id ||
+                `${type}-${index}`
+              }
+              item={item}
+              type={type}
+              index={index}
+            />
+          )
+        )}
       </div>
     </div>
   );
 }
 
-export default function Timeline() {
-  const { data } = useData();
-  const { education, experience } = data;
+/* ================================================================ */
+/* CARD                                                             */
+/* ================================================================ */
 
-  const hasEdu = education?.length > 0;
-  const hasExp = experience?.length > 0;
-  if (!hasEdu && !hasExp) return null;
+function JourneyCard({
+  item,
+  type,
+  index,
+}) {
+  const meta =
+    COLUMN_META[type];
+
+  const isEducation =
+    type === "education";
+
+  const title =
+    item.degree ||
+    item.role ||
+    item.title ||
+    "Position";
+
+  const organization =
+    item.institution ||
+    item.organization ||
+    item.company ||
+    "";
+
+  const period =
+    item.period ||
+    item.date ||
+    item.status ||
+    "";
+
+  const tags = Array.isArray(
+    item.tags
+  )
+    ? item.tags
+    : [];
+
+  const isInternalWebsite =
+    item.website?.startsWith(
+      "#"
+    );
 
   return (
-    <section id="journey" className="relative bg-charcoal py-24 sm:py-28 overflow-hidden">
-      <div className="absolute inset-0 bg-mesh opacity-40" />
-      <div className="relative mx-auto max-w-7xl px-5 sm:px-8">
-        <SectionHeading
-          eyebrow="The Path So Far"
-          title="Education & Experience"
-          subtitle="Academic foundations and hands-on engineering, side by side."
-        />
+    <motion.article
+      initial={{
+        opacity: 0,
+        y: 24,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: true,
+        margin: "-60px",
+      }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.06,
+      }}
+      whileHover={{
+        y: -3,
+      }}
+      className="group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-white/[0.035] shadow-elevate backdrop-blur-sm transition-all duration-300 hover:border-gold/25 hover:bg-white/[0.05]"
+    >
+      {/* Colored top line */}
+      <div
+        className={`absolute left-0 top-0 h-px w-full bg-gradient-to-r ${meta.accent}`}
+      />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {hasEdu && (
-            <div>
-              <h3 className="font-display font-bold text-white text-xl mb-7 flex items-center gap-2.5">
-                <GraduationCap className="h-5 w-5 text-gold" />
-                Education
-              </h3>
-              <TimelineList items={education} icon={GraduationCap} />
+      <div className="p-5 sm:p-6">
+        {/* Card header */}
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex min-w-0 items-start gap-4">
+            {/* Logo */}
+            <OrganizationLogo
+              logo={item.logo}
+              logoAlt={
+                item.logoAlt ||
+                organization ||
+                title
+              }
+              fallbackType={
+                type
+              }
+            />
+
+            {/* Title and organization */}
+            <div className="min-w-0">
+              <h4 className="font-display text-lg font-bold leading-snug text-white transition-colors group-hover:text-gold-soft sm:text-xl">
+                {title}
+              </h4>
+
+              {organization && (
+                <p className="mt-1.5 text-sm font-semibold leading-relaxed text-gold-soft/85">
+                  {organization}
+                </p>
+              )}
+
+              {item.location && (
+                <div className="mt-1.5 flex items-center gap-1.5 text-xs text-white/40">
+                  <MapPin className="h-3.5 w-3.5 shrink-0 text-gold/75" />
+
+                  <span>
+                    {item.location}
+                  </span>
+                </div>
+              )}
             </div>
-          )}
-          {hasExp && (
-            <div>
-              <h3 className="font-display font-bold text-white text-xl mb-7 flex items-center gap-2.5">
-                <Briefcase className="h-5 w-5 text-gold" />
-                Experience
-              </h3>
-              <TimelineList items={experience} icon={Briefcase} />
+          </div>
+
+          {/* Desktop date */}
+          {period && (
+            <div className="hidden shrink-0 sm:block">
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold ${meta.dateStyle}`}
+              >
+                <CalendarDays className="h-3.5 w-3.5" />
+
+                {period}
+              </span>
             </div>
           )}
         </div>
+
+        {/* Mobile date */}
+        {period && (
+          <div className="mt-3 sm:hidden">
+            <span
+              className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-semibold ${meta.dateStyle}`}
+            >
+              <CalendarDays className="h-3.5 w-3.5" />
+
+              {period}
+            </span>
+          </div>
+        )}
+
+        {/* Description */}
+        {item.description && (
+          <p className="mt-4 text-sm leading-relaxed text-white/58">
+            {item.description}
+          </p>
+        )}
+
+        {/* Bottom area */}
+        {(tags.length > 0 ||
+          item.website) && (
+          <div className="mt-5 flex flex-col gap-4 border-t border-white/[0.07] pt-4 xl:flex-row xl:items-end xl:justify-between">
+            {/* Tags */}
+            {tags.length > 0 && (
+              <div className="flex flex-wrap gap-1.5">
+                {tags.map(
+                  (tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-white/[0.08] bg-white/[0.035] px-2.5 py-1 text-[10px] font-medium text-white/45 transition-colors hover:border-gold/20 hover:text-white/70"
+                    >
+                      {tag}
+                    </span>
+                  )
+                )}
+              </div>
+            )}
+
+            {/* Website button */}
+            {item.website && (
+              <a
+                href={item.website}
+                target={
+                  isInternalWebsite
+                    ? undefined
+                    : "_blank"
+                }
+                rel={
+                  isInternalWebsite
+                    ? undefined
+                    : "noopener noreferrer"
+                }
+                className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full border border-gold/25 bg-gold/[0.07] px-4 py-2 text-xs font-semibold text-gold-soft transition-all duration-300 hover:-translate-y-0.5 hover:border-gold/45 hover:bg-gold hover:text-navy-950 xl:self-auto"
+              >
+                {item.websiteLabel ||
+                  (isEducation
+                    ? "Visit Institution"
+                    : "Visit Website")}
+
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        )}
       </div>
-    </section>
+    </motion.article>
+  );
+}
+
+/* ================================================================ */
+/* LOGO                                                             */
+/* ================================================================ */
+
+function OrganizationLogo({
+  logo,
+  logoAlt,
+  fallbackType,
+}) {
+  const FallbackIcon =
+    fallbackType ===
+    "education"
+      ? GraduationCap
+      : BriefcaseBusiness;
+
+  return (
+    <div className="flex h-14 w-14 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-white/12 bg-white/[0.06] p-2 shadow-lg backdrop-blur-md transition-all duration-300 group-hover:border-gold/30 group-hover:bg-white/[0.08]">
+      {logo ? (
+        <SmartImage
+          src={logo}
+          alt={logoAlt}
+          className="h-full w-full"
+          imgClassName="h-full w-full object-contain"
+          placeholderLabel={
+            logoAlt
+          }
+        />
+      ) : (
+        <FallbackIcon className="h-6 w-6 text-gold" />
+      )}
+    </div>
   );
 }
