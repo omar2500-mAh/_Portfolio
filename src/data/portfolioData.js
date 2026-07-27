@@ -1325,8 +1325,249 @@ export const skills = [
     "EV Energy Storage",
   ],
 },
+
+      /* ------------------------------------------------------------------ */
+/*  7. EDUCATION                                                      */
 /* ------------------------------------------------------------------ */
-/*  EXPERIENCE                                                        */
+
+export const education = [
+  {
+    id: "edu-1",
+
+    degree:
+      "B.Sc. in Electrical & Electronic Engineering",
+
+    institution:
+      "Islamic University, Bangladesh",
+
+    location:
+      "Kushtia, Bangladesh",
+
+    period:
+      "Ongoing",
+
+    logo:
+      imagePath(
+        "logos/islamic-university.jpg"
+      ),
+
+    logoAlt:
+      "Islamic University logo",
+
+    website:
+      "https://www.iu.ac.bd/",
+
+    websiteLabel:
+      "Visit University",
+
+    curriculumUrl:
+      `${import.meta.env.BASE_URL}assets/Important%20File/EEE-Curriculum.pdf`,
+
+    curriculumLabel:
+      "View Curriculum PDF",
+
+    description:
+      "Undergraduate study in Electrical and Electronic Engineering with a concentration in Power Electronics. The curriculum develops strong foundations in electrical circuits, electronics, electrical machines, control systems, microprocessors, power-system analysis, protection, renewable energy, engineering simulation, laboratory practice, and project-based learning. This academic preparation supports my work in Li-ion battery systems, BMS, EV energy storage, power conversion, and simulation-based research.",
+
+    programStats: [
+      {
+        value: "4 Years",
+        label: "Program Duration",
+      },
+      {
+        value: "8",
+        label: "Semesters",
+      },
+      {
+        value: "160",
+        label: "Total Credits",
+      },
+    ],
+
+    courses: [
+      {
+        code: "EEE-1101",
+        title: "Electrical Circuits I",
+        group: "Circuits",
+      },
+      {
+        code: "EEE-1201",
+        title: "Electrical Circuits II",
+        group: "Circuits",
+      },
+      {
+        code: "EEE-2101",
+        title: "Electronics I",
+        group: "Electronics",
+      },
+      {
+        code: "EEE-2103",
+        title: "Electrical Machines I",
+        group: "Machines",
+      },
+      {
+        code: "EEE-2201",
+        title: "Electronics II",
+        group: "Electronics",
+      },
+      {
+        code: "EEE-2203",
+        title: "Electrical Machines II",
+        group: "Machines",
+      },
+      {
+        code: "EEE-2205",
+        title: "Digital Electronics",
+        group: "Digital Systems",
+      },
+      {
+        code: "EEE-3101",
+        title: "Electronics III",
+        group: "Electronics",
+      },
+      {
+        code: "EEE-3103",
+        title:
+          "Measurements and Instrumentation",
+        group: "Instrumentation",
+      },
+      {
+        code: "EEE-3107",
+        title:
+          "Microprocessor, Microcontrollers and Peripherals",
+        group: "Embedded Systems",
+      },
+      {
+        code: "EEE-3201",
+        title: "Power System Analysis I",
+        group: "Power Systems",
+      },
+      {
+        code: "EEE-3203",
+        title:
+          "Control System Engineering",
+        group: "Control",
+      },
+      {
+        code: "EEE-3207",
+        title:
+          "Electrical Properties of Materials",
+        group: "Materials",
+      },
+      {
+        code: "EEE-4101",
+        title: "Power System Analysis II",
+        group: "Power Systems",
+      },
+      {
+        code: "EEE-4111",
+        title: "Power Electronics",
+        group: "Power Electronics",
+      },
+      {
+        code: "EEE-4112",
+        title:
+          "Power Electronics Sessional",
+        group: "Laboratory",
+      },
+      {
+        code: "EEE-4201",
+        title:
+          "Switchgear and Protection",
+        group: "Protection",
+      },
+      {
+        code: "EEE-4202",
+        title:
+          "Switchgear and Protection Sessional",
+        group: "Laboratory",
+      },
+      {
+        code: "EEE-4223",
+        title:
+          "Renewable Energy for Sustainable Development",
+        group: "Renewable Energy",
+      },
+      {
+        code: "EEE-4229",
+        title:
+          "Power System Operation and Control",
+        group: "Power and Control",
+      },
+      {
+        code: "EEE-4000",
+        title: "Thesis / Project",
+        group: "Capstone",
+      },
+      {
+        code: "EEE-4100",
+        title:
+          "Industrial Attachment / Training / Internship",
+        group: "Professional",
+      },
+    ],
+
+    tags: [
+      "Electrical Engineering",
+      "Power Electronics",
+      "Control Systems",
+      "Embedded Systems",
+      "Power Systems",
+      "Renewable Energy",
+    ],
+  },
+
+  {
+    id: "edu-2",
+
+    degree:
+      "Higher Secondary Certificate — Science",
+
+    institution:
+      "Government Brojomohun College, Barishal",
+
+    location:
+      "Barishal, Bangladesh",
+
+    period:
+      "Completed",
+
+    logo:
+      imagePath(
+        "logos/college.jpg"
+      ),
+
+    logoAlt:
+      "Government Brojomohun College logo",
+
+    website:
+      "https://bmcollege.gov.bd/",
+
+    websiteLabel:
+      "Visit College",
+
+    curriculumUrl: "",
+
+    curriculumLabel: "",
+
+    description:
+      "Completed Higher Secondary education in the Science group, developing a strong foundation in physics, chemistry, mathematics, analytical reasoning, and scientific problem-solving. This preparation supported my transition into Electrical and Electronic Engineering.",
+
+    programStats: [],
+
+    courses: [],
+
+    tags: [
+      "Science",
+      "Physics",
+      "Chemistry",
+      "Mathematics",
+      "Scientific Foundation",
+    ],
+  },
+];
+/* ------------------------------------------------------------------ */
+/*8.  EXPERIENCE                                                        */
 /* ------------------------------------------------------------------ */
 
 export const experience = [
