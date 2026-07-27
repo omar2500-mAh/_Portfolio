@@ -1,82 +1,251 @@
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { useMemo, useState } from "react";
+import {
+  AnimatePresence,
+  motion,
+} from "framer-motion";
+import {
+  ArrowRight,
+  MousePointerClick,
+  X,
+} from "lucide-react";
 import { useData } from "../context/DataContext";
 import SmartImage from "./SmartImage";
 import SocialIcons from "./SocialIcons";
 
-const softwareIcons = [
-  {
-    name: "COMSOL",
-    image: "software/comsol.png",
-    glow: "rgba(34, 211, 238, 0.35)",
-  },
-  {
-    name: "MATLAB",
-    image: "software/matlab.png",
-    glow: "rgba(249, 115, 22, 0.35)",
-  },
-  {
-    name: "Python",
-    image: "software/Python.webp",
-    glow: "rgba(250, 204, 21, 0.32)",
-  },
-  {
-    name: "ANSYS",
-    image: "software/ansys.jpg",
-    glow: "rgba(244, 63, 94, 0.32)",
-  },
-  {
-    name: "Proteus",
-    image: "software/proteus.png",
-    glow: "rgba(16, 185, 129, 0.32)",
-  },
-  {
-    name: "EasyEDA",
-    image: "software/images.png",
-    glow: "rgba(139, 92, 246, 0.35)",
-  },
-];
+/* ================================================================ */
+/* IMAGE PATH                                                        */
+/* ================================================================ */
 
 function imagePath(fileName) {
   return `${import.meta.env.BASE_URL}assets/images/${fileName}`;
 }
 
+/* ================================================================ */
+/* FALLBACK SOFTWARE DATA                                            */
+/* ================================================================ */
+
+const FALLBACK_SOFTWARE = [
+  {
+    name: "COMSOL",
+    icon: imagePath(
+      "software/comsol.png"
+    ),
+    accent: "blue",
+  },
+
+  {
+    name: "MATLAB",
+    icon: imagePath(
+      "software/matlab.png"
+    ),
+    accent: "orange",
+  },
+
+  {
+    name: "Python",
+    icon: imagePath(
+      "software/Python.webp"
+    ),
+    accent: "yellow",
+  },
+
+  {
+    name: "ANSYS",
+    icon: imagePath(
+      "software/ansys.jpg"
+    ),
+    accent: "red",
+  },
+
+  {
+    name: "Proteus",
+    icon: imagePath(
+      "software/proteus.png"
+    ),
+    accent: "green",
+  },
+
+  {
+    name: "EasyEDA",
+    icon: imagePath(
+      "software/images.png"
+    ),
+    accent: "purple",
+  },
+];
+
+/* ================================================================ */
+/* SOFTWARE DETAILS                                                  */
+/* ================================================================ */
+
+const SOFTWARE_DETAILS = {
+  COMSOL: {
+    title: "COMSOL Multiphysics",
+
+    note:
+      "Battery & Multiphysics Simulation",
+
+    description:
+      "Used for electrochemical battery modeling, PCM thermal management, heat-transfer analysis, and thermal-runaway simulation.",
+  },
+
+  MATLAB: {
+    title: "MATLAB",
+
+    note:
+      "Modeling & Data Analysis",
+
+    description:
+      "Used for numerical analysis, result processing, optimization, visualization, and engineering calculations.",
+  },
+
+  Python: {
+    title: "Python",
+
+    note:
+      "Automation & Data Processing",
+
+    description:
+      "Used for scientific computing, battery-data processing, automation, plotting, and model-development workflows.",
+  },
+
+  ANSYS: {
+    title: "ANSYS",
+
+    note:
+      "Engineering Simulation",
+
+    description:
+      "Used for computer-aided engineering, thermal analysis, and simulation-based evaluation of engineering systems.",
+  },
+
+  Proteus: {
+    title: "Proteus",
+
+    note:
+      "Circuit & Embedded Simulation",
+
+    description:
+      "Used for electronic-circuit simulation, microcontroller projects, embedded-system testing, and circuit debugging.",
+  },
+
+  EasyEDA: {
+    title: "EasyEDA",
+
+    note:
+      "Schematic & PCB Design",
+
+    description:
+      "Used for schematic development, PCB layout, component placement, and electronics prototyping.",
+  },
+};
+
+/* ================================================================ */
+/* ACCENT COLORS                                                     */
+/* ================================================================ */
+
+const ACCENT_META = {
+  blue: {
+    color: "#22d3ee",
+    glow:
+      "rgba(34, 211, 238, 0.38)",
+  },
+
+  orange: {
+    color: "#fb923c",
+    glow:
+      "rgba(251, 146, 60, 0.38)",
+  },
+
+  yellow: {
+    color: "#facc15",
+    glow:
+      "rgba(250, 204, 21, 0.36)",
+  },
+
+  red: {
+    color: "#fb7185",
+    glow:
+      "rgba(251, 113, 133, 0.38)",
+  },
+
+  green: {
+    color: "#34d399",
+    glow:
+      "rgba(52, 211, 153, 0.38)",
+  },
+
+  purple: {
+    color: "#a78bfa",
+    glow:
+      "rgba(167, 139, 250, 0.4)",
+  },
+};
+
+/* ================================================================ */
+/* HERO COMPONENT                                                    */
+/* ================================================================ */
+
 export default function Hero() {
   const { data } = useData();
 
-  const heroData = data?.heroData || {};
-  const socialLinks = data?.socialLinks || [];
+  const heroData =
+    data?.heroData || {};
 
-  /*
-   * Previous hero background image.
-   *
-   * Required GitHub location:
-   * public/assets/images/ph-img-21.webp
-   */
-  const backgroundImage = imagePath("ph-img-21.webp");
+  const socialLinks =
+    data?.socialLinks || [];
 
-  const scrollTo = (id) => {
-    if (!id) return;
+  const [
+    activeSoftware,
+    setActiveSoftware,
+  ] = useState(null);
 
-    const element = document.getElementById(id);
+  const softwareIcons = useMemo(() => {
+    const source =
+      Array.isArray(
+        heroData.floatingSkills
+      ) &&
+      heroData.floatingSkills.length > 0
+        ? heroData.floatingSkills
+        : FALLBACK_SOFTWARE;
 
-    if (element) {
-      const top =
-        element.getBoundingClientRect().top +
-        window.scrollY -
-        76;
+    return source.map((software) => {
+      const details =
+        SOFTWARE_DETAILS[
+          software.name
+        ] || {
+          title: software.name,
+          note:
+            "Engineering Software",
+          description:
+            "Used as part of engineering analysis, simulation, design, and technical project development.",
+        };
 
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-    }
-  };
+      const accent =
+        ACCENT_META[
+          software.accent
+        ] || ACCENT_META.blue;
+
+      return {
+        ...software,
+        ...details,
+        color: accent.color,
+        glow: accent.glow,
+      };
+    });
+  }, [heroData.floatingSkills]);
+
+  const backgroundImage =
+    heroData.backgroundImage ||
+    imagePath("ph-img-21.webp");
 
   const name =
-    heroData.name || "Omar Faruque";
+    heroData.name ||
+    "Omar Faruque";
 
-  const stats = Array.isArray(heroData.stats)
+  const stats = Array.isArray(
+    heroData.stats
+  )
     ? heroData.stats.slice(0, 3)
     : [];
 
@@ -85,6 +254,36 @@ export default function Hero() {
   )
     ? heroData.ctaButtons
     : [];
+
+  const scrollTo = (id) => {
+    if (!id) return;
+
+    const element =
+      document.getElementById(id);
+
+    if (!element) return;
+
+    const top =
+      element.getBoundingClientRect()
+        .top +
+      window.scrollY -
+      76;
+
+    window.scrollTo({
+      top,
+      behavior: "smooth",
+    });
+  };
+
+  const handleSoftwareClick = (
+    software
+  ) => {
+    setActiveSoftware((current) =>
+      current?.name === software.name
+        ? null
+        : software
+    );
+  };
 
   return (
     <section
@@ -103,25 +302,26 @@ export default function Hero() {
           className="h-full w-full object-cover object-center opacity-45"
         />
 
-        {/* Left side remains dark for readable text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/45" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/72 to-black/45" />
 
-        {/* Dark top and bottom fade */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/80" />
 
-        {/* Existing mesh effect */}
         <div className="absolute inset-0 bg-mesh opacity-25" />
       </div>
 
       {/* ======================================================== */}
-      {/* BACKGROUND GLOW EFFECTS                                  */}
+      {/* GLOW EFFECTS                                             */}
       {/* ======================================================== */}
 
       <motion.div
         className="pointer-events-none absolute -right-32 -top-32 h-96 w-96 rounded-full bg-gold/10 blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.35, 0.65, 0.35],
+          opacity: [
+            0.35,
+            0.65,
+            0.35,
+          ],
         }}
         transition={{
           duration: 8,
@@ -134,7 +334,11 @@ export default function Hero() {
         className="pointer-events-none absolute -bottom-20 -left-32 h-96 w-96 rounded-full bg-navy-800/60 blur-3xl"
         animate={{
           scale: [1, 1.15, 1],
-          opacity: [0.4, 0.65, 0.4],
+          opacity: [
+            0.4,
+            0.65,
+            0.4,
+          ],
         }}
         transition={{
           duration: 10,
@@ -202,7 +406,7 @@ export default function Hero() {
             {name}
           </motion.h1>
 
-          {/* Department and university */}
+          {/* Title */}
 
           {heroData.title && (
             <motion.p
@@ -240,7 +444,7 @@ export default function Hero() {
                 duration: 0.6,
                 delay: 0.35,
               }}
-              className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-white/65 sm:text-lg lg:mx-0"
+              className="mx-auto mt-6 max-w-3xl whitespace-pre-line text-base leading-relaxed text-white/65 sm:text-lg lg:mx-0"
             >
               {heroData.tagline}
             </motion.p>
@@ -305,9 +509,7 @@ export default function Hero() {
             </motion.div>
           )}
 
-          {/* ==================================================== */}
-          {/* STATS                                                */}
-          {/* ==================================================== */}
+          {/* Stats */}
 
           {stats.length > 0 && (
             <motion.div
@@ -342,7 +544,7 @@ export default function Hero() {
             </motion.div>
           )}
 
-          {/* Social icons */}
+          {/* Social links */}
 
           {socialLinks.length > 0 && (
             <motion.div
@@ -396,14 +598,17 @@ export default function Hero() {
 
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-full w-full -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.035]" />
 
-            {/* Upper orbit layer: appears behind portrait */}
+            {/* Back half of orbit */}
 
-            <OrbitLayer
+            <OrbitVisualLayer
               icons={softwareIcons}
               layer="back"
+              activeName={
+                activeSoftware?.name
+              }
             />
 
-            {/* Profile photograph */}
+            {/* Profile image */}
 
             <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2">
               <motion.div
@@ -439,7 +644,9 @@ export default function Hero() {
                 className="relative h-[340px] w-[275px] overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.06] p-2 shadow-elevate backdrop-blur-md sm:h-[410px] sm:w-[330px] lg:h-[445px] lg:w-[355px]"
               >
                 <SmartImage
-                  src={heroData.profileImage}
+                  src={
+                    heroData.profileImage
+                  }
                   alt={name}
                   className="h-full w-full rounded-[1.6rem]"
                   imgClassName="h-full w-full object-cover object-top"
@@ -450,12 +657,65 @@ export default function Hero() {
               </motion.div>
             </div>
 
-            {/* Lower orbit layer: appears in front of portrait */}
+            {/* Front half of orbit */}
 
-            <OrbitLayer
+            <OrbitVisualLayer
               icons={softwareIcons}
               layer="front"
+              activeName={
+                activeSoftware?.name
+              }
             />
+
+            {/* Clickable invisible hotspots */}
+
+            <OrbitClickLayer
+              icons={softwareIcons}
+              onSelect={
+                handleSoftwareClick
+              }
+            />
+
+            {/* Software detail popup */}
+
+            <AnimatePresence mode="wait">
+              {activeSoftware ? (
+                <SoftwarePopup
+                  key={
+                    activeSoftware.name
+                  }
+                  software={
+                    activeSoftware
+                  }
+                  onClose={() =>
+                    setActiveSoftware(
+                      null
+                    )
+                  }
+                />
+              ) : (
+                <motion.div
+                  key="click-hint"
+                  initial={{
+                    opacity: 0,
+                    y: 8,
+                  }}
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    y: 8,
+                  }}
+                  className="pointer-events-none absolute bottom-1 left-1/2 z-40 inline-flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-full border border-white/10 bg-black/65 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.13em] text-white/45 backdrop-blur-md"
+                >
+                  <MousePointerClick className="h-3.5 w-3.5 text-gold" />
+
+                  Click a software icon
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
         </motion.div>
       </div>
@@ -498,14 +758,16 @@ export default function Hero() {
 }
 
 /* ================================================================ */
-/* ORBITING SOFTWARE ICONS                                          */
+/* VISUAL ORBIT LAYER                                                */
 /* ================================================================ */
 
-function OrbitLayer({
+function OrbitVisualLayer({
   icons,
   layer,
+  activeName,
 }) {
-  const isBack = layer === "back";
+  const isBack =
+    layer === "back";
 
   return (
     <div
@@ -538,9 +800,13 @@ function OrbitLayer({
               (360 / icons.length) *
               index;
 
+            const isActive =
+              activeName ===
+              software.name;
+
             return (
               <div
-                key={software.name}
+                key={`${layer}-${software.name}`}
                 className="absolute left-1/2 top-1/2"
                 style={{
                   transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(-1 * clamp(158px, 18vw, 230px)))`,
@@ -548,28 +814,43 @@ function OrbitLayer({
               >
                 <motion.div
                   initial={{
-                    rotate: -12 - angle,
+                    rotate:
+                      -12 - angle,
                   }}
                   animate={{
                     rotate:
                       -372 - angle,
+                    scale: isActive
+                      ? 1.15
+                      : 1,
                   }}
                   transition={{
-                    duration: 30,
-                    repeat: Infinity,
-                    ease: "linear",
+                    rotate: {
+                      duration: 30,
+                      repeat: Infinity,
+                      ease: "linear",
+                    },
+
+                    scale: {
+                      duration: 0.25,
+                    },
                   }}
-                  className="flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-black/80 p-2.5 backdrop-blur-md sm:h-16 sm:w-16"
+                  className="relative flex h-14 w-14 items-center justify-center rounded-2xl border border-white/15 bg-black/80 p-2.5 backdrop-blur-md sm:h-16 sm:w-16"
                   style={{
-                    boxShadow: `0 0 26px ${software.glow}`,
+                    borderColor:
+                      isActive
+                        ? software.color
+                        : undefined,
+
+                    boxShadow:
+                      isActive
+                        ? `0 0 38px ${software.glow}`
+                        : `0 0 25px ${software.glow}`,
                   }}
                 >
                   <img
-                    src={imagePath(
-                      software.image
-                    )}
+                    src={software.icon}
                     alt={software.name}
-                    title={software.name}
                     className="h-full w-full rounded-lg object-contain"
                   />
 
@@ -577,12 +858,27 @@ function OrbitLayer({
                     className="absolute -bottom-1 h-2 w-2 rounded-full border border-black"
                     style={{
                       backgroundColor:
-                        software.glow.replace(
-                          "0.35",
-                          "1"
-                        ),
+                        software.color,
                     }}
                   />
+
+                  {isActive && (
+                    <motion.span
+                      initial={{
+                        opacity: 0,
+                        scale: 0.7,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      className="absolute -inset-1 rounded-[1.15rem] border"
+                      style={{
+                        borderColor:
+                          software.color,
+                      }}
+                    />
+                  )}
                 </motion.div>
               </div>
             );
@@ -594,7 +890,166 @@ function OrbitLayer({
 }
 
 /* ================================================================ */
-/* CTA BUTTON STYLE                                                  */
+/* CLICKABLE ORBIT HOTSPOTS                                          */
+/* ================================================================ */
+
+function OrbitClickLayer({
+  icons,
+  onSelect,
+}) {
+  return (
+    <div className="pointer-events-none absolute inset-0 z-30">
+      <motion.div
+        className="absolute inset-0"
+        initial={{
+          rotate: 12,
+        }}
+        animate={{
+          rotate: 372,
+        }}
+        transition={{
+          duration: 30,
+          repeat: Infinity,
+          ease: "linear",
+        }}
+      >
+        {icons.map(
+          (software, index) => {
+            const angle =
+              (360 / icons.length) *
+              index;
+
+            return (
+              <div
+                key={`click-${software.name}`}
+                className="absolute left-1/2 top-1/2"
+                style={{
+                  transform: `translate(-50%, -50%) rotate(${angle}deg) translateY(calc(-1 * clamp(158px, 18vw, 230px)))`,
+                }}
+              >
+                <motion.button
+                  type="button"
+                  aria-label={`View ${software.title} details`}
+                  title={`Click to view ${software.title}`}
+                  onClick={() =>
+                    onSelect(software)
+                  }
+                  initial={{
+                    rotate:
+                      -12 - angle,
+                  }}
+                  animate={{
+                    rotate:
+                      -372 - angle,
+                  }}
+                  transition={{
+                    duration: 30,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                  whileHover={{
+                    scale: 1.12,
+                  }}
+                  whileTap={{
+                    scale: 0.92,
+                  }}
+                  className="pointer-events-auto h-14 w-14 cursor-pointer rounded-2xl outline-none focus-visible:ring-2 focus-visible:ring-gold sm:h-16 sm:w-16"
+                >
+                  <span className="sr-only">
+                    {software.title}
+                  </span>
+                </motion.button>
+              </div>
+            );
+          }
+        )}
+      </motion.div>
+    </div>
+  );
+}
+
+/* ================================================================ */
+/* SOFTWARE POPUP                                                    */
+/* ================================================================ */
+
+function SoftwarePopup({
+  software,
+  onClose,
+}) {
+  return (
+    <motion.div
+      initial={{
+        opacity: 0,
+        y: 18,
+        scale: 0.94,
+      }}
+      animate={{
+        opacity: 1,
+        y: 0,
+        scale: 1,
+      }}
+      exit={{
+        opacity: 0,
+        y: 14,
+        scale: 0.95,
+      }}
+      transition={{
+        duration: 0.25,
+      }}
+      className="absolute bottom-0 left-1/2 z-40 w-[min(92%,360px)] -translate-x-1/2 rounded-2xl border border-white/15 bg-black/85 p-4 shadow-2xl backdrop-blur-xl"
+      style={{
+        boxShadow: `0 18px 70px ${software.glow}`,
+      }}
+    >
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label="Close software information"
+        className="absolute right-3 top-3 flex h-7 w-7 items-center justify-center rounded-full border border-white/10 bg-white/[0.05] text-white/45 transition-colors hover:bg-white/10 hover:text-white"
+      >
+        <X className="h-3.5 w-3.5" />
+      </button>
+
+      <div className="flex items-start gap-3 pr-8">
+        <div
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border bg-black/70 p-2"
+          style={{
+            borderColor:
+              software.color,
+          }}
+        >
+          <img
+            src={software.icon}
+            alt={software.title}
+            className="h-full w-full object-contain"
+          />
+        </div>
+
+        <div className="min-w-0">
+          <h3 className="font-display text-base font-bold text-white">
+            {software.title}
+          </h3>
+
+          <p
+            className="mt-0.5 text-[10px] font-semibold uppercase tracking-[0.14em]"
+            style={{
+              color: software.color,
+            }}
+          >
+            {software.note}
+          </p>
+        </div>
+      </div>
+
+      <p className="mt-3 text-xs leading-relaxed text-white/60">
+        {software.description}
+      </p>
+    </motion.div>
+  );
+}
+
+/* ================================================================ */
+/* CTA STYLE                                                         */
 /* ================================================================ */
 
 function ctaClass(primary) {
