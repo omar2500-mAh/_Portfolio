@@ -178,12 +178,7 @@ export const highlightSections = [
         "Battery Pack.jpg"
       ),
       imagePath("c1.png"),
-      imagePath(
-        "battery-thermal-3.jpg"
-      ),
-      imagePath(
-        "battery-thermal-4.jpg"
-      ),
+      
     ],
 
     buttonText:
@@ -264,15 +259,7 @@ export const highlightSections = [
 
     images: [
       imagePath("pcb-2.png"),
-      imagePath(
-        "bms-testing-2.jpg"
-      ),
-      imagePath(
-        "bms-testing-3.jpg"
-      ),
-      imagePath(
-        "bms-testing-4.jpg"
-      ),
+   
     ],
 
     buttonText:
@@ -361,12 +348,7 @@ export const highlightSections = [
       imagePath(
         "for-the-light-2.webp"
       ),
-      imagePath(
-        "for-the-light-3.webp"
-      ),
-      imagePath(
-        "for-the-light-4.webp"
-      ),
+      
     ],
 
     buttonText:
@@ -451,15 +433,7 @@ export const highlightSections = [
 
     images: [
       imagePath("TRC.png"),
-      imagePath(
-        "thermal-runaway-2.png"
-      ),
-      imagePath(
-        "thermal-runaway-3.png"
-      ),
-      imagePath(
-        "thermal-runaway-4.png"
-      ),
+      
     ],
 
     buttonText:
@@ -544,15 +518,7 @@ export const highlightSections = [
       imagePath(
         "neware-16s-100ah-battery-test.jpeg"
       ),
-      imagePath(
-        "neware-16s-test-2.jpeg"
-      ),
-      imagePath(
-        "neware-16s-test-3.jpeg"
-      ),
-      imagePath(
-        "neware-16s-test-4.jpeg"
-      ),
+      
     ],
 
     buttonText:
@@ -639,15 +605,7 @@ export const highlightSections = [
       imagePath(
         "15s-battery-pack-daly-bms.jpeg"
       ),
-      imagePath(
-        "15s-pack-2.jpeg"
-      ),
-      imagePath(
-        "15s-pack-3.jpeg"
-      ),
-      imagePath(
-        "15s-pack-4.jpeg"
-      ),
+      
     ],
 
     buttonText:
