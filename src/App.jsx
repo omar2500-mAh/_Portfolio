@@ -6,10 +6,10 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import DynamicHighlights from "./components/DynamicHighlights";
 import Publications from "./components/Publications";
-import Gallery from "./components/Gallery";
 import Awards from "./components/Awards";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
+import Gallery from "./components/Gallery";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
@@ -30,10 +30,6 @@ function Portfolio() {
       Array.isArray(data?.publications) &&
       data.publications.length > 0,
 
-    gallery:
-      Array.isArray(data?.galleryItems) &&
-      data.galleryItems.length > 0,
-
     awards:
       Array.isArray(data?.awardsCertificates) &&
       data.awardsCertificates.length > 0,
@@ -48,6 +44,10 @@ function Portfolio() {
       (Array.isArray(data?.experience) &&
         data.experience.length > 0),
 
+    gallery:
+      Array.isArray(data?.galleryItems) &&
+      data.galleryItems.length > 0,
+
     contact: true,
   };
 
@@ -60,34 +60,43 @@ function Portfolio() {
       <Navbar visibleSections={visibleSections} />
 
       <main>
+        {/* Home */}
         <Hero />
 
+        {/* About */}
         <About />
 
+        {/* Research */}
         {visible.research && (
           <DynamicHighlights />
         )}
 
+        {/* Publications */}
         {visible.publications && (
           <Publications />
         )}
 
-        {visible.gallery && (
-          <Gallery />
-        )}
-
+        {/* Awards and Certifications */}
         {visible.awards && (
           <Awards />
         )}
 
+        {/* Technical Skills */}
         {visible.skills && (
           <Skills />
         )}
 
+        {/* Education and Experience */}
         {visible.journey && (
           <Timeline />
         )}
 
+        {/* Moments and Milestones */}
+        {visible.gallery && (
+          <Gallery />
+        )}
+
+        {/* Contact */}
         <Contact />
       </main>
 
