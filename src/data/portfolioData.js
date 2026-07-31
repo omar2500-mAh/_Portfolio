@@ -676,6 +676,7 @@ export const highlightSections = [
 /* ------------------------------------------------------------------ */
 /*  4. GALLERY                                                        */
 /* ------------------------------------------------------------------ */
+
 export const galleryCategories = [
   "Research",
   "Project",
@@ -688,71 +689,112 @@ export const galleryCategories = [
 export const galleryItems = [
   {
     id: "g-1",
-    title: "Battery Cell Testing",
+
+    title:
+      "1st IUSC National Science Olympiad — Runner-Up",
+
     description:
-      "Characterising charge-discharge cycles in the lab.",
-    category: "Research",
-    date: "2025",
-    image: imagePath("gallery-1.jpg"),
+      "Secured the runner-up position at the 1st IUSC National Science Olympiad, demonstrating strong scientific reasoning and problem-solving ability.",
+
+    category: "Award",
+
+    date: "",
+
+    image: imagePath("01.jpg"),
+
     link: "",
   },
 
   {
     id: "g-2",
-    title: "Battery Pack Work",
+
+    title:
+      "GP Accelerator Bootcamp — Group Pitching Session",
+
     description:
-      "Hands-on work with BMS configuration and pack monitoring.",
-    category: "Project",
-    date: "2025",
-    image: imagePath("gallery-2.jpg"),
+      "Participated in a time-constrained group pitching exercise in which our team developed an idea on the spot and presented a concise pitch.",
+
+    category: "Workshop",
+
+    date: "",
+
+    image: imagePath("02.JPG"),
+
     link: "",
   },
 
   {
     id: "g-3",
-    title: "Research Presentation",
+
+    title:
+      "Renewable Energy Fest — Delegate and Panel Discussion",
+
     description:
-      "Presenting research work on battery thermal management.",
-    category: "Presentation",
-    date: "2024",
-    image: imagePath("gallery-3.jpg"),
+      "Attended the Renewable Energy Fest as a delegate and participated in an invited panel discussion on renewable-energy development and innovation.",
+
+    category: "Event",
+
+    date: "",
+
+    image: imagePath("03.jpg"),
+
     link: "",
   },
 
   {
     id: "g-4",
-    title: "Engineering Workshop",
+
+    title:
+      "Digital Innovation Challenge 2024",
+
     description:
-      "Hands-on embedded systems and circuit training session.",
-    category: "Workshop",
+      "Presented my innovation concept to the judging panel, explaining its objectives, feasibility, and potential impact.",
+
+    category: "Presentation",
+
     date: "2024",
-    image: imagePath("gallery-4.jpg"),
+
+    image: imagePath("04.jpg"),
+
     link: "",
   },
 
   {
     id: "g-5",
-    title: "Materials Science Laboratory",
+
+    title:
+      "Energy Innovation Challenge — Renewable Energy Pitch",
+
     description:
-      "Research foundation in battery materials and simulation-based analysis.",
-    category: "Research",
-    date: "2025",
-    image: imagePath("gallery-5.jpg"),
+      "Pitched my renewable-energy innovation at the Energy Innovation Challenge organized by PRAN, highlighting the proposed solution and its practical impact.",
+
+    category: "Presentation",
+
+    date: "",
+
+    image: imagePath("05.jpg"),
+
     link: "",
   },
 
   {
     id: "g-6",
-    title: "Academic Recognition",
+
+    title:
+      "Islamic University Science Fest 2024 — Project Showcase",
+
     description:
-      "Recognition for academic and research contribution.",
-    category: "Award",
+      "Showcased my engineering project to visitors and explained its design, operation, and practical applications.",
+
+    category: "Project",
+
     date: "2024",
-    image: imagePath("gallery-6.jpg"),
+
+    image: imagePath("06.jpg"),
+
     link: "",
   },
 ];
-
 /* ------------------------------------------------------------------ */
 /*  5. HONOURS / AWARDS / CERTIFICATES                                */
 /* ------------------------------------------------------------------ */
