@@ -2459,6 +2459,7 @@ export const socialLinks = [
 /* ------------------------------------------------------------------ */
 /*  NAVIGATION                                                        */
 /* ------------------------------------------------------------------ */
+
 export const navLinks = [
   {
     label: "Home",
@@ -2476,8 +2477,8 @@ export const navLinks = [
   },
 
   {
-    label: "Gallery",
-    to: "gallery",
+    label: "Publications",
+    to: "publications",
   },
 
   {
@@ -2496,8 +2497,8 @@ export const navLinks = [
   },
 
   {
-    label: "Publications",
-    to: "publications",
+    label: "Gallery",
+    to: "gallery",
   },
 
   {
