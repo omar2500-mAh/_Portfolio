@@ -694,11 +694,11 @@ export const galleryItems = [
       "1st IUSC National Science Olympiad — Runner-Up",
 
     description:
-      "Secured the runner-up position at the 1st IUSC National Science Olympiad, demonstrating strong scientific reasoning and problem-solving ability.",
+      "Achieved the runner-up position at the 1st IUSC National Science Olympiad, reflecting strong scientific knowledge, analytical thinking, and presentation ability.",
 
     category: "Award",
 
-    date: "",
+    date: "2024",
 
     image: imagePath("01.jpg"),
 
@@ -709,10 +709,10 @@ export const galleryItems = [
     id: "g-2",
 
     title:
-      "GP Accelerator Bootcamp — Group Pitching Session",
+      "GP Accelerator Bootcamp — Rapid Ideation Session",
 
     description:
-      "Participated in a time-constrained group pitching exercise in which our team developed an idea on the spot and presented a concise pitch.",
+      "Collaborated in a time-constrained group pitching exercise in which our team developed a business concept from an initial idea and presented it in a clear, structured format.",
 
     category: "Workshop",
 
@@ -727,10 +727,10 @@ export const galleryItems = [
     id: "g-3",
 
     title:
-      "Renewable Energy Fest — Delegate and Panel Discussion",
+      "Renewable Energy Fest — Delegate and Panel Participant",
 
     description:
-      "Attended the Renewable Energy Fest as a delegate and participated in an invited panel discussion on renewable-energy development and innovation.",
+      "Participated as a delegate at the Renewable Energy Fest and joined an invited panel discussion focused on renewable-energy innovation, emerging opportunities, and sustainable development.",
 
     category: "Event",
 
@@ -745,10 +745,10 @@ export const galleryItems = [
     id: "g-4",
 
     title:
-      "Digital Innovation Challenge 2024",
+      "Digital Innovation Challenge 2024 — Idea Presentation",
 
     description:
-      "Presented my innovation concept to the judging panel, explaining its objectives, feasibility, and potential impact.",
+      "Presented an innovation concept to the judging panel, clearly communicating the identified problem, the proposed solution, its feasibility, and its expected impact.",
 
     category: "Presentation",
 
@@ -763,14 +763,14 @@ export const galleryItems = [
     id: "g-5",
 
     title:
-      "Energy Innovation Challenge — Renewable Energy Pitch",
+      "Energy Innovation Challenge — Renewable-Energy Pitch",
 
     description:
-      "Pitched my renewable-energy innovation at the Energy Innovation Challenge organized by PRAN, highlighting the proposed solution and its practical impact.",
+      "Presented a renewable-energy concept at the Energy Innovation Challenge organized by PRAAN, outlining its technical approach, practical relevance, and potential contribution to sustainable energy use.",
 
     category: "Presentation",
 
-    date: "",
+    date: "2024",
 
     image: imagePath("05.jpg"),
 
@@ -784,13 +784,85 @@ export const galleryItems = [
       "Islamic University Science Fest 2024 — Project Showcase",
 
     description:
-      "Showcased my engineering project to visitors and explained its design, operation, and practical applications.",
+      "Showcased an engineering project to visitors and explained its design, operating principle, technical features, and practical applications.",
 
     category: "Project",
 
     date: "2024",
 
     image: imagePath("06.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-7",
+
+    title:
+      "GP Accelerator Bootcamp — Three-Minute Business Pitch",
+
+    description:
+      "Delivered a three-minute pitch on a business idea developed under strict time constraints, demonstrating rapid ideation, structured communication, teamwork, and confident presentation skills.",
+
+    category: "Presentation",
+
+    date: "",
+
+    image: imagePath("07.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-8",
+
+    title:
+      "GP Accelerator Bootcamp — Rooftop Solar Prototype",
+
+    description:
+      "Presented a rooftop solar-energy prototype designed to support efficient power generation, intelligent energy monitoring, and effective load management for more sustainable electricity use.",
+
+    category: "Project",
+
+    date: "",
+
+    image: imagePath("08.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-9",
+
+    title:
+      "Digital Innovation Challenge 2024 — Champion",
+
+    description:
+      "Our team was named champion at the Digital Innovation Challenge 2024 for presenting SOLPE, recognizing the strength of the proposed idea and the quality of our collaborative presentation.",
+
+    category: "Award",
+
+    date: "2024",
+
+    image: imagePath("09.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-10",
+
+    title:
+      "Digital Innovation Challenge 2024 — Team Ideation Session",
+
+    description:
+      "Contributed to a collaborative group discussion during the challenge, helping evaluate potential solutions, refine the team's concept, and prepare the final presentation.",
+
+    category: "Workshop",
+
+    date: "2024",
+
+    image: imagePath("10.jpg"),
 
     link: "",
   },
