@@ -2434,6 +2434,12 @@ export const socialLinks = [
   },
 
   {
+    platform: "Email",
+    icon: "email",
+    url: "mailto:faruque.eee@std.iu.ac.bd",
+  },
+
+  {
     platform: "GitHub",
     icon: "github",
     url: "",
