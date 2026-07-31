@@ -678,12 +678,13 @@ export const highlightSections = [
 /* ------------------------------------------------------------------ */
 
 export const galleryCategories = [
-  "Research",
   "Project",
   "Award",
   "Event",
   "Workshop",
   "Presentation",
+  "Training",
+  "Industrial Visit",
 ];
 
 export const galleryItems = [
@@ -694,11 +695,11 @@ export const galleryItems = [
       "1st IUSC National Science Olympiad — Runner-Up",
 
     description:
-      "Achieved the runner-up position at the 1st IUSC National Science Olympiad, reflecting strong scientific knowledge, analytical thinking, and presentation ability.",
+      "Received the runner-up distinction at the 1st IUSC National Science Olympiad, marking a significant achievement in a competitive scientific event.",
 
     category: "Award",
 
-    date: "2024",
+    date: "",
 
     image: imagePath("01.jpg"),
 
@@ -712,7 +713,7 @@ export const galleryItems = [
       "GP Accelerator Bootcamp — Rapid Ideation Session",
 
     description:
-      "Collaborated in a time-constrained group pitching exercise in which our team developed a business concept from an initial idea and presented it in a clear, structured format.",
+      "Collaborated in a time-constrained group exercise to generate a business concept, organize the core value proposition, and prepare it for immediate presentation.",
 
     category: "Workshop",
 
@@ -730,7 +731,7 @@ export const galleryItems = [
       "Renewable Energy Fest — Delegate and Panel Participant",
 
     description:
-      "Participated as a delegate at the Renewable Energy Fest and joined an invited panel discussion focused on renewable-energy innovation, emerging opportunities, and sustainable development.",
+      "Represented the program as a delegate and participated in an invited panel discussion on renewable-energy innovation, sustainability, and emerging opportunities.",
 
     category: "Event",
 
@@ -748,7 +749,7 @@ export const galleryItems = [
       "Digital Innovation Challenge 2024 — Idea Presentation",
 
     description:
-      "Presented an innovation concept to the judging panel, clearly communicating the identified problem, the proposed solution, its feasibility, and its expected impact.",
+      "Presented an innovation concept to the judging panel, communicating the problem statement, proposed solution, implementation approach, and expected impact.",
 
     category: "Presentation",
 
@@ -763,10 +764,10 @@ export const galleryItems = [
     id: "g-5",
 
     title:
-      "Energy Innovation Challenge — Renewable-Energy Pitch",
+      "Energy Innovation Challenge 2024 — Renewable-Energy Pitch",
 
     description:
-      "Presented a renewable-energy concept at the Energy Innovation Challenge organized by PRAAN, outlining its technical approach, practical relevance, and potential contribution to sustainable energy use.",
+      "Presented a renewable-energy concept at the Energy Innovation Challenge organized by PRAAN, highlighting its technical approach, practical relevance, and sustainability potential.",
 
     category: "Presentation",
 
@@ -784,7 +785,7 @@ export const galleryItems = [
       "Islamic University Science Fest 2024 — Project Showcase",
 
     description:
-      "Showcased an engineering project to visitors and explained its design, operating principle, technical features, and practical applications.",
+      "Showcased an engineering project to visitors and explained its design, operating principle, technical features, and potential real-world applications.",
 
     category: "Project",
 
@@ -802,7 +803,7 @@ export const galleryItems = [
       "GP Accelerator Bootcamp — Three-Minute Business Pitch",
 
     description:
-      "Delivered a three-minute pitch on a business idea developed under strict time constraints, demonstrating rapid ideation, structured communication, teamwork, and confident presentation skills.",
+      "Delivered a three-minute pitch on a business idea developed under strict time constraints, demonstrating rapid ideation, structured communication, and confident delivery.",
 
     category: "Presentation",
 
@@ -817,10 +818,10 @@ export const galleryItems = [
     id: "g-8",
 
     title:
-      "GP Accelerator Bootcamp — Rooftop Solar Prototype",
+      "GP Accelerator Bootcamp — Rooftop Solar Prototype Pitch",
 
     description:
-      "Presented a rooftop solar-energy prototype designed to support efficient power generation, intelligent energy monitoring, and effective load management for more sustainable electricity use.",
+      "Presented a rooftop solar-energy prototype designed for efficient power generation, intelligent energy monitoring, and coordinated load management to support sustainable electricity use.",
 
     category: "Project",
 
@@ -835,16 +836,52 @@ export const galleryItems = [
     id: "g-9",
 
     title:
-      "Digital Innovation Challenge 2024 — Champion",
+      "Digital Innovation Challenge 2024 — SolPe Final Pitch",
 
     description:
-      "Our team was named champion at the Digital Innovation Challenge 2024 for presenting SOLPE, recognizing the strength of the proposed idea and the quality of our collaborative presentation.",
+      "Delivered the final-stage presentation of SolPe, outlining the concept, its intended users, and the practical value of the proposed innovation to the judging panel.",
+
+    category: "Presentation",
+
+    date: "2024",
+
+    image: imagePath("09.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-9a",
+
+    title:
+      "Digital Innovation Challenge 2024 — Champion Award",
+
+    description:
+      "Received the championship recognition for SolPe at the Digital Innovation Challenge 2024, celebrating the strength of the idea and the team's overall performance.",
 
     category: "Award",
 
     date: "2024",
 
-    image: imagePath("09.jpg"),
+    image: imagePath("9a.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-9b",
+
+    title:
+      "Digital Innovation Challenge 2024 — Award Ceremony",
+
+    description:
+      "Joined the formal award ceremony with fellow innovators and recognized teams following the conclusion of the Digital Innovation Challenge 2024.",
+
+    category: "Award",
+
+    date: "2024",
+
+    image: imagePath("9 b.jpg"),
 
     link: "",
   },
@@ -856,13 +893,409 @@ export const galleryItems = [
       "Digital Innovation Challenge 2024 — Team Ideation Session",
 
     description:
-      "Contributed to a collaborative group discussion during the challenge, helping evaluate potential solutions, refine the team's concept, and prepare the final presentation.",
+      "Contributed to a collaborative discussion to evaluate alternative solutions, refine the team's concept, assign responsibilities, and prepare the final pitch.",
 
     category: "Workshop",
 
     date: "2024",
 
     image: imagePath("10.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-11",
+
+    title:
+      "Energy Innovation Challenge 2024 — Participant Gathering",
+
+    description:
+      "Joined the participant photo session at the Energy Innovation Challenge organized by PRAAN, bringing together young innovators working on energy-transition solutions.",
+
+    category: "Event",
+
+    date: "2024",
+
+    image: imagePath("11.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-12",
+
+    title:
+      "Energy Innovation Challenge 2024 — Innovation Campaign",
+
+    description:
+      "A campaign moment from the Energy Innovation Challenge 2024, a platform created to encourage young innovators to develop practical and sustainable solutions for the energy transition.",
+
+    category: "Event",
+
+    date: "2024",
+
+    image: imagePath("12.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-13",
+
+    title:
+      "Green Innovation Fest 2025 — National Finalist",
+
+    description:
+      "For The Light was selected among the top 20 youth-led SMEs at the Green Innovation Fest 2025, providing an opportunity to present sustainable energy solutions to investors, policymakers, and industry leaders.",
+
+    category: "Award",
+
+    date: "2025",
+
+    image: imagePath("13.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-14",
+
+    title:
+      "Invited Youth Training — Program Completion and Group Recognition",
+
+    description:
+      "Concluded the youth training on Climate Action, Sustainability, and Green Entrepreneurship with a group recognition session at the Civil Surgeon's Office, Patuakhali.",
+
+    category: "Training",
+
+    date: "May 2025",
+
+    image: imagePath("14.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-15",
+
+    title:
+      "Invited Youth Training — Participatory Group Exercise",
+
+    description:
+      "Facilitated a collaborative activity that encouraged participants to identify local climate challenges, exchange perspectives, and develop practical sustainability-oriented responses.",
+
+    category: "Training",
+
+    date: "May 2025",
+
+    image: imagePath("15.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-16",
+
+    title:
+      "Invited Youth Training — Interactive Demonstration",
+
+    description:
+      "Engaged participants through an interactive demonstration and discussion designed to connect climate awareness with practical green-entrepreneurship ideas.",
+
+    category: "Training",
+
+    date: "May 2025",
+
+    image: imagePath("16.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-17",
+
+    title:
+      "Invited Youth Training — Certificate Presentation",
+
+    description:
+      "The certificate presentation marked the formal completion of the invited training program and recognized the collaborative contribution of the organizers and participants.",
+
+    category: "Training",
+
+    date: "May 2025",
+
+    image: imagePath("17.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-18",
+
+    title:
+      "Invited Talk — Climate Action and Green Entrepreneurship",
+
+    description:
+      "Conducted a youth-focused session on Climate Action, Sustainability, and Green Entrepreneurship at the Civil Surgeon's Office in Patuakhali.",
+
+    category: "Presentation",
+
+    date: "May 2025",
+
+    image: imagePath("18.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-19a",
+
+    title:
+      "TICI Industrial Training — Field Visit and Safety Exposure",
+
+    description:
+      "Participated in a supervised field visit to Ghorasal Polash Urea Fertilizer Public Limited Company, gaining direct exposure to industrial safety practices and large-scale plant environments.",
+
+    category: "Industrial Visit",
+
+    date: "",
+
+    image: imagePath("19 a.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-19b",
+
+    title:
+      "TICI Industrial Training — Process Unit Observation",
+
+    description:
+      "Observed major process units across the fertilizer facility, including ammonia and urea sections, to understand process integration, equipment scale, and real-world industrial operations.",
+
+    category: "Industrial Visit",
+
+    date: "",
+
+    image: imagePath("19 b.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-20",
+
+    title:
+      "The Restoration Factory Bangladesh 2025 — Grand Closing Ceremony",
+
+    description:
+      "Participated in the Grand Closing Ceremony implemented by iDE Bangladesh in partnership with UNEP and Bridge for Billions, alongside innovators advancing Bangladesh's green entrepreneurship ecosystem.",
+
+    category: "Event",
+
+    date: "9 December 2025",
+
+    image: imagePath("20.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-21",
+
+    title:
+      "The Restoration Factory Bangladesh 2025 — For The Light Pitch",
+
+    description:
+      "Presented For The Light, a solar-powered initiative designed to improve energy access and safety in climate-vulnerable communities, before an expert jury and ecosystem stakeholders.",
+
+    category: "Presentation",
+
+    date: "9 December 2025",
+
+    image: imagePath("21.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-22",
+
+    title:
+      "The Restoration Factory Bangladesh 2025 — Market Opportunity",
+
+    description:
+      "Explained the target market, potential demand, and scalability pathway for For The Light, connecting the proposed solution with a measurable social and commercial opportunity.",
+
+    category: "Presentation",
+
+    date: "9 December 2025",
+
+    image: imagePath("22.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-23",
+
+    title:
+      "The Restoration Factory Bangladesh 2025 — Climate Impact Case",
+
+    description:
+      "Presented the climate and safety challenges affecting vulnerable communities and demonstrated how the project could deliver practical, inclusive, and resilient energy solutions.",
+
+    category: "Presentation",
+
+    date: "9 December 2025",
+
+    image: imagePath("23.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-24",
+
+    title:
+      "The Restoration Factory Bangladesh 2025 — Jury Evaluation",
+
+    description:
+      "Engaged with the expert jury during the evaluation session, receiving constructive feedback on technical feasibility, impact potential, business development, and future scalability.",
+
+    category: "Event",
+
+    date: "9 December 2025",
+
+    image: imagePath("24.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-25",
+
+    title:
+      "Global SDG Youth Summit 2025 — Innovation Booth Engagement",
+
+    description:
+      "Presented the sustainable technology concept to visitors, professionals, and potential collaborators, while gathering valuable feedback on its usability, relevance, and potential for scalable impact.",
+
+    category: "Event",
+
+    date: "24–25 September 2025",
+
+    image: imagePath("25.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-26",
+
+    title:
+      "Global SDG Youth Summit 2025 — Technology Prototype Showcase",
+
+    description:
+      "As Chief Technology Officer of the project, showcased the developed prototype and discussed how youth-led clean-energy innovation can support communities and contribute to the UN Sustainable Development Goals.",
+
+    category: "Project",
+
+    date: "24–25 September 2025",
+
+    image: imagePath("26.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-27",
+
+    title:
+      "KolpoKoushol 2023 — Arduino Prototyping at IUB FabLab",
+
+    description:
+      "Worked with an interdisciplinary team to develop an experimental Arduino-based musical instrument, combining embedded C programming, electronics, and creative sound design.",
+
+    category: "Workshop",
+
+    date: "2023",
+
+    image: imagePath("27.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-28",
+
+    title:
+      "KolpoKoushol 2023 — AI Music Concert Showcase",
+
+    description:
+      "Contributed to the program's AI music initiative through model development and backend integration, supporting creative work later featured in Bangladesh's first AI Music Concert.",
+
+    category: "Event",
+
+    date: "2023",
+
+    image: imagePath("28.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-29",
+
+    title:
+      "KolpoKoushol 2023 — Interdisciplinary Collaboration",
+
+    description:
+      "Collaborated with participants from diverse academic and professional backgrounds during the four-day Imagination Engineering program, exchanging ideas across technology, design, and community innovation.",
+
+    category: "Workshop",
+
+    date: "2023",
+
+    image: imagePath("29.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-30",
+
+    title:
+      "KolpoKoushol 2023 — Mentor-Led Technical Discussion",
+
+    description:
+      "Engaged in mentor-guided technical discussion to refine interdisciplinary concepts involving AI, blockchain-based crowdfunding, embedded systems, and community-centered problem-solving.",
+
+    category: "Workshop",
+
+    date: "2023",
+
+    image: imagePath("30.jpg"),
+
+    link: "",
+  },
+
+  {
+    id: "g-31",
+
+    title:
+      "KolpoKoushol 2023 — Participant Team",
+
+    description:
+      "Completed the selective Imagination Engineering workshop with the participant team, concluding an intensive experience in creative collaboration, rapid learning, and applied technology development.",
+
+    category: "Event",
+
+    date: "2023",
+
+    image: imagePath("31.jpg"),
 
     link: "",
   },
