@@ -2395,7 +2395,68 @@ export const publications = [
       `${import.meta.env.BASE_URL}assets/papers/optimal-approaches-thd-reduction.pdf`,
   },
 ];
+/* ------------------------------------------------------------------ */
+/*  10. CONTACT                                                       */
+/* ------------------------------------------------------------------ */
 
+export const contactInfo = {
+  heading: "Let's Connect",
+
+  intro:
+    "I welcome research collaborations, graduate study opportunities, academic partnerships, and professional discussions related to advanced battery technologies, energy storage, and sustainable engineering.",
+
+  location: "Bangladesh",
+
+  phone: "+880 1719-194874",
+
+  whatsapp: "+880 1719-194874",
+
+  email: "faruque.eee@std.iu.ac.bd",
+
+  formRecipient: "faruque.eee@std.iu.ac.bd",
+};
+
+/* ------------------------------------------------------------------ */
+/*  11. SOCIAL LINKS                                                  */
+/* ------------------------------------------------------------------ */
+
+export const socialLinks = [
+  {
+    platform: "Facebook",
+    icon: "facebook",
+    url: "https://www.facebook.com/omar.faruque.454061/photos_by",
+  },
+
+  {
+    platform: "LinkedIn",
+    icon: "linkedin",
+    url: "https://www.linkedin.com/in/omar-faruque-b29719293/",
+  },
+
+  {
+    platform: "GitHub",
+    icon: "github",
+    url: "",
+  },
+
+  {
+    platform: "Instagram",
+    icon: "instagram",
+    url: "",
+  },
+
+  {
+    platform: "Google Scholar",
+    icon: "scholar",
+    url: "",
+  },
+
+  {
+    platform: "ResearchGate",
+    icon: "researchgate",
+    url: "",
+  },
+];
 src/data/portfolioData.js
 
 /* ------------------------------------------------------------------ */
