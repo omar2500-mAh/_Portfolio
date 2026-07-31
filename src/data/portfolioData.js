@@ -2396,65 +2396,7 @@ export const publications = [
   },
 ];
 
-/* ------------------------------------------------------------------ */
-/*  10. CONTACT                                                       */
-/* ------------------------------------------------------------------ */
-export const contactInfo = {
-  heading: "Let's Connect",
-
-  intro:
-    "Open to research collaborations, graduate study opportunities, scholarship opportunities, and conversations about safer and smarter battery technologies.",
-
-  location: "",
-
-  phone: "+880-1719194874",
-
-  email: "omar.faruque@example.com",
-
-  formRecipient:
-    "omar.faruque@example.com",
-};
-
-/* ------------------------------------------------------------------ */
-/*  11. SOCIAL LINKS                                                  */
-/* ------------------------------------------------------------------ */
-export const socialLinks = [
-  {
-    platform: "Facebook",
-    icon: "facebook",
-    url: "https://facebook.com/",
-  },
-
-  {
-    platform: "LinkedIn",
-    icon: "linkedin",
-    url: "https://linkedin.com/in/",
-  },
-
-  {
-    platform: "GitHub",
-    icon: "github",
-    url: "https://github.com/",
-  },
-
-  {
-    platform: "Instagram",
-    icon: "instagram",
-    url: "https://instagram.com/",
-  },
-
-  {
-    platform: "Google Scholar",
-    icon: "scholar",
-    url: "",
-  },
-
-  {
-    platform: "ResearchGate",
-    icon: "researchgate",
-    url: "",
-  },
-];
+src/data/portfolioData.js
 
 /* ------------------------------------------------------------------ */
 /*  NAVIGATION                                                        */
