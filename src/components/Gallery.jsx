@@ -11,24 +11,18 @@ import SectionHeading from "./SectionHeading";
 import Modal from "./Modal";
 
 /**
- * Displays every gallery image using its original aspect ratio.
+ * Displays a gallery image without cropping or stretching it.
  *
- * Portrait, landscape and square images can be mixed together.
- * Images are never cropped or stretched.
+ * Landscape, portrait, and square photographs retain their original
+ * aspect ratios. The surrounding card automatically follows the image height.
  */
 function GalleryImage({ src, alt, modal = false }) {
   const [failed, setFailed] = useState(false);
 
-  /**
-   * Reset the error state whenever the image path changes.
-   */
   useEffect(() => {
     setFailed(false);
   }, [src]);
 
-  /**
-   * Fallback interface when the image is missing.
-   */
   if (!src || failed) {
     return (
       <div
@@ -82,7 +76,7 @@ export default function Gallery() {
   const [active, setActive] = useState(null);
 
   /**
-   * Display only categories that currently contain gallery items.
+   * Only show filters that currently contain at least one gallery item.
    */
   const filters = useMemo(() => {
     const availableCategories = categories.filter((category) =>
@@ -93,8 +87,7 @@ export default function Gallery() {
   }, [categories, items]);
 
   /**
-   * Return to the All category when a selected category
-   * is removed from the gallery data.
+   * Return to the complete gallery if a selected category is removed.
    */
   useEffect(() => {
     if (!filters.includes(filter)) {
@@ -103,7 +96,7 @@ export default function Gallery() {
   }, [filter, filters]);
 
   /**
-   * Filter the gallery according to the selected category.
+   * Filter cards using the selected category.
    */
   const visibleItems = useMemo(() => {
     if (filter === "All") {
@@ -128,11 +121,11 @@ export default function Gallery() {
         <SectionHeading
           eyebrow="Gallery"
           title="Moments & Milestones"
-          subtitle="A curated visual record of competitions, innovation programs, technical presentations, collaborative workshops, and project achievements."
+          subtitle="A curated visual record of competitions, innovation programs, invited training, industrial exposure, technical presentations, and project achievements."
           light
         />
 
-        {/* Category filters */}
+        {/* Gallery category filters */}
         <div className="mb-12 flex flex-wrap justify-center gap-2">
           {filters.map((category) => {
             const isActive = filter === category;
@@ -156,14 +149,16 @@ export default function Gallery() {
         </div>
 
         {/*
-          Natural masonry layout.
+          Normal responsive grid keeps the visual order identical
+          to the galleryItems array:
 
-          The width remains consistent, while the card height
-          automatically follows each image's original proportions.
+          01, 02, 03 ... 09, 9a, 9b, 10 ... 31.
+
+          Images keep their natural aspect ratios and are not cropped.
         */}
         <motion.div
           layout
-          className="columns-1 gap-5 sm:columns-2 lg:columns-3"
+          className="grid grid-cols-1 items-start gap-5 sm:grid-cols-2 lg:grid-cols-3"
         >
           <AnimatePresence mode="popLayout">
             {visibleItems.map((item, index) => (
@@ -192,16 +187,16 @@ export default function Gallery() {
                 }}
                 onClick={() => setActive(item)}
                 aria-label={`Open gallery item: ${item.title}`}
-                className="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-navy-900/10 bg-white text-left shadow-soft-light transition-all duration-300 hover:-translate-y-1 hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 focus-visible:ring-offset-2"
+                className="group block w-full overflow-hidden rounded-2xl border border-navy-900/10 bg-white text-left shadow-soft-light transition-all duration-300 hover:-translate-y-1 hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 focus-visible:ring-offset-2"
               >
-                {/* Natural-size image */}
+                {/* Gallery image */}
                 <div className="relative overflow-hidden bg-navy-900">
                   <GalleryImage
                     src={item.image}
                     alt={item.title}
                   />
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 
                   <span className="absolute left-3 top-3 rounded-full bg-black/75 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
                     {item.category}
