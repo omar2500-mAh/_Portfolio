@@ -11,16 +11,24 @@ import SectionHeading from "./SectionHeading";
 import Modal from "./Modal";
 
 /**
- * Displays images using their original aspect ratio.
- * Portrait, landscape and square images are shown without cropping.
+ * Displays every gallery image using its original aspect ratio.
+ *
+ * Portrait, landscape and square images can be mixed together.
+ * Images are never cropped or stretched.
  */
 function GalleryImage({ src, alt, modal = false }) {
   const [failed, setFailed] = useState(false);
 
+  /**
+   * Reset the error state whenever the image path changes.
+   */
   useEffect(() => {
     setFailed(false);
   }, [src]);
 
+  /**
+   * Fallback interface when the image is missing.
+   */
   if (!src || failed) {
     return (
       <div
@@ -74,7 +82,7 @@ export default function Gallery() {
   const [active, setActive] = useState(null);
 
   /**
-   * Only display categories that contain gallery items.
+   * Display only categories that currently contain gallery items.
    */
   const filters = useMemo(() => {
     const availableCategories = categories.filter((category) =>
@@ -85,7 +93,8 @@ export default function Gallery() {
   }, [categories, items]);
 
   /**
-   * Reset the selected category if it no longer exists.
+   * Return to the All category when a selected category
+   * is removed from the gallery data.
    */
   useEffect(() => {
     if (!filters.includes(filter)) {
@@ -94,7 +103,7 @@ export default function Gallery() {
   }, [filter, filters]);
 
   /**
-   * Filter gallery cards according to the selected category.
+   * Filter the gallery according to the selected category.
    */
   const visibleItems = useMemo(() => {
     if (filter === "All") {
@@ -119,7 +128,7 @@ export default function Gallery() {
         <SectionHeading
           eyebrow="Gallery"
           title="Moments & Milestones"
-          subtitle="A visual record of competitions, innovation programs, presentations, and project showcases."
+          subtitle="A curated visual record of competitions, innovation programs, technical presentations, collaborative workshops, and project achievements."
           light
         />
 
@@ -147,9 +156,10 @@ export default function Gallery() {
         </div>
 
         {/*
-          Auto-fit masonry layout:
-          every image keeps its original aspect ratio.
-          No fixed height and no cropping.
+          Natural masonry layout.
+
+          The width remains consistent, while the card height
+          automatically follows each image's original proportions.
         */}
         <motion.div
           layout
@@ -184,7 +194,7 @@ export default function Gallery() {
                 aria-label={`Open gallery item: ${item.title}`}
                 className="group mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-navy-900/10 bg-white text-left shadow-soft-light transition-all duration-300 hover:-translate-y-1 hover:shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-navy-900 focus-visible:ring-offset-2"
               >
-                {/* Image */}
+                {/* Natural-size image */}
                 <div className="relative overflow-hidden bg-navy-900">
                   <GalleryImage
                     src={item.image}
@@ -198,7 +208,7 @@ export default function Gallery() {
                   </span>
                 </div>
 
-                {/* Card information */}
+                {/* Gallery information */}
                 <div className="p-4">
                   <h3 className="font-display text-[15px] font-semibold leading-snug text-navy-900">
                     {item.title}
